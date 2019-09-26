@@ -1,0 +1,13 @@
+D:\Csharp\SEW\bin\Debug\SEW.exe.config
+D:\Csharp\SEW\bin\Debug\SEW.exe
+D:\Csharp\SEW\bin\Debug\SEW.pdb
+D:\Csharp\SEW\obj\Debug\MainWindow.g.cs
+D:\Csharp\SEW\obj\Debug\App.g.cs
+D:\Csharp\SEW\obj\Debug\SEW_MarkupCompile.cache
+D:\Csharp\SEW\obj\Debug\SEW_MarkupCompile.lref
+D:\Csharp\SEW\obj\Debug\MainWindow.baml
+D:\Csharp\SEW\obj\Debug\SEW.g.resources
+D:\Csharp\SEW\obj\Debug\SEW.Properties.Resources.resources
+D:\Csharp\SEW\obj\Debug\SEW.csproj.GenerateResource.cache
+D:\Csharp\SEW\obj\Debug\SEW.exe
+D:\Csharp\SEW\obj\Debug\SEW.pdb
