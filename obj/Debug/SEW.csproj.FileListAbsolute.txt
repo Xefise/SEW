@@ -11,3 +11,5 @@ D:\Csharp\SEW\obj\Debug\SEW.Properties.Resources.resources
 D:\Csharp\SEW\obj\Debug\SEW.csproj.GenerateResource.cache
 D:\Csharp\SEW\obj\Debug\SEW.exe
 D:\Csharp\SEW\obj\Debug\SEW.pdb
+D:\Csharp\SEW\obj\Debug\SEW.csprojAssemblyReference.cache
+D:\Csharp\SEW\obj\Debug\Themes\Dark.baml
