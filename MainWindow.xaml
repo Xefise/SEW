@@ -8,13 +8,15 @@
         Title="MainWindow" Height="500" Width="900" ResizeMode="NoResize" Background="#242424">
     <DockPanel>
         <Border DockPanel.Dock="Top" Background="#1A1A1A" Height="40">
-            
         </Border>
         <Border DockPanel.Dock="Left" Background="#202020" Width="200">
-            <Button Content="   Слова" Height="40" VerticalAlignment="Top" Width="200" Background="#202020" Foreground="White" HorizontalContentAlignment="Left" FontSize="16" FontFamily="Yu Gothic UI Semibold" />
+            <StackPanel>
+                <Button Content="   Слова" Height="40" Width="200" Background="#202020" Foreground="White" HorizontalContentAlignment="Left" FontSize="16" FontFamily="Yu Gothic UI Semibold"/>
+                <Button Content="   Настройки" Height="40" Width="200" Background="#202020" Foreground="White" HorizontalContentAlignment="Left" FontSize="16" FontFamily="Yu Gothic UI Semibold"/>
+            </StackPanel>
         </Border>
         <Grid>
-
+            
         </Grid>
     </DockPanel>
 </Window>
