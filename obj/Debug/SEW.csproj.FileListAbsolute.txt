@@ -12,3 +12,4 @@ D:\Csharp\SEW\obj\Debug\SEW.csproj.GenerateResource.cache
 D:\Csharp\SEW\obj\Debug\SEW.exe
 D:\Csharp\SEW\obj\Debug\SEW.pdb
 D:\Csharp\SEW\obj\Debug\Themes\Dark.baml
+D:\Csharp\SEW\obj\Debug\App.baml
