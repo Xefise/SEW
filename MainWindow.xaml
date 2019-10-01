@@ -5,19 +5,16 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:SEW"
         mc:Ignorable="d"
-        Title="MainWindow" Height="500" Width="900" ResizeMode="NoResize" Background="#242424">
+        Title="SEW - Study English Words" Height="500" Width="900" ResizeMode="NoResize" Background="#242424">
     <DockPanel>
-        <Border DockPanel.Dock="Top" Background="#1A1A1A" Height="40">
-            <TextBlock FontSize="18" Text="SEW - Study English Words" Margin="15, 7" FontWeight="Bold" />
-        </Border>
-        <Border DockPanel.Dock="Left" Background="#202020" Width="200">
+        <Border DockPanel.Dock="Left" Background="#202020" Width="150">
             <StackPanel>
-                <Button Content="   Слова" Style="{DynamicResource LeftPanel}"/>
-                <Button Content="   Настройки" Style="{DynamicResource LeftPanel}"/>
+                <Button Content="   Слова" Style="{DynamicResource SLeftPanel}" Template="{DynamicResource TLeftPanel}"/>
+                <Button Content="   Настройки" Style="{DynamicResource SLeftPanel}" Template="{DynamicResource TLeftPanel}"/>
             </StackPanel>
         </Border>
         <Grid>
-            
+
         </Grid>
     </DockPanel>
 </Window>
