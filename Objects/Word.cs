@@ -11,6 +11,7 @@ namespace SEW
         private byte _Review;
         private Category _category;
         private string _Transcription;
+        private string _Status;
 
         public long ID
         {
@@ -66,6 +67,14 @@ namespace SEW
             set
             {
                 _Transcription = value;
+            }
+        }
+        public string Status
+        {
+            get { return _Status; }
+            set
+            {
+                _Status = value;
             }
         }
     }
