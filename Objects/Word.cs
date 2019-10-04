@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace SEW
 {
@@ -12,6 +13,7 @@ namespace SEW
         private Category _category;
         private string _Transcription;
         private string _Status;
+        private List<Example> _examples;
 
         public long ID
         {
@@ -75,6 +77,14 @@ namespace SEW
             set
             {
                 _Status = value;
+            }
+        }
+        public List<Example> examples
+        {
+            get { return _examples; }
+            set
+            {
+                _examples = value;
             }
         }
     }
