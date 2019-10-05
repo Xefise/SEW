@@ -6,16 +6,21 @@
              xmlns:local="clr-namespace:SEW"
              mc:Ignorable="d" 
              d:DesignHeight="500" d:DesignWidth="700">
-    <Grid Background="#252525">
-        <ListBox Grid.Column="0" ItemsSource="{Binding Categories}"
-                 SelectedItem="{Binding SelectedCategory}">
-            <ListBox.ItemTemplate>
+    <Grid>
+        <ItemsControl ItemsSource="{Binding Categories}">
+            <ItemsControl.ItemTemplate>
                 <DataTemplate>
-                    <StackPanel Margin="5">
-                        <TextBlock FontSize="18" Text="{Binding Path=Name}" />
-                    </StackPanel>
+                    <Expander>
+                        <Expander.HeaderTemplate>
+                            <DataTemplate>
+                                <UniformGrid>
+                                    
+                                </UniformGrid>
+                            </DataTemplate>
+                        </Expander.HeaderTemplate>
+                    </Expander>
                 </DataTemplate>
-            </ListBox.ItemTemplate>
-        </ListBox>
+            </ItemsControl.ItemTemplate>
+        </ItemsControl>
     </Grid>
 </UserControl>
