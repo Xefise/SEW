@@ -11,12 +11,12 @@
             <StackPanel>
                 <Button Content="   Учить" Style="{DynamicResource SLeftPanel}" Template="{DynamicResource TLeftPanel}"/>
                 <Button Content="   Категории" Style="{DynamicResource SLeftPanel}" Template="{DynamicResource TLeftPanel}"/>
-                <Button Content="   Настройки" Style="{DynamicResource SLeftPanel}" Template="{DynamicResource TLeftPanel}"/>
                 <Button Content="   Статистика" Style="{DynamicResource SLeftPanel}" Template="{DynamicResource TLeftPanel}"/>
+                <Button Content="   Настройки" Style="{DynamicResource SLeftPanel}" Template="{DynamicResource TLeftPanel}"/>
             </StackPanel>
         </Border>
         <Grid>
-
+            <local:Categories></local:Categories>
         </Grid>
     </DockPanel>
 </Window>
