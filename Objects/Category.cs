@@ -6,7 +6,7 @@ namespace SEW
     {
         private long _ID;
         private string _Name;
-        private List<Word> _words;
+        private List<Word> _Words;
 
         public long ID
         {
@@ -24,12 +24,12 @@ namespace SEW
                 _Name = value;
             }
         }
-        public List<Word> words
+        public List<Word> Words
         {
-            get { return _words; }
+            get { return _Words; }
             set
             {
-                _words = value;
+                _Words = value;
             }
         }
     }
