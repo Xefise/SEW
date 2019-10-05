@@ -1,6 +1,10 @@
-﻿namespace SEW
+﻿using System.ComponentModel;
+using System.Runtime.CompilerServices;
+
+
+namespace SEW
 {
-    public class Example
+    public class Example : INotifyPropertyChanged
     {
         private string _InEnglish;
         private string _InRussian;
@@ -29,6 +33,12 @@
             {
                 _word = value;
             }
+        }
+
+        public event PropertyChangedEventHandler PropertyChanged;
+        public void OnPropertyChanged([CallerMemberName]string prop = "")
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(prop));
         }
     }
 }
