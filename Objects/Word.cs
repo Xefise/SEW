@@ -1,9 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
+using System.Runtime.CompilerServices;
 
 namespace SEW
 {
-    public class Word
+    public class Word : INotifyPropertyChanged
     {
         private long _ID;
         private string _InEnglish;
@@ -86,6 +88,12 @@ namespace SEW
             {
                 _Examples = value;
             }
+        }
+
+        public event PropertyChangedEventHandler PropertyChanged;
+        public void OnPropertyChanged([CallerMemberName]string prop = "")
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(prop));
         }
     }
 }

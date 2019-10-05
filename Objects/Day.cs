@@ -1,8 +1,10 @@
 ﻿using System;
+using System.ComponentModel;
+using System.Runtime.CompilerServices;
 
 namespace SEW
 {
-    public class Day
+    public class Day : INotifyPropertyChanged
     {
         private DateTime _Data;
         private int _AlReadyKnown;
@@ -60,5 +62,10 @@ namespace SEW
             }
         }
 
+        public event PropertyChangedEventHandler PropertyChanged;
+        public void OnPropertyChanged([CallerMemberName]string prop = "")
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(prop));
+        }
     }
 }
