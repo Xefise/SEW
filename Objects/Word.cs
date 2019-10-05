@@ -13,7 +13,7 @@ namespace SEW
         private Category _category;
         private string _Transcription;
         private string _Status;
-        private List<Example> _examples;
+        private List<Example> _Examples;
 
         public long ID
         {
@@ -79,12 +79,12 @@ namespace SEW
                 _Status = value;
             }
         }
-        public List<Example> examples
+        public List<Example> Examples
         {
-            get { return _examples; }
+            get { return _Examples; }
             set
             {
-                _examples = value;
+                _Examples = value;
             }
         }
     }
