@@ -4,23 +4,28 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:SEW"
+             xmlns:vm="clr-namespace:SEW.ViewModels"
              mc:Ignorable="d" 
              d:DesignHeight="500" d:DesignWidth="700">
+    <UserControl.Resources>
+        <DataTemplate x:Key="CategoriesListTemplate">
+            <StackPanel Margin="20">
+                <Button Height="20" Width="20">
+                    <Grid Margin="5">
+                        <TextBlock FontSize="16" Text="{Binding Path=ID}" Background="#252525"/>
+                        <TextBlock FontSize="16" Text="{Binding Path=Name}" Background="#252525"/>
+                    </Grid>
+                </Button>
+            </StackPanel>
+        </DataTemplate>
+        <ItemsPanelTemplate x:Key="CategoriesListPanelTemplate">
+            <WrapPanel />
+        </ItemsPanelTemplate>
+    </UserControl.Resources>
     <Grid>
-        <ItemsControl ItemsSource="{Binding Categories}">
-            <ItemsControl.ItemTemplate>
-                <DataTemplate>
-                    <Expander>
-                        <Expander.HeaderTemplate>
-                            <DataTemplate>
-                                <UniformGrid>
-                                    
-                                </UniformGrid>
-                            </DataTemplate>
-                        </Expander.HeaderTemplate>
-                    </Expander>
-                </DataTemplate>
-            </ItemsControl.ItemTemplate>
-        </ItemsControl>
+        <ListBox x:Name="categoriesList"
+                 ItemTemplate="{StaticResource CategoriesListTemplate}"
+                 ItemsPanel="{StaticResource CategoriesListPanelTemplate}"
+                 ScrollViewer.HorizontalScrollBarVisibility="Disabled" />
     </Grid>
 </UserControl>

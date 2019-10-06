@@ -1,16 +1,18 @@
 ﻿using System;
 using System.Collections.Generic;
+using SEW;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
+using System.Windows;
+using System.Windows.Controls;
 
-namespace SEW
+namespace SEW.ViewModels
 {
     public class CategoryViewModel : INotifyPropertyChanged
     {
         private Category _selectedCategory;
-
-        public ObservableCollection<Category> Categories { get; set; }
+        
         public Category selectedCategory
         {
             get { return _selectedCategory; }
@@ -21,6 +23,7 @@ namespace SEW
             }
         }
 
+        public ObservableCollection<Category> Categories { get; set; }
         public CategoryViewModel()
         {
             Categories = new ObservableCollection<Category>
