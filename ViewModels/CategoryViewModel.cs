@@ -4,24 +4,22 @@ using SEW;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
-using System.Windows;
-using System.Windows.Controls;
 
 namespace SEW.ViewModels
 {
     public class CategoryViewModel : INotifyPropertyChanged
     {
-        private Category _selectedCategory;
+        //private Category _selectedCategory;
         
-        public Category selectedCategory
-        {
-            get { return _selectedCategory; }
-            set
-            {
-                _selectedCategory = value;
-                OnPropertyChanged("SelectedPhone");
-            }
-        }
+        //public Category selectedCategory
+        //{
+        //    get { return _selectedCategory; }
+        //    set
+        //    {
+        //        _selectedCategory = value;
+        //        OnPropertyChanged("SelectedPhone");
+        //    }
+        //}
 
         public ObservableCollection<Category> Categories { get; set; }
         public CategoryViewModel()
