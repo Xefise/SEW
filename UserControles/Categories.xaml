@@ -12,8 +12,7 @@
             <!--<StackPanel Margin="20">-->
             <Button Height="200" Width="200" Margin="0" Background="#252525" BorderBrush="#252525" Template="{DynamicResource TLeftPanel}">
                 <Grid Margin="0" Height="200" Width="200">
-                    <TextBlock FontSize="16" Text="{Binding Path=ID}"/>
-                    <TextBlock FontSize="16" Text="{Binding Path=Name}"/>
+                    <TextBlock FontSize="16" Text="{Binding Path=Name}" HorizontalAlignment="Center"/>
                 </Grid>
             </Button>
             <!--</StackPanel>-->

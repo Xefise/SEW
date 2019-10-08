@@ -20,7 +20,7 @@ namespace SEW.ViewModels
         //        OnPropertyChanged("SelectedPhone");
         //    }
         //}
-
+        
         public ObservableCollection<Category> Categories { get; set; }
         public CategoryViewModel()
         {
