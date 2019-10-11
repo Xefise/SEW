@@ -1,0 +1,30 @@
+﻿<UserControl x:Class="SEW.Categories"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:SEW"
+             xmlns:vm="clr-namespace:SEW.ViewModels"
+             mc:Ignorable="d" 
+             d:DesignHeight="500" d:DesignWidth="700">
+    <UserControl.Resources>
+        <DataTemplate x:Key="CategoriesListTemplate">
+            <Button Height="200" Width="200" Background="#282828" Template="{DynamicResource TButtons}">
+                <Grid Height="200" Width="200">
+                    <TextBlock FontSize="22" Text="{Binding Path=Name}" HorizontalAlignment="Center" Margin="20"/>
+                </Grid>
+            </Button>
+        </DataTemplate>
+        <ItemsPanelTemplate x:Key="CategoriesListPanelTemplate">
+            <WrapPanel />
+        </ItemsPanelTemplate>
+    </UserControl.Resources>
+    <Grid>
+        <ListBox x:Name="CategoriesList"
+                 Background="#242424"
+                 ItemsSource="{Binding Categories}"
+                 ItemTemplate="{StaticResource CategoriesListTemplate}"
+                 ItemsPanel="{StaticResource CategoriesListPanelTemplate}"
+                 ScrollViewer.HorizontalScrollBarVisibility="Disabled" />
+    </Grid>
+</UserControl>

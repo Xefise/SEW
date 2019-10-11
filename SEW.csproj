@@ -59,6 +59,7 @@
     <Compile Include="UserControles\Categories.xaml.cs">
       <DependentUpon>Categories.xaml</DependentUpon>
     </Compile>
+    <Compile Include="ViewModels\CategoryViewModel.cs" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -81,10 +82,10 @@
     </Page>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Objects\Category.cs" />
-    <Compile Include="Objects\Day.cs" />
-    <Compile Include="Objects\Example.cs" />
-    <Compile Include="Objects\Word.cs" />
+    <Compile Include="Models\Category.cs" />
+    <Compile Include="Models\Day.cs" />
+    <Compile Include="Models\Example.cs" />
+    <Compile Include="Models\Word.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>

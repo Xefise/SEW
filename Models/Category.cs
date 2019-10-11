@@ -1,10 +1,8 @@
 ﻿using System.Collections.Generic;
-using System.ComponentModel;
-using System.Runtime.CompilerServices;
 
-namespace SEW
+namespace SEW.Models
 {
-    public class Category : INotifyPropertyChanged
+    public class Category
     {
         private long _ID;
         private string _Name;
@@ -16,7 +14,6 @@ namespace SEW
             set
             {
                 _ID = value;
-                OnPropertyChanged("ID");
             }
         }
         public string Name
@@ -25,7 +22,6 @@ namespace SEW
             set
             {
                 _Name = value;
-                OnPropertyChanged("Name");
             }
         }
         public List<Word> Words
@@ -34,14 +30,7 @@ namespace SEW
             set
             {
                 _Words = value;
-                OnPropertyChanged("words");
             }
-        }
-
-        public event PropertyChangedEventHandler PropertyChanged;
-        public void OnPropertyChanged([CallerMemberName]string prop = "")
-        {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(prop));
         }
     }
 }
