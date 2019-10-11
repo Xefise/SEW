@@ -9,10 +9,10 @@
     <DockPanel>
         <Border DockPanel.Dock="Left" Background="#202020" Width="150">
             <StackPanel>
-                <Button Content="   Учить" Style="{DynamicResource SLeftPanel}" Template="{DynamicResource TLeftPanel}"/>
-                <Button Content="   Категории" Style="{DynamicResource SLeftPanel}" Template="{DynamicResource TLeftPanel}"/>
-                <Button Content="   Статистика" Style="{DynamicResource SLeftPanel}" Template="{DynamicResource TLeftPanel}"/>
-                <Button Content="   Настройки" Style="{DynamicResource SLeftPanel}" Template="{DynamicResource TLeftPanel}"/>
+                <Button Content="   Учить" Style="{DynamicResource SLeftPanel}" Template="{DynamicResource TButtons}"/>
+                <Button Content="   Категории" Style="{DynamicResource SLeftPanel}" Template="{DynamicResource TButtons}"/>
+                <Button Content="   Статистика" Style="{DynamicResource SLeftPanel}" Template="{DynamicResource TButtons}"/>
+                <Button Content="   Настройки" Style="{DynamicResource SLeftPanel}" Template="{DynamicResource TButtons}"/>
             </StackPanel>
         </Border>
         <Grid>

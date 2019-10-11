@@ -10,7 +10,7 @@
     <UserControl.Resources>
         <DataTemplate x:Key="CategoriesListTemplate">
             <!--<StackPanel Margin="20">-->
-            <Button Height="200" Width="200" Background="#252525" BorderBrush="#252525" Template="{DynamicResource TLeftPanel}">
+            <Button Height="200" Width="200" Background="#252525" BorderBrush="#252525" Template="{DynamicResource TButtons}">
                 <Grid Height="200" Width="200">
                     <TextBlock FontSize="16" Text="{Binding Path=Name}" HorizontalAlignment="Center"/>
                 </Grid>
