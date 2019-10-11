@@ -9,13 +9,11 @@
              d:DesignHeight="500" d:DesignWidth="700">
     <UserControl.Resources>
         <DataTemplate x:Key="CategoriesListTemplate">
-            <!--<StackPanel Margin="20">-->
-            <Button Height="200" Width="200" Background="#252525" BorderBrush="#252525" Template="{DynamicResource TButtons}">
+            <Button Height="200" Width="200" Background="#282828" Template="{DynamicResource TButtons}">
                 <Grid Height="200" Width="200">
-                    <TextBlock FontSize="16" Text="{Binding Path=Name}" HorizontalAlignment="Center"/>
+                    <TextBlock FontSize="22" Text="{Binding Path=Name}" HorizontalAlignment="Center" Margin="20"/>
                 </Grid>
             </Button>
-            <!--</StackPanel>-->
         </DataTemplate>
         <ItemsPanelTemplate x:Key="CategoriesListPanelTemplate">
             <WrapPanel />
@@ -23,7 +21,7 @@
     </UserControl.Resources>
     <Grid>
         <ListBox x:Name="CategoriesList"
-                 Background="#252525"
+                 Background="#242424"
                  ItemsSource="{Binding Categories}"
                  ItemTemplate="{StaticResource CategoriesListTemplate}"
                  ItemsPanel="{StaticResource CategoriesListPanelTemplate}"
