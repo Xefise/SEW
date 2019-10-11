@@ -9,7 +9,7 @@
              d:DesignHeight="500" d:DesignWidth="700">
     <UserControl.Resources>
         <DataTemplate x:Key="CategoriesListTemplate">
-            <Button Height="200" Width="200" Background="#282828" Template="{DynamicResource TButtons}">
+            <Button Height="200" Width="200" Background="#282828" Template="{DynamicResource TCategories}">
                 <Grid Height="200" Width="200">
                     <TextBlock FontSize="22" Text="{Binding Path=Name}" HorizontalAlignment="Center" Margin="20"/>
                 </Grid>
