@@ -10,9 +10,8 @@ namespace SEW
     {
         public Categories()
         {
-            InitializeComponent();
-
             DataContext = new CategoryViewModel();
+            InitializeComponent();
         }
     }
 }
