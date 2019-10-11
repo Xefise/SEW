@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace SEW
+namespace SEW.Models
 {
     public class Category
     {

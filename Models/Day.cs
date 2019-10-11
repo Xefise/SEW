@@ -2,7 +2,7 @@
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
 
-namespace SEW
+namespace SEW.Models
 {
     public class Day : INotifyPropertyChanged
     {
