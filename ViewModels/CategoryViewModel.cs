@@ -27,10 +27,10 @@ namespace SEW.ViewModels
         {
             Categories = new ObservableCollection<Category>
             {
-                new Category {ID=1, Name="Animals"},
-                new Category {ID=2, Name="Top 10"},
-                new Category {ID=3, Name="Top 20"},
-                new Category {ID=4, Name="Top 30"}
+                new Category {ID=1, Name="Animals", Included=true},
+                new Category {ID=2, Name="Top 10", Included=false},
+                new Category {ID=3, Name="Top 20", Included=false},
+                new Category {ID=4, Name="Top 30", Included=true}
             };
         }
 

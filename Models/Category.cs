@@ -7,6 +7,7 @@ namespace SEW.Models
         private long _ID;
         private string _Name;
         private List<Word> _Words;
+        private bool _Included;
 
         public long ID
         {
@@ -30,6 +31,14 @@ namespace SEW.Models
             set
             {
                 _Words = value;
+            }
+        }
+        public bool Included
+        {
+            get { return _Included; }
+            set
+            {
+                _Included = value;
             }
         }
     }
