@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:SEW"
         mc:Ignorable="d"
-        Title="SEW - Study English Words" Height="500" Width="900" ResizeMode="NoResize" Background="#242424">
+        Title="SEW - Study English Words" Height="500" Width="900" ResizeMode="CanResizeWithGrip" Background="#242424">
     <DockPanel>
         <Border DockPanel.Dock="Left" Background="#202020" Width="150">
             <StackPanel>
