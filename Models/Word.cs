@@ -89,11 +89,24 @@ namespace SEW.Models
                 _Examples = value;
             }
         }
+        
+        public bool InProgress
+        {
+            get => CheckInProgress();
+        }
+
 
         public event PropertyChangedEventHandler PropertyChanged;
         public void OnPropertyChanged([CallerMemberName]string prop = "")
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(prop));
+        }
+
+
+        private bool CheckInProgress()
+        {
+            if (Status != "New_word") return false;
+            else return true;
         }
     }
 }

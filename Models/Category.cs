@@ -41,5 +41,27 @@ namespace SEW.Models
                 _Included = value;
             }
         }
+
+        public int WordCount
+        {
+            get => _Words.Count;
+        }
+
+
+
+        //public byte InProgress
+        //{
+        //    get => CheckInProgress();
+        //}
+
+        //private byte CheckInProgress()
+        //{
+        //    int InProgress = 0;
+        //    foreach (int element in _Words)
+        //    {
+        //        if (_Words.Word.InProgress[element]) InProgress++;
+        //    }
+        //    return byte(InProgress / _Words.Count);
+        //}
     }
 }
