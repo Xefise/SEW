@@ -7,13 +7,13 @@ namespace SEW.Models
 {
     public class Word : INotifyPropertyChanged
     {
-        private int _ID;
+        private long _ID;
         private string _InEnglish;
         private string _InRussian;
         private DateTime _CanBeDisplayedAt;
         private byte _Review;
 
-        private int _CategoryID;
+        private long _CategoryID;
         private Category _Category;
 
         private string _Transcription;
@@ -21,7 +21,7 @@ namespace SEW.Models
         private List<Example> _Examples;
 
 
-        public int ID
+        public long ID
         {
             get { return _ID; }
             set
@@ -62,7 +62,7 @@ namespace SEW.Models
             }
         }
 
-        public int CategoryID
+        public long CategoryID
         {
             get { return _CategoryID; }
             set

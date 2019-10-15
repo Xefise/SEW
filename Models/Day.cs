@@ -6,6 +6,7 @@ namespace SEW.Models
 {
     public class Day : INotifyPropertyChanged
     {
+        private long _ID;
         private DateTime _Data;
         private int _AlReadyKnown;
         private int _NewWords; //memorized
@@ -13,6 +14,15 @@ namespace SEW.Models
         //private int _Learned;
         private int _Score; // _AlReadyKnown + _NewWords + _ReViewed //+ _Learned
 
+
+        public long ID
+        {
+            get { return _ID; }
+            set
+            {
+                _ID = value;
+            }
+        }
         public DateTime Data
         {
             get { return _Data; }

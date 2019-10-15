@@ -5,14 +5,15 @@ namespace SEW.Models
 {
     public class Example : INotifyPropertyChanged
     {
-        private int _ID;
+        private long _ID;
         private string _InEnglish;
         private string _InRussian;
-        private int _WordID;
+
+        private long _WordID;
         private Word _Word;
 
 
-        public int ID
+        public long ID
         {
             get { return _ID; }
             set
@@ -37,7 +38,7 @@ namespace SEW.Models
             }
         }
 
-        public int WordID
+        public long WordID
         {
             get { return _WordID; }
             set
