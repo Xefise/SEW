@@ -5,10 +5,21 @@ namespace SEW.Models
 {
     public class Example : INotifyPropertyChanged
     {
+        private int _ID;
         private string _InEnglish;
         private string _InRussian;
-        private Word _word;
+        private int _WordID;
+        private Word _Word;
 
+
+        public int ID
+        {
+            get { return _ID; }
+            set
+            {
+                _ID = value;
+            }
+        }
         public string InEnglish
         {
             get { return _InEnglish; }
@@ -25,14 +36,24 @@ namespace SEW.Models
                 _InRussian = value;
             }
         }
-        public Word word
+
+        public int WordID
         {
-            get { return _word; }
+            get { return _WordID; }
             set
             {
-                _word = value;
+                _WordID = value;
             }
         }
+        public Word Word
+        {
+            get { return _Word; }
+            set
+            {
+                _Word = value;
+            }
+        }
+
 
         public event PropertyChangedEventHandler PropertyChanged;
         public void OnPropertyChanged([CallerMemberName]string prop = "")
