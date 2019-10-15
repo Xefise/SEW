@@ -14,7 +14,7 @@ namespace SEW.Models
         private byte _Review;
 
         private int _CategoryID;
-        private Category _category;
+        private Category _Category;
 
         private string _Transcription;
         private string _Status;
@@ -70,12 +70,12 @@ namespace SEW.Models
                 _CategoryID = value;
             }
         }
-        public Category category
+        public Category Category
         {
-            get { return _category; }
+            get { return _Category; }
             set
             {
-                _category = value;
+                _Category = value;
             }
         }
 

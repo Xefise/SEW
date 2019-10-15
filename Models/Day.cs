@@ -10,8 +10,8 @@ namespace SEW.Models
         private int _AlReadyKnown;
         private int _NewWords; //memorized
         private int _Reviewed;
-        private int _Learned;
-        private int _Score; // _AlReadyKnown + _NewWords + _ReViewed + _Learned
+        //private int _Learned;
+        private int _Score; // _AlReadyKnown + _NewWords + _ReViewed //+ _Learned
 
         public DateTime Data
         {
@@ -45,14 +45,14 @@ namespace SEW.Models
                 _Reviewed = value;
             }
         }
-        public int Learned
-        {
-            get { return _Learned; }
-            set
-            {
-                _Learned = value;
-            }
-        }
+        //public int Learned
+        //{
+        //    get { return _Learned; }
+        //    set
+        //    {
+        //        _Learned = value;
+        //    }
+        //}
         public int Score
         {
             get { return _Score; }
