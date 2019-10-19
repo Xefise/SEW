@@ -2,7 +2,7 @@
 
 namespace SEW.Models
 {
-    class SEWContext : DbContext
+    public class SEWContext : DbContext
     {
         public SEWContext() : base("DBConnection") { }
 
