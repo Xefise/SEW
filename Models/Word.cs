@@ -6,17 +6,17 @@ namespace SEW.Models
 {
     public class Word
     {
-        [Key] public long ID;
-        public string InEnglish;
-        public string InRussian;
-        public DateTime CanBeDisplayedAt;
-        public byte Review;
+        [Key] public long ID { get; set; }
+        public string InEnglish { get; set; }
+        public string InRussian { get; set; }
+        public DateTime CanBeDisplayedAt { get; set; }
+        public byte Review { get; set; }
 
-        public long CategoryID;
-        public Category Category;
+        public long CategoryID { get; set; }
+        public Category Category { get; set; }
 
-        public string Transcription;
-        public string Status;
-        public List<Example> Examples;
+        public string Transcription { get; set; }
+        public string Status { get; set; }
+        public List<Example> Examples { get; set; }
     }
 }

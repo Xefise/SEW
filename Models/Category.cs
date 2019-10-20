@@ -10,11 +10,6 @@ namespace SEW.Models
         public List<Word> Words { get; set; }
         public bool Included { get; set; }
 
-        public int WordCount
-        {
-            get => Words.Count;
-        }
-
 
 
         //public byte InProgress

@@ -70,6 +70,10 @@ namespace SEW.ViewModels
                 OnPropertyChanged("Included");
             }
         }
+        public int WordCount
+        {
+            get => Words.Count;
+        }
 
         public event PropertyChangedEventHandler PropertyChanged;
         public void OnPropertyChanged([CallerMemberName]string prop = "")
