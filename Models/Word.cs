@@ -119,7 +119,7 @@ namespace SEW.Models
 
         private bool CheckInProgress()
         {
-            if (Status != "New_word") return false;
+            if (Status != "New word") return false;
             else return true;
         }
     }

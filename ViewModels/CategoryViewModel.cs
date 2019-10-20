@@ -10,17 +10,6 @@ namespace SEW.ViewModels
 {
     public class CategoryViewModel : INotifyPropertyChanged
     {
-        //private Category _selectedCategory;
-        
-        //public Category selectedCategory
-        //{
-        //    get { return _selectedCategory; }
-        //    set
-        //    {
-        //        _selectedCategory = value;
-        //        OnPropertyChanged("SelectedPhone");
-        //    }
-        //}
         
         public ObservableCollection<Category> Categories { get; set; }
         public CategoryViewModel()
