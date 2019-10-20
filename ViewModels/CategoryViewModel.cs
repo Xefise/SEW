@@ -1,12 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using SEW;
+﻿using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
 using SEW.Models;
 using System.Linq;
-using System.ComponentModel.DataAnnotations;
 
 namespace SEW.ViewModels
 {
@@ -38,23 +35,13 @@ namespace SEW.ViewModels
             }
         }
 
-        public event PropertyChangedEventHandler PropertyChanged;
-        public void OnPropertyChanged([CallerMemberName]string prop = "")
-        {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(prop));
-        }
-
 
         Category category = new Category();
 
-        [Key] public long ID
+        public long ID
         {
             get { return category.ID; }
-            set
-            {
-                category.ID = value;
-                OnPropertyChanged("ID");
-            }
+            set { category.ID = value; }
         }
         public string Name
         {
@@ -82,6 +69,12 @@ namespace SEW.ViewModels
                 category.Included = value;
                 OnPropertyChanged("Included");
             }
+        }
+
+        public event PropertyChangedEventHandler PropertyChanged;
+        public void OnPropertyChanged([CallerMemberName]string prop = "")
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(prop));
         }
     }
 }

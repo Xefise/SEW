@@ -1,126 +1,22 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Runtime.CompilerServices;
+using System.ComponentModel.DataAnnotations;
 
 namespace SEW.Models
 {
-    public class Word : INotifyPropertyChanged
+    public class Word
     {
-        private long _ID;
-        private string _InEnglish;
-        private string _InRussian;
-        private DateTime _CanBeDisplayedAt;
-        private byte _Review;
+        [Key] public long ID;
+        public string InEnglish;
+        public string InRussian;
+        public DateTime CanBeDisplayedAt;
+        public byte Review;
 
-        private long _CategoryID;
-        private Category _Category;
+        public long CategoryID;
+        public Category Category;
 
-        private string _Transcription;
-        private string _Status;
-        private List<Example> _Examples;
-
-
-        public long ID
-        {
-            get { return _ID; }
-            set
-            {
-                _ID = value;
-            }
-        }
-        public string InEnglish
-        {
-            get { return _InEnglish; }
-            set
-            {
-                _InEnglish = value;
-            }
-        }
-        public string InRussian
-        {
-            get { return _InRussian; }
-            set
-            {
-                _InRussian = value;
-            }
-        }
-        public DateTime CanBeDisplayedAt
-        {
-            get { return _CanBeDisplayedAt; }
-            set
-            {
-                _CanBeDisplayedAt = value;
-            }
-        }
-        public byte Review
-        {
-            get { return _Review; }
-            set
-            {
-                _Review = value;
-            }
-        }
-
-        public long CategoryID
-        {
-            get { return _CategoryID; }
-            set
-            {
-                _CategoryID = value;
-            }
-        }
-        public Category Category
-        {
-            get { return _Category; }
-            set
-            {
-                _Category = value;
-            }
-        }
-
-        public string Transcription
-        {
-            get { return _Transcription; }
-            set
-            {
-                _Transcription = value;
-            }
-        }
-        public string Status
-        {
-            get { return _Status; }
-            set
-            {
-                _Status = value;
-            }
-        }
-        public List<Example> Examples
-        {
-            get { return _Examples; }
-            set
-            {
-                _Examples = value;
-            }
-        }
-        
-        public bool InProgress
-        {
-            get => CheckInProgress();
-        }
-
-
-        public event PropertyChangedEventHandler PropertyChanged;
-        public void OnPropertyChanged([CallerMemberName]string prop = "")
-        {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(prop));
-        }
-
-
-        private bool CheckInProgress()
-        {
-            if (Status != "New_word") return false;
-            else return true;
-        }
+        public string Transcription;
+        public string Status;
+        public List<Example> Examples;
     }
 }
