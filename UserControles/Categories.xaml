@@ -9,7 +9,7 @@
              d:DesignHeight="500" d:DesignWidth="700">
     <UserControl.Resources>
         <DataTemplate x:Key="CategoriesListTemplate">
-            <Button Height="200" Width="200" Background="#282828" Template="{DynamicResource TCategories}">
+            <Button Height="200" Width="200" Style="{DynamicResource SButtonOnListBox}" Template="{DynamicResource TCategories}">
                 <Grid Height="200" Width="200">
                     <TextBlock FontSize="22" Text="{Binding Path=Name}" HorizontalAlignment="Center" Margin="20"/>
                     <CheckBox IsChecked="{Binding Path=Included}" Margin="160, 10, 10, 160">
@@ -26,7 +26,6 @@
     </UserControl.Resources>
     <Grid>
         <ListBox x:Name="CategoriesList"
-                 Background="#242424"
                  ItemsSource="{Binding Categories}"
                  ItemTemplate="{StaticResource CategoriesListTemplate}"
                  ItemsPanel="{StaticResource CategoriesListPanelTemplate}"
