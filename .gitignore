@@ -1,4 +1,9 @@
 .vs
 obj
+<<<<<<< HEAD
 bin/Release
 packages/
+=======
+bin/Debug
+packages/*
+>>>>>>> db

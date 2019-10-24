@@ -1,52 +1,14 @@
 ﻿using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 
 namespace SEW.Models
 {
     public class Category
     {
-        private long _ID;
-        private string _Name;
-        private List<Word> _Words;
-        private bool _Included;
-
-
-        public long ID
-        {
-            get { return _ID; }
-            set
-            {
-                _ID = value;
-            }
-        }
-        public string Name
-        {
-            get { return _Name; }
-            set
-            {
-                _Name = value;
-            }
-        }
-        public List<Word> Words
-        {
-            get { return _Words; }
-            set
-            {
-                _Words = value;
-            }
-        }
-        public bool Included
-        {
-            get { return _Included; }
-            set
-            {
-                _Included = value;
-            }
-        }
-
-        public int WordCount
-        {
-            get => _Words.Count;
-        }
+        [Key] public long ID { get; set; }
+        public string Name { get; set; }
+        public List<Word> Words { get; set; }
+        public bool Included { get; set; }
 
 
 
