@@ -9,7 +9,17 @@ namespace SEW.ViewModels
 {
     public class CategoryViewModel : INotifyPropertyChanged
     {
-        
+        private Category selectCategory { get; set; }
+        public Category SelectCategory
+        {
+            get { return selectCategory; }
+            set
+            {
+                selectCategory = value;
+                OnPropertyChanged("SelectCategory");
+            }
+        }
+
         public ObservableCollection<Category> Categories { get; set; }
         public CategoryViewModel()
         {
@@ -24,38 +34,45 @@ namespace SEW.ViewModels
             }
         }
 
+        public void Update()
+        {
+            using (SEWContext db = new SEWContext())
+            {
+                db.Entry(selectCategory).State = System.Data.Entity.EntityState.Modified;
+                db.SaveChanges();
+            }
+        }
 
-        Category category = new Category();
-
+        #region Properties
         public long ID
         {
-            get { return category.ID; }
-            set { category.ID = value; }
+            get { return SelectCategory.ID; }
+            set { SelectCategory.ID = value; }
         }
         public string Name
         {
-            get { return category.Name; }
+            get { return SelectCategory.Name; }
             set
             {
-                category.Name = value;
+                SelectCategory.Name = value;
                 OnPropertyChanged("Name");
             }
         }
         public List<Word> Words
         {
-            get { return category.Words; }
+            get { return SelectCategory.Words; }
             set
             {
-                category.Words = value;
+                SelectCategory.Words = value;
                 OnPropertyChanged("Words");
             }
         }
         public bool Included
         {
-            get { return category.Included; }
+            get { return SelectCategory.Included; }
             set
             {
-                category.Included = value;
+                SelectCategory.Included = value;
                 OnPropertyChanged("Included");
             }
         }
@@ -63,8 +80,9 @@ namespace SEW.ViewModels
         {
             get => Words.Count;
         }
+        #endregion
 
-        public event PropertyChangedEventHandler PropertyChanged;
+        public event PropertyChangedEventHandler PropertyChanged; // INotifyPropertyChanged
         public void OnPropertyChanged([CallerMemberName]string prop = "")
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(prop));

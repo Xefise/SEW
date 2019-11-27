@@ -7,28 +7,19 @@
              xmlns:vm="clr-namespace:SEW.ViewModels"
              mc:Ignorable="d" 
              d:DesignHeight="500" d:DesignWidth="700">
-    <UserControl.Resources>
-        <DataTemplate x:Key="CategoriesListTemplate">
-            <Button Height="200" Width="200" Style="{DynamicResource SButtonOnListBox}" Template="{DynamicResource TCategories}">
-                <Grid Height="200" Width="200">
-                    <TextBlock FontSize="22" Text="{Binding Path=Name}" HorizontalAlignment="Center" Margin="20"/>
-                    <CheckBox IsChecked="{Binding Path=Included}" Margin="160, 10, 10, 160">
+    <ListBox Grid.Column="0" ItemsSource="{Binding Categories}"
+                 SelectedItem="{Binding SelectedCategory}">
+        <ListBox.ItemTemplate>
+            <DataTemplate>
+                <WrapPanel>
+                    <CheckBox IsChecked="{Binding Path=Included, UpdateSourceTrigger=PropertyChanged}" Margin="10,14">
                         <CheckBox.LayoutTransform>
-                            <ScaleTransform ScaleX="2" ScaleY="2" />
+                            <ScaleTransform ScaleX="1.5" ScaleY="1.5" />
                         </CheckBox.LayoutTransform>
                     </CheckBox>
-                </Grid>
-            </Button>
-        </DataTemplate>
-        <ItemsPanelTemplate x:Key="CategoriesListPanelTemplate">
-            <WrapPanel />
-        </ItemsPanelTemplate>
-    </UserControl.Resources>
-    <Grid>
-        <ListBox x:Name="CategoriesList"
-                 ItemsSource="{Binding Categories}"
-                 ItemTemplate="{StaticResource CategoriesListTemplate}"
-                 ItemsPanel="{StaticResource CategoriesListPanelTemplate}"
-                 ScrollViewer.HorizontalScrollBarVisibility="Disabled" />
-    </Grid>
+                    <TextBlock FontSize="20" Text="{Binding Path=Name, UpdateSourceTrigger=PropertyChanged}" HorizontalAlignment="Center" Margin="20,10"/>
+                </WrapPanel>
+            </DataTemplate>
+        </ListBox.ItemTemplate>
+    </ListBox>
 </UserControl>
