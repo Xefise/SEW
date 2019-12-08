@@ -1,18 +1,16 @@
 ﻿namespace SEW.Migrations
 {
-    using System;
-    using System.Data.Entity;
     using System.Data.Entity.Migrations;
-    using System.Linq;
+    using SEW.Models;
 
-    internal sealed class Configuration : DbMigrationsConfiguration<SEW.Models.SEWContext>
+    internal sealed class Configuration : DbMigrationsConfiguration<SEWContext>
     {
         public Configuration()
         {
             AutomaticMigrationsEnabled = true;
         }
 
-        protected override void Seed(SEW.Models.SEWContext context)
+        protected override void Seed(SEWContext context)
         {
             //  This method will be called after migrating to the latest version.
 
