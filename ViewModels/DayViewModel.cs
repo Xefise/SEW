@@ -8,7 +8,7 @@ using SEW.Models;
 
 namespace SEW.ViewModels
 {
-    public class DayViewModel : INotifyPropertyChanged
+    public class DayViewModel : BaseVM
     {
         public ObservableCollection<Day> Days { get; set; }
         public DayViewModel()
@@ -85,12 +85,6 @@ namespace SEW.ViewModels
                 day.Score = value;
                 OnPropertyChanged("Score");
             }
-        }
-
-        public event PropertyChangedEventHandler PropertyChanged;
-        public void OnPropertyChanged([CallerMemberName]string prop = "")
-        {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(prop));
         }
     }
 }

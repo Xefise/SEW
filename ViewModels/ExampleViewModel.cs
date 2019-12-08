@@ -7,7 +7,7 @@ using System.Linq;
 
 namespace SEW.ViewModels
 {
-    public class ExampleViewModel : INotifyPropertyChanged
+    public class ExampleViewModel : BaseVM
     {
         public ObservableCollection<Example> Examples { get; set; }
         public ExampleViewModel()
@@ -67,12 +67,6 @@ namespace SEW.ViewModels
                 example.Word = value;
                 OnPropertyChanged("Word");
             }
-        }
-
-        public event PropertyChangedEventHandler PropertyChanged;
-        public void OnPropertyChanged([CallerMemberName]string prop = "")
-        {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(prop));
         }
     }
 }

@@ -7,19 +7,52 @@
              xmlns:vm="clr-namespace:SEW.ViewModels"
              mc:Ignorable="d" 
              d:DesignHeight="500" d:DesignWidth="700">
-    <ListBox Grid.Column="0" ItemsSource="{Binding Categories}"
+    <UserControl.Resources>
+        <Style TargetType="UniformGrid">
+            <Setter Property="Height" Value="20" />
+        </Style>
+    </UserControl.Resources>
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="0.35*" />
+        </Grid.ColumnDefinitions>
+
+        <ListBox Grid.Column="0" ItemsSource="{Binding Categories}"
                  SelectedItem="{Binding SelectedCategory}">
-        <ListBox.ItemTemplate>
-            <DataTemplate>
-                <WrapPanel>
-                    <CheckBox IsChecked="{Binding Path=Included, UpdateSourceTrigger=PropertyChanged}" Margin="10,14">
-                        <CheckBox.LayoutTransform>
-                            <ScaleTransform ScaleX="1.5" ScaleY="1.5" />
-                        </CheckBox.LayoutTransform>
-                    </CheckBox>
-                    <TextBlock FontSize="20" Text="{Binding Path=Name, UpdateSourceTrigger=PropertyChanged}" HorizontalAlignment="Center" Margin="20,10"/>
-                </WrapPanel>
-            </DataTemplate>
-        </ListBox.ItemTemplate>
-    </ListBox>
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <WrapPanel Margin="5">
+                        <CheckBox IsEnabled="False" IsChecked="{Binding Path=Included}" >
+                            <CheckBox.LayoutTransform>
+                                <ScaleTransform ScaleX="1.4" ScaleY="1.4" />
+                            </CheckBox.LayoutTransform>
+                        </CheckBox>
+                        <TextBlock FontSize="18" Text="{Binding Path=Name}" Margin="5, 0"/>
+                    </WrapPanel>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+
+        <StackPanel Grid.Column="1" DataContext="{Binding SelectedCategory}" Margin="5">
+            <TextBlock Margin="1" Text="Выбранная категория:" />
+            
+            <UniformGrid Columns="2">
+                <TextBlock Text="Название:" />
+                <TextBox Height="15" Text="{Binding Name, UpdateSourceTrigger=PropertyChanged}" />
+            </UniformGrid>
+            <UniformGrid Columns="2">
+                <TextBlock Text="Изучается:" />
+                <CheckBox IsChecked="{Binding Path=Included, UpdateSourceTrigger=PropertyChanged}" >
+                    <CheckBox.LayoutTransform>
+                        <ScaleTransform ScaleX="1.2" ScaleY="1.2" />
+                    </CheckBox.LayoutTransform>
+                </CheckBox>
+            </UniformGrid>
+            <UniformGrid Columns="2">
+                <TextBlock Text="Кол-во слов: " />
+                <TextBlock Text="{Binding WordCount, UpdateSourceTrigger=PropertyChanged}"/>
+            </UniformGrid>
+        </StackPanel>
+    </Grid>
 </UserControl>

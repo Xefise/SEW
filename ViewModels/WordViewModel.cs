@@ -8,7 +8,7 @@ using System;
 
 namespace SEW.ViewModels
 {
-    public class WordViewModel : INotifyPropertyChanged
+    public class WordViewModel : BaseVM
     {
         public ObservableCollection<Word> Words { get; set; }
         public WordViewModel()
@@ -120,14 +120,6 @@ namespace SEW.ViewModels
         {
             get => CheckInProgress();
         }
-
-
-        public event PropertyChangedEventHandler PropertyChanged;
-        public void OnPropertyChanged([CallerMemberName]string prop = "")
-        {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(prop));
-        }
-
 
         private bool CheckInProgress()
         {

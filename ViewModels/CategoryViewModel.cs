@@ -7,7 +7,7 @@ using System.Linq;
 
 namespace SEW.ViewModels
 {
-    public class CategoryViewModel : INotifyPropertyChanged
+    public class CategoryViewModel : BaseVM
     {
         private Category selectCategory { get; set; }
         public Category SelectCategory
@@ -81,11 +81,5 @@ namespace SEW.ViewModels
             get => Words.Count;
         }
         #endregion
-
-        public event PropertyChangedEventHandler PropertyChanged; // INotifyPropertyChanged
-        public void OnPropertyChanged([CallerMemberName]string prop = "")
-        {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(prop));
-        }
     }
 }
