@@ -10,7 +10,7 @@ namespace SEW.Models
         public int AlReadyKnown { get; set; }
         public int NewWords { get; set; } //memorized
         public int Reviewed { get; set; }
-        //private int _Learned;
+        //private int Learned;
         public int Score { get; set; } // _AlReadyKnown + _NewWords + _ReViewed //+ _Learned
     }
 }

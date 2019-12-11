@@ -8,6 +8,17 @@ namespace SEW.ViewModels
 {
     public class DayViewModel : BaseVM
     {
+        private Day selectedDay { get; set; }
+        public Day SelectedDay
+        {
+            get { return selectedDay; }
+            set
+            {
+                selectedDay = value;
+                OnPropertyChanged("SelectedDay");
+            }
+        }
+
         public ObservableCollection<Day> Days { get; set; }
         public DayViewModel()
         {
@@ -22,67 +33,66 @@ namespace SEW.ViewModels
             }
         }
 
-
-        Day day = new Day();
-
+        #region Properties
         public long ID
         {
-            get { return day.ID; }
-            set { day.ID = value; }
+            get { return SelectedDay.ID; }
+            set { SelectedDay.ID = value; }
         }
         public DateTime Date
         {
-            get { return day.Date; }
+            get { return SelectedDay.Date; }
             set
             {
-                day.Date = value;
+                SelectedDay.Date = value;
                 OnPropertyChanged("Date");
             }
         }
         public int AlReadyKnown
         {
-            get { return day.AlReadyKnown; }
+            get { return SelectedDay.AlReadyKnown; }
             set
             {
-                day.AlReadyKnown = value;
+                SelectedDay.AlReadyKnown = value;
                 OnPropertyChanged("AlReadyKnown");
             }
         }
         public int NewWords
         {
-            get { return day.NewWords; }
+            get { return SelectedDay.NewWords; }
             set
             {
-                day.NewWords = value;
+                SelectedDay.NewWords = value;
                 OnPropertyChanged("NewWords");
             }
         }
         public int Reviewed
         {
-            get { return day.Reviewed; }
+            get { return SelectedDay.Reviewed; }
             set
             {
-                day.Reviewed = value;
+                SelectedDay.Reviewed = value;
                 OnPropertyChanged("Reviewed");
             }
         }
         //public int Learned
         //{
-        //    get { return _Learned; }
+        //    get { return SelectedDay.Learned; }
         //    set
         //    {
-        //        _Learned = value;
+        //        SelectedDay.Learned = value;
         //        OnPropertyChanged("Learned");
         //    }
         //}
         public int Score
         {
-            get { return day.Score; }
+            get { return SelectedDay.Score; }
             set
             {
-                day.Score = value;
+                SelectedDay.Score = value;
                 OnPropertyChanged("Score");
             }
         }
+        #endregion
     }
 }

@@ -8,6 +8,17 @@ namespace SEW.ViewModels
 {
     public class WordViewModel : BaseVM
     {
+        private Word selectedWord { get; set; }
+        public Word SelectedWord
+        {
+            get { return selectedWord; }
+            set
+            {
+                selectedWord = value;
+                OnPropertyChanged("SelectedWord");
+            }
+        }
+
         public ObservableCollection<Word> Words { get; set; }
         public WordViewModel()
         {
@@ -22,98 +33,96 @@ namespace SEW.ViewModels
             }
         }
 
-
-        Word word = new Word();
-
+        #region Properties
         public long ID
         {
-            get { return word.ID; }
-            set { word.ID = value; }
+            get { return SelectedWord.ID; }
+            set { SelectedWord.ID = value; }
         }
         public string InEnglish
         {
-            get { return word.InEnglish; }
+            get { return SelectedWord.InEnglish; }
             set
             {
-                word.InEnglish = value;
+                SelectedWord.InEnglish = value;
                 OnPropertyChanged("InEnglish");
             }
         }
         public string InRussian
         {
-            get { return word.InRussian; }
+            get { return SelectedWord.InRussian; }
             set
             {
-                word.InRussian = value;
+                SelectedWord.InRussian = value;
                 OnPropertyChanged("InRussian");
             }
         }
         public DateTime CanBeDisplayedAt
         {
-            get { return word.CanBeDisplayedAt; }
+            get { return SelectedWord.CanBeDisplayedAt; }
             set
             {
-                word.CanBeDisplayedAt = value;
+                SelectedWord.CanBeDisplayedAt = value;
                 OnPropertyChanged("CanBeDisplayedAt");
             }
         }
         public byte Review
         {
-            get { return word.Review; }
+            get { return SelectedWord.Review; }
             set
             {
-                word.Review = value;
+                SelectedWord.Review = value;
                 OnPropertyChanged("Review");
             }
         }
 
         public long CategoryID
         {
-            get { return word.CategoryID; }
+            get { return SelectedWord.CategoryID; }
             set
             {
-                word.CategoryID = value;
+                SelectedWord.CategoryID = value;
                 OnPropertyChanged("CategoryID");
             }
         }
         public Category Category
         {
-            get { return word.Category; }
+            get { return SelectedWord.Category; }
             set
             {
-                word.Category = value;
+                SelectedWord.Category = value;
                 OnPropertyChanged("Category");
             }
         }
 
         public string Transcription
         {
-            get { return word.Transcription; }
+            get { return SelectedWord.Transcription; }
             set
             {
-                word.Transcription = value;
+                SelectedWord.Transcription = value;
                 OnPropertyChanged("Transcription");
             }
         }
         public string Status
         {
-            get { return word.Status; }
+            get { return SelectedWord.Status; }
             set
             {
-                word.Status = value;
+                SelectedWord.Status = value;
                 OnPropertyChanged("Status");
             }
         }
         public List<Example> Examples
         {
-            get { return word.Examples; }
+            get { return SelectedWord.Examples; }
             set
             {
-                word.Examples = value;
+                SelectedWord.Examples = value;
                 OnPropertyChanged("Examples");
             }
         }
-
+#endregion
         public bool InProgress
         {
             get => CheckInProgress();

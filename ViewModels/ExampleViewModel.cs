@@ -7,6 +7,17 @@ namespace SEW.ViewModels
 {
     public class ExampleViewModel : BaseVM
     {
+        private Example selectedExample { get; set; }
+        public Example SelectedExample
+        {
+            get { return selectedExample; }
+            set
+            {
+                selectedExample = value;
+                OnPropertyChanged("SelectedExapmle");
+            }
+        }
+
         public ObservableCollection<Example> Examples { get; set; }
         public ExampleViewModel()
         {
@@ -21,50 +32,49 @@ namespace SEW.ViewModels
             }
         }
 
-
-        Example example = new Example();
-
+        #region Properties
         public long ID
         {
-            get { return example.ID; }
-            set { example.ID = value; }
+            get { return SelectedExample.ID; }
+            set { SelectedExample.ID = value; }
         }
         public string InEnglish
         {
-            get { return example.InEnglish; }
+            get { return SelectedExample.InEnglish; }
             set
             {
-                example.InEnglish = value;
+                SelectedExample.InEnglish = value;
                 OnPropertyChanged("InEnglish");
             }
         }
         public string InRussian
         {
-            get { return example.InRussian; }
+            get { return SelectedExample.InRussian; }
             set
             {
-                example.InRussian = value;
+                SelectedExample.InRussian = value;
                 OnPropertyChanged("InRussian");
             }
         }
 
         public long WordID
         {
-            get { return example.WordID; }
+            get { return SelectedExample.WordID; }
             set
             {
-                example.WordID = value;
+                SelectedExample.WordID = value;
                 OnPropertyChanged("WordID");
             }
         }
         public Word Word
         {
-            get { return example.Word; }
+            get { return SelectedExample.Word; }
             set
             {
-                example.Word = value;
+                SelectedExample.Word = value;
                 OnPropertyChanged("Word");
             }
         }
+        #endregion
     }
 }
