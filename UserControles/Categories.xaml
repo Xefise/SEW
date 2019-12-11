@@ -30,7 +30,7 @@
             <ListBox.ItemTemplate>
                 <DataTemplate>
                     <WrapPanel Margin="5">
-                        <CheckBox IsEnabled="False" IsChecked="{Binding Path=Included}" >
+                        <CheckBox IsChecked="{Binding Path=Included}" >
                             <CheckBox.LayoutTransform>
                                 <ScaleTransform ScaleX="1.4" ScaleY="1.4" />
                             </CheckBox.LayoutTransform>
@@ -57,10 +57,10 @@
                     </CheckBox.LayoutTransform>
                 </CheckBox>
             </UniformGrid>
-            <!--<UniformGrid Columns="2">
+            <UniformGrid Columns="2">
                 <TextBlock Text="Кол-во слов: " />
-                <TextBlock Text="{Binding Path=WordCount, UpdateSourceTrigger=PropertyChanged}"/>
-            </UniformGrid>-->
+                <TextBlock Text="{Binding WordCount}"/>
+            </UniformGrid>
         </StackPanel>
     </Grid>
 </UserControl>

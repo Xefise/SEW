@@ -1,11 +1,14 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using SEW.Models;
+using System.ComponentModel;
 using System.Linq;
+using System.Runtime.CompilerServices;
+using SEW.Models;
 
 namespace SEW.ViewModels
 {
-    public class ExampleViewModel : BaseVM
+    public class ExampleViewModel : INotifyPropertyChanged
     {
         private Example selectedExample { get; set; }
         public Example SelectedExample
@@ -30,6 +33,21 @@ namespace SEW.ViewModels
                     Examples.Add(item);
                 }
             }
+        }
+
+        public void Update()
+        {
+            using (SEWContext db = new SEWContext())
+            {
+                db.Entry(selectedExample).State = System.Data.Entity.EntityState.Modified;
+                db.SaveChanges();
+            }
+        }
+        public event PropertyChangedEventHandler PropertyChanged; // INotifyPropertyChanged
+        public void OnPropertyChanged([CallerMemberName]string prop = "")
+        {
+            Update(); // Update a property when the property changes
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(prop));
         }
 
         #region Properties

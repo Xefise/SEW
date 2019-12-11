@@ -1,12 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.ComponentModel;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using SEW.Models;
 
 namespace SEW.ViewModels
 {
-    public class DayViewModel : BaseVM
+    public class DayViewModel : INotifyPropertyChanged
     {
         private Day selectedDay { get; set; }
         public Day SelectedDay
@@ -31,6 +33,21 @@ namespace SEW.ViewModels
                     Days.Add(item);
                 }
             }
+        }
+
+        public void Update()
+        {
+            using (SEWContext db = new SEWContext())
+            {
+                db.Entry(selectedDay).State = System.Data.Entity.EntityState.Modified;
+                db.SaveChanges();
+            }
+        }
+        public event PropertyChangedEventHandler PropertyChanged; // INotifyPropertyChanged
+        public void OnPropertyChanged([CallerMemberName]string prop = "")
+        {
+            Update(); // Update a property when the property changes
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(prop));
         }
 
         #region Properties

@@ -2,10 +2,12 @@
 using System.Collections.ObjectModel;
 using SEW.Models;
 using System.Linq;
+using System.ComponentModel;
+using System.Runtime.CompilerServices;
 
 namespace SEW.ViewModels
 {
-    public class CategoryViewModel : BaseVM
+    public class CategoryViewModel : INotifyPropertyChanged
     {
         private Category selectedCategory { get; set; }
         public Category SelectedCategory
@@ -36,10 +38,17 @@ namespace SEW.ViewModels
         {
             using (SEWContext db = new SEWContext())
             {
-                db.Entry(selectedCategory).State = System.Data.Entity.EntityState.Modified;
+                db.Entry(SelectedCategory).State = System.Data.Entity.EntityState.Modified;
                 db.SaveChanges();
             }
         }
+        public event PropertyChangedEventHandler PropertyChanged; // INotifyPropertyChanged
+        public void OnPropertyChanged([CallerMemberName]string prop = "")
+        {
+            Update(); // Update a property when the property changes
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(prop));
+        }
+
 
         #region Properties
         public long ID
@@ -74,6 +83,18 @@ namespace SEW.ViewModels
                 OnPropertyChanged("Included");
             }
         }
+        public string WordCount
+        {
+            get => WordCountM();
+        }
         #endregion
+
+        string WordCountM() {
+            int Count;
+            if (Words == null) Count = 0;
+            else Count = Words.Count;
+            string CountStr = Count.ToString();
+            return CountStr;
+        }
     }
 }
