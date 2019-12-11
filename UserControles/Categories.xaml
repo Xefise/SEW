@@ -6,13 +6,13 @@
              xmlns:local="clr-namespace:SEW"
              xmlns:vm="clr-namespace:SEW.ViewModels"
              mc:Ignorable="d" 
-             d:DesignHeight="500" d:DesignWidth="700">
+             d:DesignHeight="500" d:DesignWidth="700" >
     <UserControl.Resources>
         <Style TargetType="UniformGrid">
-            <Setter Property="Height" Value="20" />
+            <Setter Property="Height" Value="25" />
         </Style>
     </UserControl.Resources>
-    <Grid>
+    <Grid Style="{DynamicResource SGrid}" >
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*" />
             <ColumnDefinition Width="0.35*" />
@@ -42,25 +42,25 @@
             </ListBox.ItemTemplate>
         </ListBox>
 
-        <StackPanel Grid.Column="1" DataContext="{Binding SelectedCategory}" Margin="5">
-            <TextBlock Margin="1" Text="Выбранная категория:" />
+        <StackPanel Grid.Column="1" DataContext="{Binding SelectedCategory}" Margin="5" >
+            <TextBlock Margin="1" Text="Выбранная категория:" Height="20" FontSize="14"/>
             
             <UniformGrid Columns="2">
-                <TextBlock Text="Название:" />
-                <TextBox Height="15" Text="{Binding Name, UpdateSourceTrigger=PropertyChanged}" />
+                <TextBlock Text="Название:" FontSize="12"/>
+                <TextBox Height="18" Text="{Binding Name, UpdateSourceTrigger=PropertyChanged}" />
             </UniformGrid>
             <UniformGrid Columns="2">
-                <TextBlock Text="Изучается:" />
-                <CheckBox IsChecked="{Binding Path=Included, UpdateSourceTrigger=PropertyChanged}" >
+                <TextBlock Text="Изучается:" FontSize="12"/>
+                <CheckBox IsChecked="{Binding Included, UpdateSourceTrigger=PropertyChanged}" >
                     <CheckBox.LayoutTransform>
                         <ScaleTransform ScaleX="1.2" ScaleY="1.2" />
                     </CheckBox.LayoutTransform>
                 </CheckBox>
             </UniformGrid>
-            <UniformGrid Columns="2">
+            <!--<UniformGrid Columns="2">
                 <TextBlock Text="Кол-во слов: " />
-                <TextBlock Text="{Binding WordCount, UpdateSourceTrigger=PropertyChanged}"/>
-            </UniformGrid>
+                <TextBlock Text="{Binding Path=WordCount, UpdateSourceTrigger=PropertyChanged}"/>
+            </UniformGrid>-->
         </StackPanel>
     </Grid>
 </UserControl>

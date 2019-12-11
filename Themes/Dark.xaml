@@ -65,9 +65,6 @@
     <Style TargetType="ListBox">
         <Setter Property="Background" Value="#1F1F1F"/>
     </Style>
-    <Style TargetType="Button" x:Key="SButtonOnListBox">
-        <Setter Property="Background" Value="#282828"/>
-    </Style>
     <Style TargetType="Button" x:Key="SLeftPanel">
         <Setter Property="BorderBrush" Value="#212121"/>
         <Setter Property="Foreground" Value="#EEEEEE"/>
@@ -93,5 +90,11 @@
     </Style>
     <Style TargetType="CheckBox">
         <Setter Property="Foreground" Value="#EEEEEE"/>
+    </Style>
+    <Style TargetType="Border">
+        <Setter Property="Background" Value="#272727"/>
+    </Style>
+    <Style TargetType="Grid" x:Key="SGrid">
+        <Setter Property="Background" Value="#242424"/>
     </Style>
 </ResourceDictionary>

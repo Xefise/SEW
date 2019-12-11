@@ -5,9 +5,9 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:SEW"
         mc:Ignorable="d"
-        Title="SEW - Study English Words" Height="500" Width="900" ResizeMode="CanResizeWithGrip" Background="#242424">
+        Title="SEW - Study English Words" Height="500" Width="900" ResizeMode="CanResizeWithGrip" MinWidth="760" MinHeight="420" >
     <DockPanel>
-        <Border DockPanel.Dock="Left" Background="#272727" Width="150">
+        <Border DockPanel.Dock="Left" Width="150">
             <StackPanel>
                 <Button Content="   Учить" Style="{DynamicResource SLeftPanel}" Template="{DynamicResource TLeftPlanel}"/>
                 <Button Content="   Категории" Style="{DynamicResource SLeftPanel}" Template="{DynamicResource TLeftPlanel}"/>
