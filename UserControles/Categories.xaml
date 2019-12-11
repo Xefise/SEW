@@ -18,8 +18,15 @@
             <ColumnDefinition Width="0.35*" />
         </Grid.ColumnDefinitions>
 
-        <ListBox Grid.Column="0" ItemsSource="{Binding Categories}"
-                 SelectedItem="{Binding SelectedCategory}">
+        <ListBox Grid.Column="0" 
+                 ItemsSource="{Binding Categories}"
+                 SelectedItem="{Binding SelectedCategory}"
+                 SelectionMode="Extended">
+            <ListBox.ItemContainerStyle>
+                <Style TargetType="ListBoxItem">
+                    <Setter Property="Template" Value="{StaticResource TListBox}" />
+                </Style>
+            </ListBox.ItemContainerStyle>
             <ListBox.ItemTemplate>
                 <DataTemplate>
                     <WrapPanel Margin="5">
@@ -28,6 +35,7 @@
                                 <ScaleTransform ScaleX="1.4" ScaleY="1.4" />
                             </CheckBox.LayoutTransform>
                         </CheckBox>
+                        <TextBlock FontSize="18" Text="{Binding Path=WordCount}" Margin="5, 0"/>
                         <TextBlock FontSize="18" Text="{Binding Path=Name}" Margin="5, 0"/>
                     </WrapPanel>
                 </DataTemplate>
