@@ -7,14 +7,14 @@ namespace SEW.ViewModels
 {
     public class CategoryViewModel : BaseVM
     {
-        private Category selectCategory { get; set; }
-        public Category SelectCategory
+        private Category selectedCategory { get; set; }
+        public Category SelectedCategory
         {
-            get { return selectCategory; }
+            get { return selectedCategory; }
             set
             {
-                selectCategory = value;
-                OnPropertyChanged("SelectCategory");
+                selectedCategory = value;
+                OnPropertyChanged("SelectedCategory");
             }
         }
 
@@ -36,7 +36,7 @@ namespace SEW.ViewModels
         {
             using (SEWContext db = new SEWContext())
             {
-                db.Entry(selectCategory).State = System.Data.Entity.EntityState.Modified;
+                db.Entry(selectedCategory).State = System.Data.Entity.EntityState.Modified;
                 db.SaveChanges();
             }
         }
@@ -44,33 +44,33 @@ namespace SEW.ViewModels
         #region Properties
         public long ID
         {
-            get { return SelectCategory.ID; }
-            set { SelectCategory.ID = value; }
+            get { return SelectedCategory.ID; }
+            set { SelectedCategory.ID = value; }
         }
         public string Name
         {
-            get { return SelectCategory.Name; }
+            get { return SelectedCategory.Name; }
             set
             {
-                SelectCategory.Name = value;
+                SelectedCategory.Name = value;
                 OnPropertyChanged("Name");
             }
         }
         public List<Word> Words
         {
-            get { return SelectCategory.Words; }
+            get { return SelectedCategory.Words; }
             set
             {
-                SelectCategory.Words = value;
+                SelectedCategory.Words = value;
                 OnPropertyChanged("Words");
             }
         }
         public bool Included
         {
-            get { return SelectCategory.Included; }
+            get { return SelectedCategory.Included; }
             set
             {
-                SelectCategory.Included = value;
+                SelectedCategory.Included = value;
                 OnPropertyChanged("Included");
             }
         }
