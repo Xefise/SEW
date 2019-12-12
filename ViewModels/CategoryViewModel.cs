@@ -4,6 +4,8 @@ using SEW.Models;
 using System.Linq;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
+using SEW.Command;
+using System.Windows;
 
 namespace SEW.ViewModels
 {
@@ -15,6 +17,7 @@ namespace SEW.ViewModels
             get { return selectedCategory; }
             set
             {
+                if(SelectedCategory != null)Update();
                 selectedCategory = value;
                 OnPropertyChanged("SelectedCategory");
             }
@@ -63,6 +66,7 @@ namespace SEW.ViewModels
             {
                 SelectedCategory.Name = value;
                 OnPropertyChanged("Name");
+                MessageBox.Show("Name");
             }
         }
         public List<Word> Words
@@ -83,18 +87,10 @@ namespace SEW.ViewModels
                 OnPropertyChanged("Included");
             }
         }
-        public string WordCount
+        public int WordCount
         {
-            get => WordCountM();
+            get => Words.Count;
         }
         #endregion
-
-        string WordCountM() {
-            int Count;
-            if (Words == null) Count = 0;
-            else Count = Words.Count;
-            string CountStr = Count.ToString();
-            return CountStr;
-        }
     }
 }
