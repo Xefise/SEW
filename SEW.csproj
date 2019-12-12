@@ -66,6 +66,8 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Command\ICommand.cs" />
+    <Compile Include="Command\RelayCommand.cs" />
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\SEWContext.cs" />
     <Compile Include="UserControles\Categories.xaml.cs">
