@@ -12,16 +12,25 @@
             <Setter Property="Height" Value="25" />
         </Style>
     </UserControl.Resources>
+
     <Grid Style="{DynamicResource SGrid}" >
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*" />
             <ColumnDefinition Width="0.35*" />
         </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions >
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
 
-        <ListBox Grid.Column="0" 
+        <StackPanel Grid.Column="1">
+            <Button Command="{Binding AddCommand}" HorizontalAlignment="Right" Margin="0,0" Height="40" Width="40" Content="+"/>
+        </StackPanel>
+
+        <ListBox Grid.Column="0"
                  ItemsSource="{Binding Categories}"
                  SelectedItem="{Binding SelectedCategory}"
-                 SelectionMode="Extended">
+                 SelectionMode="Extended" Grid.RowSpan="2">
             <ListBox.ItemContainerStyle>
                 <Style TargetType="ListBoxItem">
                     <Setter Property="Template" Value="{StaticResource TListBox}" />
@@ -42,9 +51,9 @@
             </ListBox.ItemTemplate>
         </ListBox>
 
-        <StackPanel Grid.Column="1" DataContext="{Binding SelectedCategory}" Margin="5" >
+        <StackPanel Grid.Column="1" Grid.Row="1" DataContext="{Binding SelectedCategory}" Margin="5" >
             <TextBlock Margin="1" Text="Выбранная категория:" Height="20" FontSize="14"/>
-            
+
             <UniformGrid Columns="2">
                 <TextBlock Text="Название:" FontSize="12"/>
                 <TextBox Height="18" Text="{Binding Name, UpdateSourceTrigger=PropertyChanged}" />
