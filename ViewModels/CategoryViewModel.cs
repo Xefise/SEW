@@ -1,16 +1,40 @@
-﻿using System.Collections.Generic;
+﻿using DevExpress.Mvvm;
+using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using SEW.Models;
 using System.Linq;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
-using SEW.Command;
 using System.Windows;
 
 namespace SEW.ViewModels
 {
     public class CategoryViewModel : INotifyPropertyChanged
     {
+        #region Commands
+        public DelegateCommand AddCategoryCommand
+        {
+            get
+            {
+                return new DelegateCommand(() =>
+                {
+                    AddCategorySync();
+                });
+            }
+        }
+        #endregion
+        #region for commands
+        private void AddCategorySync()
+        {
+            Category category = new Category();
+            Categories.Insert(0, category);
+            using (SEWContext db = new SEWContext())
+            {
+                db.Categories.Add(category);
+                db.SaveChanges();
+            }
+        }
+        #endregion
         private Category selectedCategory { get; set; }
         public Category SelectedCategory
         {
@@ -51,6 +75,7 @@ namespace SEW.ViewModels
             Update(); // Update a property when the property changes
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(prop));
         }
+
 
 
         #region Properties

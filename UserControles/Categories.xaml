@@ -24,7 +24,7 @@
         </Grid.RowDefinitions>
 
         <StackPanel Grid.Column="1">
-            <Button Command="{Binding AddCommand}" HorizontalAlignment="Right" Margin="0,0" Height="40" Width="40" Content="+"/>
+            <Button Command="{Binding AddCategoryCommand}" HorizontalAlignment="Right" Margin="0,0" Height="40" Width="40" Content="+"/>
         </StackPanel>
 
         <ListBox Grid.Column="0"
