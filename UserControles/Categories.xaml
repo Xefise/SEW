@@ -24,11 +24,11 @@
         </Grid.RowDefinitions>
 
         <WrapPanel Grid.Column="1">
-            <Button Command="{Binding UpdateCmd}" Height="40" Width="40">
+            <Button Command="{Binding UpdateCmd}" Height="40" Width="40" Template="{StaticResource TCommand}">
                 <Image Source="UpdateIcon.png"/>
             </Button>
-            <Button Command="{Binding AddCategoryCmd}" Height="40" Width="40" Content="+"/>
-            <Button Command="{Binding RemoveCategoryCmd}" Height="40" Width="40" Content="-"/>
+            <Button Command="{Binding AddCategoryCmd}" Height="40" Width="40" Content="+" Template="{StaticResource TCommand}"/>
+            <Button Command="{Binding RemoveCategoryCmd}" Height="40" Width="40" Content="-" Template="{StaticResource TCommand}"/>
         </WrapPanel>
 
         <ListBox Grid.Column="0"
@@ -43,7 +43,7 @@
             <ListBox.ItemTemplate>
                 <DataTemplate>
                     <WrapPanel Margin="5">
-                        <CheckBox IsChecked="{Binding Path=Included}" >
+                        <CheckBox IsEnabled="False" IsChecked="{Binding Path=Included}" >
                             <CheckBox.LayoutTransform>
                                 <ScaleTransform ScaleX="1.4" ScaleY="1.4" />
                             </CheckBox.LayoutTransform>

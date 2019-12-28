@@ -68,6 +68,7 @@ namespace SEW.ViewModels
             }
         }
         #endregion
+
         private Category selectedCategory { get; set; }
         public Category SelectedCategory
         {
@@ -95,6 +96,7 @@ namespace SEW.ViewModels
 
         public void Update()
         {
+            if (selectedCategory == null) return;
             using (SEWContext db = new SEWContext())
             {
                 db.Entry(SelectedCategory).State = EntityState.Modified;
