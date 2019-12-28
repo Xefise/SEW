@@ -7,6 +7,9 @@
              xmlns:vm="clr-namespace:SEW.ViewModels"
              mc:Ignorable="d" 
              d:DesignHeight="500" d:DesignWidth="700" >
+    <UserControl.InputBindings>
+        <KeyBinding Modifiers="Ctrl" Key="S" Command="{Binding UpdateCmd}" />
+    </UserControl.InputBindings>
     <UserControl.Resources>
         <Style TargetType="UniformGrid">
             <Setter Property="Height" Value="25" />
@@ -24,11 +27,12 @@
         </Grid.RowDefinitions>
 
         <WrapPanel Grid.Column="1">
-            <Button Command="{Binding UpdateCmd}" Height="40" Width="40" Template="{StaticResource TCommand}">
-                <Image Source="UpdateIcon.png"/>
+            <Button Command="{Binding UpdateCmd}" Style="{StaticResource SCommand}" ToolTip="Сохранить(Ctrl+S)">
+                <Image Source="../Resources/UpdateIcon.png"/>
+                <!--Офигеть, оно работает:D-->
             </Button>
-            <Button Command="{Binding AddCategoryCmd}" Height="40" Width="40" Content="+" Template="{StaticResource TCommand}"/>
-            <Button Command="{Binding RemoveCategoryCmd}" Height="40" Width="40" Content="-" Template="{StaticResource TCommand}"/>
+            <Button Command="{Binding AddCategoryCmd}" Content="+" Style="{StaticResource SCommand}" ToolTip="Добавить категорию"/>
+            <Button Command="{Binding RemoveCategoryCmd}" Content="-" Style="{StaticResource SCommand}" ToolTip="Удалить категорию"/>
         </WrapPanel>
 
         <ListBox Grid.Column="0"

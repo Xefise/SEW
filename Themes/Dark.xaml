@@ -93,6 +93,11 @@
             </VisualStateManager.VisualStateGroups>
         </Border>
     </ControlTemplate>
+    <Style TargetType="Button" x:Key="SCommand">
+        <Setter Property="Height" Value="40"/>
+        <Setter Property="Width" Value="40"/>
+        <Setter Property="Template" Value="{StaticResource TCommand}"/>
+    </Style>
     <Style TargetType="ListBox">
         <Setter Property="Background" Value="#1F1F1F"/>
     </Style>
@@ -127,5 +132,9 @@
     </Style>
     <Style TargetType="Grid" x:Key="SGrid">
         <Setter Property="Background" Value="#242424"/>
+    </Style>
+    <Style TargetType="ToolTip">
+        <Setter Property="Background" Value="#202020"/>
+        <Setter Property="BorderBrush" Value="#EEE1FF"/>
     </Style>
 </ResourceDictionary>
