@@ -6,11 +6,11 @@ namespace SEW
     /// <summary>
     /// Interaction logic for Categories.xaml
     /// </summary>
-    public partial class Categories : UserControl
+    public partial class Categories : Page
     {
         public Categories()
         {
-            DataContext = new CategoryViewModel();
+            DataContext = new CategoryVM();
             InitializeComponent();
         }
     }

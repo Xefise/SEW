@@ -31,6 +31,7 @@
             </VisualStateManager.VisualStateGroups>
         </Border>
     </ControlTemplate>
+    
     <ControlTemplate TargetType="Button" x:Key="TLeftPlanel">
         <Border BorderBrush="{TemplateBinding BorderBrush}"
                 Height="{TemplateBinding Height}"
@@ -62,6 +63,16 @@
             </VisualStateManager.VisualStateGroups>
         </Border>
     </ControlTemplate>
+    <Style TargetType="Button" x:Key="SLeftPanel">
+        <Setter Property="BorderBrush" Value="#212121"/>
+        <Setter Property="Foreground" Value="#EEEEEE"/>
+        <Setter Property="Height" Value="40"/>
+        <Setter Property="HorizontalContentAlignment" Value="Left"/>
+        <Setter Property="FontSize" Value="16"/>
+        <Setter Property="FontFamily" Value="Yu Gothic UI Semibold"/>
+        <Setter Property="Template" Value="{StaticResource TLeftPlanel}"/>
+    </Style>
+    
     <ControlTemplate TargetType="Button" x:Key="TCommand">
         <Border BorderBrush="{TemplateBinding BorderBrush}"
                 Height="{TemplateBinding Height}"
@@ -100,14 +111,6 @@
     </Style>
     <Style TargetType="ListBox">
         <Setter Property="Background" Value="#1F1F1F"/>
-    </Style>
-    <Style TargetType="Button" x:Key="SLeftPanel">
-        <Setter Property="BorderBrush" Value="#212121"/>
-        <Setter Property="Foreground" Value="#EEEEEE"/>
-        <Setter Property="Height" Value="40"/>
-        <Setter Property="HorizontalContentAlignment" Value="Left"/>
-        <Setter Property="FontSize" Value="16"/>
-        <Setter Property="FontFamily" Value="Yu Gothic UI Semibold"/>
     </Style>
     <Style TargetType="Button">
         <Setter Property="Background" Value="#202020"/>

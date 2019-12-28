@@ -1,4 +1,4 @@
-﻿using System;
+﻿using DevExpress.Mvvm;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
@@ -8,7 +8,7 @@ using SEW.Models;
 
 namespace SEW.ViewModels
 {
-    public class ExampleViewModel : INotifyPropertyChanged
+    public class ExampleVM : INotifyPropertyChanged
     {
         private Example selectedExample { get; set; }
         public Example SelectedExample
@@ -22,7 +22,7 @@ namespace SEW.ViewModels
         }
 
         public ObservableCollection<Example> Examples { get; set; }
-        public ExampleViewModel()
+        public ExampleVM()
         {
             Examples = new ObservableCollection<Example>();
             using (SEWContext db = new SEWContext())

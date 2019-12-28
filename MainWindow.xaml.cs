@@ -1,16 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Data;
-using System.Windows.Input;
-using System.Windows.Media;
 
 namespace SEW
 {
-    /// <summary>
-    /// Interaction logic for MainWindow.xaml
-    /// </summary>
     public partial class MainWindow : Window
     {
         public MainWindow()
@@ -19,11 +11,18 @@ namespace SEW
             UpdateTheme();
         }
 
+        // Ну ничего же страшного что у меня главная страница без VM? :b
         public static void UpdateTheme()
         {
             ResourceDictionary resourceDict = Application.LoadComponent(new Uri($@"Themes/{Properties.Settings.Default.Theme}.xaml", UriKind.Relative)) as ResourceDictionary;
             Application.Current.Resources.Clear();
             Application.Current.Resources.MergedDictionaries.Add(resourceDict);
         }
+
+        // MultiPages
+        private void GoToLearnPage(object sender, RoutedEventArgs e) => Main.Content = new Categories();
+        private void GoToCategoriesPage(object sender, RoutedEventArgs e) => Main.Content = new Categories();
+        private void GoToStatsPage(object sender, RoutedEventArgs e) => Main.Content = new Categories();
+        private void GoToSettingsPage(object sender, RoutedEventArgs e) => Main.Content = new Categories();
     }
 }

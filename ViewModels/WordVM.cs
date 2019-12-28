@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DevExpress.Mvvm;
+using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
@@ -8,7 +9,7 @@ using SEW.Models;
 
 namespace SEW.ViewModels
 {
-    public class WordViewModel : INotifyPropertyChanged
+    public class WordVM : INotifyPropertyChanged
     {
         private Word selectedWord { get; set; }
         public Word SelectedWord
@@ -22,7 +23,7 @@ namespace SEW.ViewModels
         }
 
         public ObservableCollection<Word> Words { get; set; }
-        public WordViewModel()
+        public WordVM()
         {
             Words = new ObservableCollection<Word>();
             using (SEWContext db = new SEWContext())

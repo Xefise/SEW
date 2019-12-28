@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DevExpress.Mvvm;
+using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
@@ -8,7 +9,7 @@ using SEW.Models;
 
 namespace SEW.ViewModels
 {
-    public class DayViewModel : INotifyPropertyChanged
+    public class DayVM : INotifyPropertyChanged
     {
         private Day selectedDay { get; set; }
         public Day SelectedDay
@@ -22,7 +23,7 @@ namespace SEW.ViewModels
         }
 
         public ObservableCollection<Day> Days { get; set; }
-        public DayViewModel()
+        public DayVM()
         {
             Days = new ObservableCollection<Day>();
             using (SEWContext db = new SEWContext())

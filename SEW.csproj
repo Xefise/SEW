@@ -77,13 +77,13 @@
     </ApplicationDefinition>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\SEWContext.cs" />
-    <Compile Include="UserControles\Categories.xaml.cs">
+    <Compile Include="Views\Categories.xaml.cs">
       <DependentUpon>Categories.xaml</DependentUpon>
     </Compile>
-    <Compile Include="ViewModels\CategoryViewModel.cs" />
-    <Compile Include="ViewModels\DayViewModel.cs" />
-    <Compile Include="ViewModels\ExampleViewModel.cs" />
-    <Compile Include="ViewModels\WordViewModel.cs" />
+    <Compile Include="ViewModels\CategoryVM.cs" />
+    <Compile Include="ViewModels\DayVM.cs" />
+    <Compile Include="ViewModels\ExampleVM.cs" />
+    <Compile Include="ViewModels\WordVM.cs" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -100,7 +100,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="UserControles\Categories.xaml">
+    <Page Include="Views\Categories.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

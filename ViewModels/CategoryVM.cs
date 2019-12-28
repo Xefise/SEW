@@ -10,7 +10,7 @@ using System.Data.Entity;
 
 namespace SEW.ViewModels
 {
-    public class CategoryViewModel : INotifyPropertyChanged
+    public class CategoryVM : INotifyPropertyChanged
     {
         #region Commands
         public DelegateCommand AddCategoryCmd
@@ -81,7 +81,7 @@ namespace SEW.ViewModels
         }
 
         public ObservableCollection<Category> Categories { get; set; }
-        public CategoryViewModel()
+        public CategoryVM()
         {
             Categories = new ObservableCollection<Category>();
             using (SEWContext db = new SEWContext())
