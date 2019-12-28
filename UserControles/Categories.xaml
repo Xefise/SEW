@@ -23,9 +23,13 @@
             <RowDefinition Height="*" />
         </Grid.RowDefinitions>
 
-        <StackPanel Grid.Column="1">
-            <Button Command="{Binding AddCategoryCommand}" HorizontalAlignment="Right" Margin="0,0" Height="40" Width="40" Content="+"/>
-        </StackPanel>
+        <WrapPanel Grid.Column="1">
+            <Button Command="{Binding UpdateCmd}" Height="40" Width="40">
+                <Image Source="UpdateIcon.png"/>
+            </Button>
+            <Button Command="{Binding AddCategoryCmd}" Height="40" Width="40" Content="+"/>
+            <Button Command="{Binding RemoveCategoryCmd}" Height="40" Width="40" Content="-"/>
+        </WrapPanel>
 
         <ListBox Grid.Column="0"
                  ItemsSource="{Binding Categories}"

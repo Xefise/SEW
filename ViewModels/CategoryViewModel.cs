@@ -6,25 +6,46 @@ using System.Linq;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
 using System.Windows;
+using System.Data.Entity;
 
 namespace SEW.ViewModels
 {
     public class CategoryViewModel : INotifyPropertyChanged
     {
         #region Commands
-        public DelegateCommand AddCategoryCommand
+        public DelegateCommand AddCategoryCmd
         {
             get
             {
                 return new DelegateCommand(() =>
                 {
-                    AddCategorySync();
+                    AddCategory();
+                });
+            }
+        }
+        public DelegateCommand RemoveCategoryCmd
+        {
+            get
+            {
+                return new DelegateCommand(() =>
+                {
+                    RemoveCategory();
+                });
+            }
+        }
+        public DelegateCommand UpdateCmd
+        {
+            get
+            {
+                return new DelegateCommand(() =>
+                {
+                    Update();
                 });
             }
         }
         #endregion
         #region for commands
-        private void AddCategorySync()
+        private void AddCategory()
         {
             Category category = new Category();
             Categories.Insert(0, category);
@@ -34,6 +55,18 @@ namespace SEW.ViewModels
                 db.SaveChanges();
             }
         }
+        private void RemoveCategory()
+        {
+            using (SEWContext db = new SEWContext())
+            {
+                if (selectedCategory != null)
+                {
+                    db.Entry(selectedCategory).State = EntityState.Deleted;
+                    db.SaveChanges();
+                    Categories.Remove(selectedCategory);
+                }
+            }
+        }
         #endregion
         private Category selectedCategory { get; set; }
         public Category SelectedCategory
@@ -41,7 +74,6 @@ namespace SEW.ViewModels
             get { return selectedCategory; }
             set
             {
-                if(SelectedCategory != null)Update();
                 selectedCategory = value;
                 OnPropertyChanged("SelectedCategory");
             }
@@ -65,14 +97,13 @@ namespace SEW.ViewModels
         {
             using (SEWContext db = new SEWContext())
             {
-                db.Entry(SelectedCategory).State = System.Data.Entity.EntityState.Modified;
+                db.Entry(SelectedCategory).State = EntityState.Modified;
                 db.SaveChanges();
             }
         }
         public event PropertyChangedEventHandler PropertyChanged; // INotifyPropertyChanged
         public void OnPropertyChanged([CallerMemberName]string prop = "")
         {
-            Update(); // Update a property when the property changes
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(prop));
         }
 
