@@ -1,14 +1,14 @@
 ﻿<Page x:Class="SEW.Categories"
-             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
-             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-             xmlns:local="clr-namespace:SEW"
-             xmlns:vm="clr-namespace:SEW.ViewModels"
-             mc:Ignorable="d" 
-             d:DesignHeight="500" d:DesignWidth="700" >
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:SEW"
+      xmlns:vm="clr-namespace:SEW.ViewModels"
+      mc:Ignorable="d" 
+      d:DesignHeight="500" d:DesignWidth="700" >
     <Page.InputBindings>
-        <KeyBinding Modifiers="Ctrl" Key="S" Command="{Binding UpdateCmd}" />
+        <KeyBinding Modifiers="Ctrl" Key="s" Command="{Binding UpdateAllCmd}" />
     </Page.InputBindings>
     <Page.Resources>
         <Style TargetType="UniformGrid">
@@ -27,12 +27,14 @@
         </Grid.RowDefinitions>
 
         <WrapPanel Grid.Column="1">
-            <Button Command="{Binding UpdateCmd}" Style="{StaticResource SCommand}" ToolTip="Сохранить(Ctrl+S)">
+            <Button Command="{Binding UpdateAllCmd}" Style="{StaticResource SCommand}" ToolTip="Сохранить всё(Ctrl+S)">
                 <Image Source="../Resources/UpdateIcon.png"/>
                 <!--Офигеть, оно работает:D-->
             </Button>
-            <Button Command="{Binding AddCategoryCmd}" Content="+" Style="{StaticResource SCommand}" ToolTip="Добавить категорию"/>
-            <Button Command="{Binding RemoveCategoryCmd}" Content="-" Style="{StaticResource SCommand}" ToolTip="Удалить категорию"/>
+            <Button Command="{Binding AddCategoryCmd}"    
+                    Content="+" Style="{StaticResource SCommand}" ToolTip="Добавить категорию"/>
+            <Button Command="{Binding RemoveCategoryCmd}" 
+                    Content="-" Style="{StaticResource SCommand}" ToolTip="Удалить категорию"/>
         </WrapPanel>
 
         <ListBox Grid.Column="0"
@@ -47,7 +49,7 @@
             <ListBox.ItemTemplate>
                 <DataTemplate>
                     <WrapPanel Margin="5">
-                        <CheckBox IsEnabled="False" IsChecked="{Binding Path=Included}" >
+                        <CheckBox IsChecked="{Binding Path=Included}" >
                             <CheckBox.LayoutTransform>
                                 <ScaleTransform ScaleX="1.4" ScaleY="1.4" />
                             </CheckBox.LayoutTransform>

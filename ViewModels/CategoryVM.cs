@@ -33,13 +33,23 @@ namespace SEW.ViewModels
                 });
             }
         }
-        public DelegateCommand UpdateCmd
+        //public DelegateCommand UpdateCmd
+        //{
+        //    get
+        //    {
+        //        return new DelegateCommand(() =>
+        //        {
+        //            Update();
+        //        });
+        //    }
+        //}
+        public DelegateCommand UpdateAllCmd
         {
             get
             {
                 return new DelegateCommand(() =>
                 {
-                    Update();
+                    UpdateAll();
                 });
             }
         }
@@ -94,15 +104,29 @@ namespace SEW.ViewModels
             }
         }
 
-        public void Update()
+        #region Update
+        public void UpdateAll()
         {
-            if (selectedCategory == null) return;
             using (SEWContext db = new SEWContext())
             {
-                db.Entry(SelectedCategory).State = EntityState.Modified;
+                foreach (var item in Categories)
+                {
+                    db.Entry(item).State = EntityState.Modified;
+                }
                 db.SaveChanges();
             }
         }
+        //public void Update() // 
+        //{
+        //    if (selectedCategory == null) return;
+        //    using (SEWContext db = new SEWContext())
+        //    {
+        //        db.Entry(selectedCategory).State = EntityState.Modified;
+        //        db.SaveChanges();
+        //    }
+        //}
+        #endregion
+
         public event PropertyChangedEventHandler PropertyChanged; // INotifyPropertyChanged
         public void OnPropertyChanged([CallerMemberName]string prop = "")
         {
