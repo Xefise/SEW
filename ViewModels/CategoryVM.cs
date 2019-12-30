@@ -12,24 +12,25 @@ namespace SEW.ViewModels
 {
     public class CategoryVM : INotifyPropertyChanged
     {
+        private MainWindow mainWindow;
         #region Commands
-        public DelegateCommand AddCategoryCmd
+        public DelegateCommand AddItemCmd
         {
             get
             {
                 return new DelegateCommand(() =>
                 {
-                    AddCategory();
+                    AddItem();
                 });
             }
         }
-        public DelegateCommand RemoveCategoryCmd
+        public DelegateCommand RemoveItemCmd
         {
             get
             {
                 return new DelegateCommand(() =>
                 {
-                    RemoveCategory();
+                    RemoveItem();
                 });
             }
         }
@@ -53,9 +54,19 @@ namespace SEW.ViewModels
                 });
             }
         }
+        public DelegateCommand GoToCategoryWordsCmd
+        {
+            get
+            {
+                return new DelegateCommand(() =>
+                {
+                    GoToCategoryWords();
+                });
+            }
+        }
         #endregion
         #region for commands
-        private void AddCategory()
+        private void AddItem()
         {
             Category category = new Category();
             Categories.Insert(0, category);
@@ -64,8 +75,9 @@ namespace SEW.ViewModels
                 db.Categories.Add(category);
                 db.SaveChanges();
             }
+            SelectedCategory = category;
         }
-        private void RemoveCategory()
+        private void RemoveItem()
         {
             using (SEWContext db = new SEWContext())
             {
@@ -76,6 +88,13 @@ namespace SEW.ViewModels
                     Categories.Remove(selectedCategory);
                 }
             }
+        }
+        private void GoToCategoryWords()
+        {
+            if (SelectedCategory == null) return;
+            Properties.Settings.Default.CategoryID = SelectedCategory.ID;
+            Properties.Settings.Default.Save();
+            mainWindow.GoToWordsPage(SelectedCategory.ID);
         }
         #endregion
 
@@ -91,8 +110,9 @@ namespace SEW.ViewModels
         }
 
         public ObservableCollection<Category> Categories { get; set; }
-        public CategoryVM()
+        public CategoryVM(MainWindow main)
         {
+            mainWindow = main;
             Categories = new ObservableCollection<Category>();
             using (SEWContext db = new SEWContext())
             {
@@ -151,15 +171,15 @@ namespace SEW.ViewModels
                 MessageBox.Show("Name");
             }
         }
-        public List<Word> Words
-        {
-            get { return SelectedCategory.Words; }
-            set
-            {
-                SelectedCategory.Words = value;
-                OnPropertyChanged("Words");
-            }
-        }
+        //public List<Word> Words
+        //{
+        //    get { return SelectedCategory.Words; }
+        //    set
+        //    {
+        //        SelectedCategory.Words = value;
+        //        OnPropertyChanged("Words");
+        //    }
+        //}
         public bool Included
         {
             get { return SelectedCategory.Included; }
@@ -169,10 +189,10 @@ namespace SEW.ViewModels
                 OnPropertyChanged("Included");
             }
         }
-        public int WordCount
-        {
-            get => Words.Count;
-        }
+        //public int WordCount
+        //{
+        //    get => Words.Count;
+        //}
         #endregion
     }
 }

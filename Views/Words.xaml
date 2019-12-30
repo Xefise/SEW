@@ -1,4 +1,4 @@
-﻿<Page x:Class="SEW.Categories"
+﻿<Page x:Class="SEW.Words"
       xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
@@ -29,19 +29,16 @@
         <WrapPanel Grid.Column="1">
             <Button Command="{Binding UpdateAllCmd}" Style="{StaticResource SCommand}" ToolTip="Сохранить всё(Ctrl+S)">
                 <Image Source="../Resources/UpdateIcon.png"/>
-                <!--Офигеть, оно работает:D-->
             </Button>
-            <Button Command="{Binding AddItemCmd}"    
-                    Content="+" Style="{StaticResource SCommand}" ToolTip="Добавить категорию"/>
+            <Button Command="{Binding AddItemCmd}" 
+                    Content="+" Style="{StaticResource SCommand}" ToolTip="Добавить слово"/>
             <Button Command="{Binding RemoveItemCmd}" 
-                    Content="-" Style="{StaticResource SCommand}" ToolTip="Удалить категорию"/>
-            <Button Command="{Binding GoToCategoryWordsCmd}" 
-                    Content="Слова" Style="{StaticResource SCommand}" ToolTip="Слова"/>
+                    Content="-" Style="{StaticResource SCommand}" ToolTip="Удалить слово"/>
         </WrapPanel>
 
         <ListBox Grid.Column="0"
-                 ItemsSource="{Binding Categories}"
-                 SelectedItem="{Binding SelectedCategory}"
+                 ItemsSource="{Binding Words}"
+                 SelectedItem="{Binding SelectedWord}"
                  SelectionMode="Extended" Grid.RowSpan="2">
             <ListBox.ItemContainerStyle>
                 <Style TargetType="ListBoxItem">
@@ -51,31 +48,31 @@
             <ListBox.ItemTemplate>
                 <DataTemplate>
                     <WrapPanel Margin="5">
-                        <CheckBox IsChecked="{Binding Path=Included}" >
-                            <CheckBox.LayoutTransform>
-                                <ScaleTransform ScaleX="1.4" ScaleY="1.4" />
-                            </CheckBox.LayoutTransform>
-                        </CheckBox>
-                        <TextBlock FontSize="18" Text="{Binding Path=Name}" Margin="5, 0"/>
+                        <Border Height="5" Width="5" Background="{Binding Path=ProgressColor}" Margin="5, 0" />
+                        <TextBlock FontSize="18" Text="{Binding Path=English}" Margin="5, 0" />
+                        <TextBlock FontSize="18" Text="{Binding Path=Russian}" Margin="5, 0" />
                     </WrapPanel>
                 </DataTemplate>
             </ListBox.ItemTemplate>
         </ListBox>
 
-        <StackPanel Grid.Column="1" Grid.Row="1" DataContext="{Binding SelectedCategory}" Margin="5" >
-            <TextBlock Margin="1" Text="Выбранная категория:" Height="20" FontSize="14"/>
+        <StackPanel Grid.Column="1" Grid.Row="1" DataContext="{Binding SelectedWord}" Margin="5" >
+            <TextBlock Margin="1" Text="Выбранное слово:" Height="20" FontSize="14"/>
 
             <UniformGrid Columns="2">
-                <TextBlock Text="Название:" FontSize="12"/>
-                <TextBox Height="18" Text="{Binding Name, UpdateSourceTrigger=PropertyChanged}" />
+                <TextBlock Text="На английском:" FontSize="12"/>
+                <TextBox Height="18" Text="{Binding English, UpdateSourceTrigger=PropertyChanged}" />
             </UniformGrid>
             <UniformGrid Columns="2">
-                <TextBlock Text="Изучается:" FontSize="12"/>
-                <CheckBox IsChecked="{Binding Included, UpdateSourceTrigger=PropertyChanged}" >
-                    <CheckBox.LayoutTransform>
-                        <ScaleTransform ScaleX="1.2" ScaleY="1.2" />
-                    </CheckBox.LayoutTransform>
-                </CheckBox>
+                <TextBlock Text="На русском:" FontSize="12"/>
+                <TextBox Height="18" Text="{Binding Russian, UpdateSourceTrigger=PropertyChanged}" />
+            </UniformGrid>
+            <UniformGrid Columns="2">
+                <TextBlock Text="Транскрипция:" FontSize="12"/>
+                <TextBox Height="18" Text="{Binding Transcription, UpdateSourceTrigger=PropertyChanged}" />
+            </UniformGrid>
+            <UniformGrid >
+                <TextBlock Text="{Binding Path=ReviewString}" FontSize="12"/>
             </UniformGrid>
         </StackPanel>
     </Grid>

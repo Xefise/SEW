@@ -3,11 +3,11 @@ using System.Windows.Controls;
 
 namespace SEW
 {
-    public partial class Categories : Page
+    public partial class Words : Page
     {
-        public Categories(MainWindow main)
+        public Words(long CategoryID)
         {
-            DataContext = new CategoryVM(main);
+            DataContext = new WordVM(CategoryID);
             InitializeComponent();
         }
     }

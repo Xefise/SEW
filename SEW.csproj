@@ -84,6 +84,9 @@
     <Compile Include="ViewModels\DayVM.cs" />
     <Compile Include="ViewModels\ExampleVM.cs" />
     <Compile Include="ViewModels\WordVM.cs" />
+    <Compile Include="Views\Words.xaml.cs">
+      <DependentUpon>Words.xaml</DependentUpon>
+    </Compile>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -101,6 +104,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\Categories.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Words.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
