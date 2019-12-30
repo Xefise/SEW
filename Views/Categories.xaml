@@ -3,6 +3,7 @@
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:i="clr-namespace:System.Windows.Interactivity;assembly=System.Windows.Interactivity"
       xmlns:local="clr-namespace:SEW"
       xmlns:vm="clr-namespace:SEW.ViewModels"
       mc:Ignorable="d" 
@@ -60,6 +61,11 @@
                     </WrapPanel>
                 </DataTemplate>
             </ListBox.ItemTemplate>
+            <i:Interaction.Triggers>
+                <i:EventTrigger EventName="MouseDoubleClick">
+                    <i:InvokeCommandAction Command="{Binding GoToCategoryWordsCmd}" />
+                </i:EventTrigger>
+            </i:Interaction.Triggers>
         </ListBox>
 
         <StackPanel Grid.Column="1" Grid.Row="1" DataContext="{Binding SelectedCategory}" Margin="5" >

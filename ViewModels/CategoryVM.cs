@@ -89,12 +89,10 @@ namespace SEW.ViewModels
                 }
             }
         }
-        private void GoToCategoryWords()
+        private void GoToCategoryWords() 
         {
             if (SelectedCategory == null) return;
-            Properties.Settings.Default.CategoryID = SelectedCategory.ID;
-            Properties.Settings.Default.Save();
-            mainWindow.GoToWordsPage(SelectedCategory.ID);
+            mainWindow.GoToWordsPage(SelectedCategory.ID); //ahaahah ahah ah...
         }
         #endregion
 
@@ -112,7 +110,8 @@ namespace SEW.ViewModels
         public ObservableCollection<Category> Categories { get; set; }
         public CategoryVM(MainWindow main)
         {
-            mainWindow = main;
+            mainWindow = main; // WOW! We've main window! | For GoToCategoryWords()
+
             Categories = new ObservableCollection<Category>();
             using (SEWContext db = new SEWContext())
             {

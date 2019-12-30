@@ -34,17 +34,5 @@ namespace SEW.Properties {
                 this["Theme"] = value;
             }
         }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("0")]
-        public long CategoryID {
-            get {
-                return ((long)(this["CategoryID"]));
-            }
-            set {
-                this["CategoryID"] = value;
-            }
-        }
     }
 }
