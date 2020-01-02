@@ -26,6 +26,9 @@ namespace SEW
         private void GoToStatsPage(object sender, RoutedEventArgs e) => Main.Content = new Categories(this);
         private void GoToSettingsPage(object sender, RoutedEventArgs e) => Main.Content = new Categories(this);
 
-        public void GoToWordsPage(long ID) => Main.Content = new Words(ID);
+        // *me* *<my gun*
+        // *boom*
+        public void GoToWordsPage(long ID) => Main.Content = new Words(this, ID);
+        public void GoToExamplesPage(long ID) => Main.Content = new Examples(ID); // Чёрт, это уже не смешно..
     }
 }

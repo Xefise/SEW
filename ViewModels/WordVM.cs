@@ -12,6 +12,7 @@ namespace SEW.ViewModels
 {
     public class WordVM : INotifyPropertyChanged
     {
+        private MainWindow mainWindow;
         private long categoryID; //categoryID that gets from constructor
 
         #region Commands
@@ -55,6 +56,16 @@ namespace SEW.ViewModels
                 });
             }
         }
+        public DelegateCommand GoToWordExamplesCMD
+        {
+            get
+            {
+                return new DelegateCommand(() =>
+                {
+                    GoToWordExamples();
+                });
+            }
+        }
         #endregion
         #region for commands
         private void AddItem()
@@ -85,6 +96,11 @@ namespace SEW.ViewModels
                 }
             }
         }
+        private void GoToWordExamples()
+        {
+            if (SelectedWord == null) return;
+            mainWindow.GoToExamplesPage(SelectedWord.ID);
+        }
         #endregion
         private Word selectedWord { get; set; }
         public Word SelectedWord
@@ -98,9 +114,11 @@ namespace SEW.ViewModels
         }
 
         public ObservableCollection<Word> Words { get; set; }
-        public WordVM(long catID)
+        public WordVM(MainWindow main, long catID)
         {
+            mainWindow = main;
             categoryID = catID;
+
             Words = new ObservableCollection<Word>();
             using (SEWContext db = new SEWContext())
             {

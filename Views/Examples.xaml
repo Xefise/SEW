@@ -1,13 +1,12 @@
-﻿<Page x:Class="SEW.Words"
+﻿<Page x:Class="SEW.Examples"
       xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-      xmlns:i="clr-namespace:System.Windows.Interactivity;assembly=System.Windows.Interactivity"
       xmlns:local="clr-namespace:SEW"
-      xmlns:vm="clr-namespace:SEW.ViewModels"
       mc:Ignorable="d" 
-      d:DesignHeight="500" d:DesignWidth="700" >
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="Examples">
     <Page.InputBindings>
         <KeyBinding Modifiers="Ctrl" Key="s" Command="{Binding UpdateAllCmd}" />
     </Page.InputBindings>
@@ -32,16 +31,14 @@
                 <Image Source="../Resources/UpdateIcon.png"/>
             </Button>
             <Button Command="{Binding AddItemCmd}" 
-                    Content="+" Style="{StaticResource SCommand}" ToolTip="Добавить слово"/>
+                    Content="+" Style="{StaticResource SCommand}" ToolTip="Добавить пример"/>
             <Button Command="{Binding RemoveItemCmd}" 
-                    Content="-" Style="{StaticResource SCommand}" ToolTip="Удалить слово"/>
-            <Button Command="{Binding GoToWordExamplesCMD}" FontSize="9"
-                    Content="Примеры" Style="{StaticResource SCommand}" ToolTip="Примеры"/>
+                    Content="-" Style="{StaticResource SCommand}" ToolTip="Удалить пример"/>
         </WrapPanel>
 
         <ListBox Grid.Column="0"
-                 ItemsSource="{Binding Words}"
-                 SelectedItem="{Binding SelectedWord}"
+                 ItemsSource="{Binding Examples}"
+                 SelectedItem="{Binding SelectedExample}"
                  SelectionMode="Extended" Grid.RowSpan="2">
             <ListBox.ItemContainerStyle>
                 <Style TargetType="ListBoxItem">
@@ -50,21 +47,14 @@
             </ListBox.ItemContainerStyle>
             <ListBox.ItemTemplate>
                 <DataTemplate>
-                    <WrapPanel Margin="5">
-                        <Border Height="5" Width="5" Background="{Binding Path=ProgressColor}" Margin="5, 0" />
-                        <TextBlock FontSize="18" Text="{Binding Path=English}" Margin="5, 0" />
-                        <TextBlock FontSize="18" Text="{Binding Path=Russian}" Margin="5, 0" />
+                    <WrapPanel Margin="3">
+                        <TextBlock FontSize="16" Text="{Binding Path=English}" Margin="5, 0" />
                     </WrapPanel>
                 </DataTemplate>
             </ListBox.ItemTemplate>
-            <i:Interaction.Triggers>
-                <i:EventTrigger EventName="MouseDoubleClick">
-                    <i:InvokeCommandAction Command="{Binding GoToWordExamplesCMD}" />
-                </i:EventTrigger>
-            </i:Interaction.Triggers>
         </ListBox>
 
-        <StackPanel Grid.Column="1" Grid.Row="1" DataContext="{Binding SelectedWord}" Margin="5" >
+        <StackPanel Grid.Column="1" Grid.Row="1" DataContext="{Binding SelectedExample}" Margin="5" >
             <TextBlock Margin="1" Text="Выбранное слово:" Height="20" FontSize="14"/>
 
             <UniformGrid Columns="2">
@@ -74,13 +64,6 @@
             <UniformGrid Columns="2">
                 <TextBlock Text="На русском:" FontSize="12"/>
                 <TextBox Height="18" Text="{Binding Russian, UpdateSourceTrigger=PropertyChanged}" />
-            </UniformGrid>
-            <UniformGrid Columns="2">
-                <TextBlock Text="Транскрипция:" FontSize="12"/>
-                <TextBox Height="18" Text="{Binding Transcription, UpdateSourceTrigger=PropertyChanged}" />
-            </UniformGrid>
-            <UniformGrid >
-                <TextBlock Text="{Binding Path=ReviewString}" FontSize="12"/>
             </UniformGrid>
         </StackPanel>
     </Grid>
