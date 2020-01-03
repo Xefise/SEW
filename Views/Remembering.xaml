@@ -1,0 +1,24 @@
+﻿<Page x:Class="SEW.Remembering"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:SEW"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="Remembering" Background="#222223">
+    <Grid>
+        <TextBlock x:Name="TBlWord" HorizontalAlignment="Center" Text="TextBlock" VerticalAlignment="Top" 
+            Margin="60" FontSize="30" />
+        <TextBox x:Name="TBoxCW" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,0,110,90" Text="Перевод"
+            Width="150" Height="30" FontSize="20" />
+        <Button x:Name="BCW" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="150,0,0,90" Content="Проверить"
+            Width="100" Height="30" FontSize="16" Template="{StaticResource TCheckButton}" />
+        <TextBlock x:Name="TBlAnswer" HorizontalAlignment="Center" VerticalAlignment="Center" Text="TextBlock" 
+            Margin="0,0,0,90" FontSize="30" Visibility="Hidden" />
+        <Button x:Name="BYes" HorizontalAlignment="Center" VerticalAlignment="Center" Content="Запомнил(a)" Margin="0,200,150,0" 
+            Height="45" Width="100" Template="{StaticResource TCheckButton}" Visibility="Hidden" />
+        <Button x:Name="BNo" HorizontalAlignment="Center" VerticalAlignment="Center" Content="Повторить" Margin="150,200,0,0" 
+            Height="45" Width="100" Template="{StaticResource TCheckButton}" Visibility="Hidden" />
+    </Grid>
+</Page>

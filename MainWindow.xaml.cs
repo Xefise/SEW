@@ -10,6 +10,7 @@ namespace SEW
             InitializeComponent();
             UpdateTheme();
             Main.Content = new Categories(this);
+            Main.Content = new Remembering();
         }
 
         // Ну ничего же страшного что у меня главная страница без VM? :b
@@ -21,7 +22,7 @@ namespace SEW
         }
 
         // MultiPages
-        private void GoToLearnPage(object sender, RoutedEventArgs e) => Main.Content = new Categories(this);
+        private void GoToLearnPage(object sender, RoutedEventArgs e) => Main.Content = new Remembering();
         private void GoToCategoriesPage(object sender, RoutedEventArgs e) => Main.Content = new Categories(this);
         private void GoToStatsPage(object sender, RoutedEventArgs e) => Main.Content = new Categories(this);
         private void GoToSettingsPage(object sender, RoutedEventArgs e) => Main.Content = new Categories(this);

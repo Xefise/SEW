@@ -91,6 +91,9 @@
     <Compile Include="Views\Examples.xaml.cs">
       <DependentUpon>Examples.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\Remembering.xaml.cs">
+      <DependentUpon>Remembering.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\Words.xaml.cs">
       <DependentUpon>Words.xaml</DependentUpon>
     </Compile>
@@ -115,6 +118,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\Examples.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Remembering.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

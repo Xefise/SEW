@@ -56,7 +56,7 @@
                     </VisualState>
                     <VisualState x:Name="Pressed">
                         <Storyboard>
-                            <ColorAnimation Storyboard.TargetName="ButtonBackground" Storyboard.TargetProperty="Color" To="#151515" SpeedRatio="6"/>
+                            <ColorAnimation Storyboard.TargetName="ButtonBackground" Storyboard.TargetProperty="Color" To="#151515" SpeedRatio="8.5"/>
                         </Storyboard>
                     </VisualState>
                 </VisualStateGroup>
@@ -140,4 +140,36 @@
         <Setter Property="Background" Value="#202020"/>
         <Setter Property="BorderBrush" Value="#EEE1FF"/>
     </Style>
+
+    <ControlTemplate TargetType="Button" x:Key="TCheckButton">
+        <Border BorderBrush="#999999" BorderThickness="0.7 0.7 0.7 0.7"
+                Height="{TemplateBinding Height}"
+                Width="{TemplateBinding Width}" >
+            <Grid>
+                <Grid.Background>
+                    <SolidColorBrush x:Name="ButtonBackground" Color="#272727"/>
+                </Grid.Background>
+                <ContentPresenter HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
+            </Grid>
+            <VisualStateManager.VisualStateGroups>
+                <VisualStateGroup x:Name="CommonStates">
+                    <VisualState x:Name="Normal">
+                        <Storyboard>
+                            <ColorAnimation Storyboard.TargetName="ButtonBackground" Storyboard.TargetProperty="Color" To="#28282A" SpeedRatio="4"/>
+                        </Storyboard>
+                    </VisualState>
+                    <VisualState x:Name="MouseOver">
+                        <Storyboard>
+                            <ColorAnimation Storyboard.TargetName="ButtonBackground" Storyboard.TargetProperty="Color" To="#19191A" SpeedRatio="5"/>
+                        </Storyboard>
+                    </VisualState>
+                    <VisualState x:Name="Pressed">
+                        <Storyboard>
+                            <ColorAnimation Storyboard.TargetName="ButtonBackground" Storyboard.TargetProperty="Color" To="#151516" SpeedRatio="7"/>
+                        </Storyboard>
+                    </VisualState>
+                </VisualStateGroup>
+            </VisualStateManager.VisualStateGroups>
+        </Border>
+    </ControlTemplate>
 </ResourceDictionary>
