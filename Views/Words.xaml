@@ -51,7 +51,7 @@
             <ListBox.ItemTemplate>
                 <DataTemplate>
                     <WrapPanel Margin="5">
-                        <Border Height="5" Width="5" Background="{Binding Path=ProgressColor}" Margin="5, 0" />
+                        <Border Height="8" Width="8" Background="{Binding Path=ProgressColor}" />
                         <TextBlock FontSize="18" Text="{Binding Path=English}" Margin="5, 0" />
                         <TextBlock FontSize="18" Text="{Binding Path=Russian}" Margin="5, 0" />
                     </WrapPanel>

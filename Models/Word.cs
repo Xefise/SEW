@@ -18,5 +18,27 @@ namespace SEW.Models
         public string Transcription { get; set; }
         public string Status { get; set; }
         public List<Example> Examples { get; set; }
+
+        public string ProgressColor
+        {
+            get => CheckProgressColor();
+        }
+        private string CheckProgressColor()
+        {
+            switch (Status)
+            {
+                case "new": return "#d63a2b";
+                case "start": return "#ffca00";
+                case "learning": return "#fafc11";
+                case "almost": return "#ccff00";
+                case "learned": return "#3dc450";
+                default: return "#717171";
+            }
+        }
+        public string ReviewString
+        {
+            get => $"Повторено {Review}/7 раз";
+        }
+
     }
 }

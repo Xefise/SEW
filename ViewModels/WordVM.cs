@@ -267,7 +267,7 @@ namespace SEW.ViewModels
 
         public string ReviewString
         {
-            get => $"Повторено {Review}/7 раз";
+            get => $"Повторено {SelectedWord.Review}/7 раз";
         }
     }
 }

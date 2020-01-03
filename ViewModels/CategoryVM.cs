@@ -118,6 +118,7 @@ namespace SEW.ViewModels
                 List<Category> temp = db.Categories.ToList();
                 foreach (var item in temp)
                 {
+                    item.WordCount = db.Words.Where(c => c.CategoryID == item.ID).Count();
                     Categories.Add(item);
                 }
             }
@@ -167,7 +168,6 @@ namespace SEW.ViewModels
             {
                 SelectedCategory.Name = value;
                 OnPropertyChanged("Name");
-                MessageBox.Show("Name");
             }
         }
         //public List<Word> Words
@@ -188,10 +188,24 @@ namespace SEW.ViewModels
                 OnPropertyChanged("Included");
             }
         }
-        //public int WordCount
-        //{
-        //    get => Words.Count;
-        //}
+        public int? WordCount
+        {
+            get 
+            {
+                if (WordCount == null) return 0;
+                return SelectedCategory.WordCount; 
+            }
+            set
+            {
+                SelectedCategory.WordCount = value;
+                OnPropertyChanged("WordCount");
+            }
+        }
         #endregion
+
+        public string WCDisplay
+        {
+            get => SelectedCategory.WCDisplay;
+        }
     }
 }
