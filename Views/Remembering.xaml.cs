@@ -1,18 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Input;
 using System.Windows.Media;
-using System.Windows.Navigation;
-using System.Collections.ObjectModel;
 using SEW.Models;
-using System.ComponentModel;
-using System.Runtime.CompilerServices;
 using System.Data.Entity;
 using System.Threading;
 
@@ -39,9 +32,7 @@ namespace SEW
                 }
             }
 
-            DisplayedWord = Words.Dequeue();
-            if (DisplayedWord.Review == 0) TBlWord.Text = DisplayedWord.English;
-            else TBlWord.Text = DisplayedWord.Russian;
+            ShowNewWord();
         }
 
         private void BCW_Click(object sender, RoutedEventArgs e)
@@ -49,7 +40,7 @@ namespace SEW
             #region Check
             if (DisplayedWord.Review == 0) 
             {
-                if (TBoxCW.Text == DisplayedWord.Russian)
+                if (TBoxCW.Text.ToLower() == DisplayedWord.Russian.ToLower())
                 {
                     TBlAnswer.Foreground = Brushes.Green;
                     TBlAnswer.Text = DisplayedWord.Russian;
@@ -62,7 +53,7 @@ namespace SEW
             }
             else
             {
-                if (TBoxCW.Text == DisplayedWord.English)
+                if (TBoxCW.Text.ToLower() == DisplayedWord.English.ToLower())
                 {
                     TBlAnswer.Foreground = Brushes.Green;
                     TBlAnswer.Text = DisplayedWord.English;
@@ -160,7 +151,7 @@ namespace SEW
 
             ShowNewWord();
         }
-        private void ShowNewWord()
+        private async void ShowNewWord()
         {
             #region Change visibility
             TBlAnswer.Visibility = Visibility.Hidden;
@@ -176,8 +167,7 @@ namespace SEW
             BNo.IsEnabled = false;
             #endregion
 
-            DisplayedWord = Words.Dequeue();
-            if(DisplayedWord == null)
+            if(Words.Count == 0)
             {
                 using (SEWContext db = new SEWContext())
                 {
@@ -188,37 +178,42 @@ namespace SEW
                     }
                 }
 
-                DisplayedWord = Words.Dequeue();
-                if (DisplayedWord == null) // Если ничего нового не нашло
+                if (Words.Count == 0) // Если ничего нового не нашло
                 {
+                    TBoxCW.Visibility = Visibility.Hidden;
+                    BCW.Visibility = Visibility.Hidden;
+                    TBoxCW.IsEnabled = false;
+                    BCW.IsEnabled = false;
+                    TBlWord.Visibility = Visibility.Visible;
+
                     TBlWord.Text = "Слова для повторения закончились.\nДобавьте новые или отдохните";
-                    Task WaitingForNewWords = Task.Factory.StartNew(() => 
-                    {
-                        while (true)
-                        {
-                            Thread.Sleep(1000);
-                            using (SEWContext db = new SEWContext())
-                            {
-                                List<Word> temp = db.Words.Where(c => c.CanBeDisplayedAt < DateTime.Now).Where(c => c.Category.Included == true).ToList();
-                                foreach (var item in temp)
-                                {
-                                    Words.Enqueue(item);
-                                }
-                            }
-                            DisplayedWord = Words.Dequeue();
-                            if (DisplayedWord != null) // Если наконец нашло
-                            {
-                                ShowNewWord();
-                                break;
-                            }
-                        }
-                    });
+                    await Task.Run(() => WaitingForNewWords());
+                    ShowNewWord();
+                    return;
                 }
             }
-            else
+            DisplayedWord = Words.Dequeue();
+            if (DisplayedWord.Review == 0) TBlWord.Text = DisplayedWord.English;
+            else TBlWord.Text = DisplayedWord.Russian;
+        }
+        
+        void WaitingForNewWords()
+        {
+            while (true)
             {
-                if(DisplayedWord.Review == 0) TBlWord.Text = DisplayedWord.English;
-                else TBlWord.Text = DisplayedWord.Russian;
+                Thread.Sleep(1000);
+                using (SEWContext db = new SEWContext())
+                {
+                    List<Word> temp = db.Words.Where(c => c.CanBeDisplayedAt < DateTime.Now).Where(c => c.Category.Included == true).ToList();
+                    foreach (var item in temp)
+                    {
+                        Words.Enqueue(item);
+                    }
+                }
+                if (Words.Count != 0) // Если наконец нашло
+                {
+                    break;
+                }
             }
         }
         #endregion

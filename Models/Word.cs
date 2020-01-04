@@ -38,7 +38,7 @@ namespace SEW.Models
         }
         public string ReviewString
         {
-            get => $"Повторено {Review}/6 раз";
+            get => $"Повторено {Review}/7 раз";
         }
 
     }
