@@ -10,6 +10,7 @@
       d:DesignHeight="500" d:DesignWidth="700" >
     <Page.InputBindings>
         <KeyBinding Modifiers="Ctrl" Key="s" Command="{Binding UpdateAllCmd}" />
+        <KeyBinding Modifiers="Ctrl" Key="r" Command="{Binding ResetWordCmd}" />
     </Page.InputBindings>
     <Page.Resources>
         <Style TargetType="UniformGrid">
@@ -35,6 +36,10 @@
                     Content="+" Style="{StaticResource SCommand}" ToolTip="Добавить слово"/>
             <Button Command="{Binding RemoveItemCmd}" 
                     Content="-" Style="{StaticResource SCommand}" ToolTip="Удалить слово"/>
+            <Button Command="{Binding ResetWordCmd}" 
+                    Style="{StaticResource SCommand}" ToolTip="Сбросить прогресс слова(Ctrl+R)">
+                <Image Source="../Resources/Reset.png"/>
+            </Button>
             <Button Command="{Binding GoToWordExamplesCMD}" FontSize="9"
                     Content="Примеры" Style="{StaticResource SCommand}" ToolTip="Примеры"/>
         </WrapPanel>
@@ -51,7 +56,7 @@
             <ListBox.ItemTemplate>
                 <DataTemplate>
                     <WrapPanel Margin="5">
-                        <Border Height="8" Width="8" Background="{Binding Path=ProgressColor}" />
+                        <Border x:Name="BProgress" Height="8" Width="8" Background="{Binding Path=ProgressColor}" />
                         <TextBlock FontSize="18" Text="{Binding Path=English}" Margin="5, 0" />
                         <TextBlock FontSize="18" Text="{Binding Path=Russian}" Margin="5, 0" />
                     </WrapPanel>

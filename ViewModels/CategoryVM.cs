@@ -201,10 +201,5 @@ namespace SEW.ViewModels
             }
         }
         #endregion
-
-        public string WCDisplay
-        {
-            get => SelectedCategory.WCDisplay;
-        }
     }
 }

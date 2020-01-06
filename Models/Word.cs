@@ -28,9 +28,9 @@ namespace SEW.Models
             switch (Status)
             {
                 case "new": return "#d63a2b"; //1
-                case "start": return "#ffca00"; //2
+                case "start": return "#fc9111"; //2
                 case "learning": return "#fafc11"; //3-5
-                case "almost": return "#ccff00"; //6
+                case "almost": return "#ade61d"; //6
                 case "learned": return "#3dc450"; //7
                 case "already known": return "#7be1f0"; //7
                 default: return "#717171"; // 0

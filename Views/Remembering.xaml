@@ -13,7 +13,7 @@
         </Style>
     </Page.Resources>
     <Grid>
-        <TextBlock x:Name="TBlWord" HorizontalAlignment="Center" Text="TextBlock" VerticalAlignment="Top" 
+        <TextBlock x:Name="TBlWord" HorizontalAlignment="Center" Text="Word" VerticalAlignment="Top" 
             Margin="60" FontSize="30" />
         <TextBox x:Name="TBoxCW" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,0,110,90"
         Width="150" Height="30" FontSize="20" ToolTip="Перевод" />
@@ -30,7 +30,7 @@
                   HorizontalAlignment="Center" VerticalAlignment="Center" Width="602" Height="100" Margin="0,250,0,0"
                   ItemsSource="{Binding Examples}"
                   Background="#222222" RowBackground="#222222" AlternatingRowBackground="#222222" Foreground="#FFFFFF"
-                  AutoGenerateColumns="False" RowHeaderWidth="0" Visibility="Hidden" >
+                  AutoGenerateColumns="False" RowHeaderWidth="0" >
             <DataGrid.Columns>
                 <DataGridTextColumn Header="На английском" Binding="{Binding Path=English}" Width="300" />
                 <DataGridTextColumn Header="На русском" Binding="{Binding Path=Russian}" Width="300" />

@@ -7,7 +7,6 @@ using System.Linq;
 using System.Runtime.CompilerServices;
 using SEW.Models;
 using System.Data.Entity;
-using System.Windows;
 
 namespace SEW.ViewModels
 {
@@ -67,6 +66,16 @@ namespace SEW.ViewModels
                 });
             }
         }
+        public DelegateCommand ResetWordCmd
+        {
+            get
+            {
+                return new DelegateCommand(() =>
+                {
+                    ResetWord();
+                });
+            }
+        }
         #endregion
         #region for commands
         private void AddItem()
@@ -104,7 +113,22 @@ namespace SEW.ViewModels
             if (SelectedWord == null) return;
             mainWindow.GoToExamplesPage(SelectedWord.ID);
         }
+        private void ResetWord()
+        {
+            if (SelectedWord == null) return;
+
+            SelectedWord.Review = 0;
+            SelectedWord.Status = "";
+            SelectedWord.CanBeDisplayedAt = DateTime.Now;
+
+            using (SEWContext db = new SEWContext())
+            {
+                db.Entry(SelectedWord).State = EntityState.Modified;
+                db.SaveChanges();
+            }
+        }
         #endregion
+
         private Word selectedWord { get; set; }
         public Word SelectedWord
         {
@@ -155,6 +179,7 @@ namespace SEW.ViewModels
         //    }
         //}
         #endregion
+
         public event PropertyChangedEventHandler PropertyChanged; // INotifyPropertyChanged
         public void OnPropertyChanged([CallerMemberName]string prop = "")
         {
@@ -251,26 +276,5 @@ namespace SEW.ViewModels
             }
         }
 #endregion
-        public string ProgressColor
-        {
-            get => CheckProgressColor();
-        }
-        private string CheckProgressColor()
-        {
-            switch (Status)
-            {
-                case "new": return "#d63a2b";
-                case "start": return "#ccce2a";
-                case "learning": return "#fc9e11";
-                case "almost": return "#b2d541";
-                case "learned": return "#3dc450";
-                default: return "#717171";
-            }
-        }
-
-        public string ReviewString
-        {
-            get => $"Повторено {SelectedWord.Review}/7 раз";
-        }
     }
 }
