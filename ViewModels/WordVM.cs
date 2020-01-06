@@ -7,6 +7,7 @@ using System.Linq;
 using System.Runtime.CompilerServices;
 using SEW.Models;
 using System.Data.Entity;
+using System.Windows;
 
 namespace SEW.ViewModels
 {
@@ -72,6 +73,8 @@ namespace SEW.ViewModels
         {
             Word word = new Word
             {
+                English = "new word",
+                Russian = "новое слово",
                 CanBeDisplayedAt = DateTime.Now,
                 Review = 0,
                 CategoryID = categoryID

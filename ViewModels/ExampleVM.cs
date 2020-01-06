@@ -119,7 +119,6 @@ namespace SEW.ViewModels
             {
                 foreach (var item in Examples)
                 {
-                    MessageBox.Show($"{item.ID}  {item.English}  {item.Russian}");
                     db.Entry(item).State = EntityState.Modified;
                 }
                 db.SaveChanges();

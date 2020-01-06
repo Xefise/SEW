@@ -8,18 +8,21 @@ using System.Windows.Media;
 using SEW.Models;
 using System.Data.Entity;
 using System.Threading;
+using System.Collections.ObjectModel;
 
 namespace SEW
 {
     // О, ещё вьюха без VM
     public partial class Remembering : Page
     {
+        public ObservableCollection<Example> Examples { get; set; }
         public Queue<Word> Words;
         public Word DisplayedWord;
 
         public Remembering()
         {
             InitializeComponent();
+            DataContext = this;
 
             Words = new Queue<Word>();
 
@@ -40,7 +43,7 @@ namespace SEW
             #region Check
             if (DisplayedWord.Review == 0) 
             {
-                if (TBoxCW.Text.ToLower() == DisplayedWord.Russian.ToLower())
+                if (DisplayedWord.Russian.ToLower().IndexOf(TBoxCW.Text.ToLower()) != -1 && TBoxCW.Text != "")
                 {
                     TBlAnswer.Foreground = Brushes.Green;
                     TBlAnswer.Text = DisplayedWord.Russian;
@@ -50,10 +53,13 @@ namespace SEW
                     TBlAnswer.Foreground = Brushes.Red;
                     TBlAnswer.Text = DisplayedWord.Russian;
                 }
+
+                BYes.Content = "Пропустить";
+                BNo.Content = "Изучать";
             }
             else
             {
-                if (TBoxCW.Text.ToLower() == DisplayedWord.English.ToLower())
+                if (DisplayedWord.English.ToLower().IndexOf(TBoxCW.Text.ToLower()) != -1 && TBoxCW.Text != "")
                 {
                     TBlAnswer.Foreground = Brushes.Green;
                     TBlAnswer.Text = DisplayedWord.English;
@@ -63,6 +69,9 @@ namespace SEW
                     TBlAnswer.Foreground = Brushes.Red;
                     TBlAnswer.Text = DisplayedWord.English;
                 }
+
+                BYes.Content = "Запомнил(а)";
+                BNo.Content = "Повторить";
             }
             TBoxCW.Text = "";
             #endregion
@@ -72,12 +81,14 @@ namespace SEW
             BCW.Visibility = Visibility.Hidden;
             BYes.Visibility = Visibility.Visible;
             BNo.Visibility = Visibility.Visible;
+            if(Examples.Count != 0) DGExamples.Visibility = Visibility.Visible;
 
             TBlAnswer.IsEnabled = true;
             TBoxCW.IsEnabled = false;
             BCW.IsEnabled = false;
             BYes.IsEnabled = true;
             BNo.IsEnabled = true;
+            if (Examples.Count != 0) DGExamples.IsEnabled = true;
             #endregion
         }
 
@@ -159,15 +170,17 @@ namespace SEW
             BCW.Visibility = Visibility.Visible;
             BYes.Visibility = Visibility.Hidden;
             BNo.Visibility = Visibility.Hidden;
+            DGExamples.Visibility = Visibility.Hidden;
 
             TBlAnswer.IsEnabled = false;
             TBoxCW.IsEnabled = true;
             BCW.IsEnabled = true;
             BYes.IsEnabled = false;
             BNo.IsEnabled = false;
+            DGExamples.IsEnabled = false;
             #endregion
 
-            if(Words.Count == 0)
+            if (Words.Count == 0)
             {
                 using (SEWContext db = new SEWContext())
                 {
@@ -193,6 +206,15 @@ namespace SEW
                 }
             }
             DisplayedWord = Words.Dequeue();
+            Examples = new ObservableCollection<Example>();
+            using (SEWContext db = new SEWContext())
+            {
+                List<Example> temp = db.Examples.Where(c => c.WordID == DisplayedWord.ID).ToList();
+                foreach (var item in temp)
+                {
+                    Examples.Add(item);
+                }
+            }
             if (DisplayedWord.Review == 0) TBlWord.Text = DisplayedWord.English;
             else TBlWord.Text = DisplayedWord.Russian;
         }

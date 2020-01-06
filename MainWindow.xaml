@@ -6,7 +6,11 @@
         xmlns:local="clr-namespace:SEW"
         mc:Ignorable="d"
         Title="SEW - Study English Words"
-        Height="500" Width="900" ResizeMode="CanResizeWithGrip" MinWidth="760" MinHeight="420"
+        
+        Height="500" Width="900" ResizeMode="CanResizeWithGrip"
+        MinWidth="760" MinHeight="420"
+        MaxWidth="1280" MaxHeight="720"
+        
         Background="#222222" >
     <DockPanel>
         <Border DockPanel.Dock="Left" Width="150">
