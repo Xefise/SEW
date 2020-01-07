@@ -89,6 +89,8 @@ namespace SEW
             BYes.IsEnabled = true;
             BNo.IsEnabled = true;
             if (Examples.Count != 0) DGExamples.IsEnabled = true;
+
+            DGExamples.IsReadOnly = true;
             #endregion
         }
 
@@ -207,6 +209,7 @@ namespace SEW
             }
             DisplayedWord = Words.Dequeue();
             Examples = new ObservableCollection<Example>();
+            DGExamples.IsReadOnly = false;
             using (SEWContext db = new SEWContext())
             {
                 List<Example> temp = db.Examples.Where(c => c.WordID == DisplayedWord.ID).ToList();
@@ -215,6 +218,7 @@ namespace SEW
                     Examples.Add(item);
                 }
             }
+
             if (DisplayedWord.Review == 0) TBlWord.Text = DisplayedWord.English;
             else TBlWord.Text = DisplayedWord.Russian;
         }

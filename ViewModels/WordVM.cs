@@ -121,6 +121,8 @@ namespace SEW.ViewModels
             SelectedWord.Status = "";
             SelectedWord.CanBeDisplayedAt = DateTime.Now;
 
+            if(Properties.Settings.Default.TTResetShowed == false) System.Windows.MessageBox.Show("Прогресс сброшен! (Это сообщение больше не появится)");
+
             using (SEWContext db = new SEWContext())
             {
                 db.Entry(SelectedWord).State = EntityState.Modified;

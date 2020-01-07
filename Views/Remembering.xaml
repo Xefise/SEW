@@ -32,8 +32,10 @@
                   Background="#222222" RowBackground="#222222" AlternatingRowBackground="#222222" Foreground="#FFFFFF"
                   AutoGenerateColumns="False" RowHeaderWidth="0" >
             <DataGrid.Columns>
-                <DataGridTextColumn Header="На английском" Binding="{Binding Path=English}" Width="300" />
-                <DataGridTextColumn Header="На русском" Binding="{Binding Path=Russian}" Width="300" />
+                <DataGridTextColumn Header="На английском" Binding="{Binding Path=English}" 
+                                    Width="300" MaxWidth="300" MinWidth="300" />
+                <DataGridTextColumn Header="На русском" Binding="{Binding Path=Russian}" 
+                                    Width="300" MaxWidth="300" MinWidth="300" />
             </DataGrid.Columns>
         </DataGrid>
     </Grid>
