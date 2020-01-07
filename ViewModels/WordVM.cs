@@ -121,7 +121,11 @@ namespace SEW.ViewModels
             SelectedWord.Status = "";
             SelectedWord.CanBeDisplayedAt = DateTime.Now;
 
-            if(Properties.Settings.Default.TTResetShowed == false) System.Windows.MessageBox.Show("Прогресс сброшен! (Это сообщение больше не появится)");
+            if (Properties.Settings.Default.TTResetShowed == false) 
+            { 
+                System.Windows.MessageBox.Show("Прогресс сброшен! (Это сообщение больше не появится)"); 
+                Properties.Settings.Default.TTResetShowed = true; 
+            }
 
             using (SEWContext db = new SEWContext())
             {
@@ -277,6 +281,6 @@ namespace SEW.ViewModels
                 OnPropertyChanged("Examples");
             }
         }
-#endregion
+        #endregion
     }
 }

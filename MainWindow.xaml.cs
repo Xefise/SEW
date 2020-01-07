@@ -1,4 +1,6 @@
-﻿using System;
+﻿using SEW.Models;
+using System;
+using System.Data.Entity;
 using System.Windows;
 
 namespace SEW
@@ -7,6 +9,11 @@ namespace SEW
     {
         public MainWindow()
         {
+            using (SEWContext db = new SEWContext())
+            {
+                Database.SetInitializer(new CreateDatabaseIfNotExists<SEWContext>());
+            }
+
             InitializeComponent();
             UpdateTheme();
             Main.Content = new Categories(this);
