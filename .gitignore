@@ -1,4 +1,4 @@
 .vs
 obj
 packages/
-bin/
+bin/Release/
