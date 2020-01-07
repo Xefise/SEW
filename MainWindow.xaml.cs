@@ -9,11 +9,6 @@ namespace SEW
     {
         public MainWindow()
         {
-            using (SEWContext db = new SEWContext())
-            {
-                Database.SetInitializer(new CreateDatabaseIfNotExists<SEWContext>());
-            }
-
             InitializeComponent();
             UpdateTheme();
             Main.Content = new Categories(this);
