@@ -5,7 +5,7 @@ using SEW.Models;
 using System.Linq;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
-using System.Data.Entity;
+using Microsoft.EntityFrameworkCore;
 
 namespace SEW.ViewModels
 {

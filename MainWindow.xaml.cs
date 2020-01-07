@@ -1,6 +1,5 @@
 ﻿using SEW.Models;
 using System;
-using System.Data.Entity;
 using System.Windows;
 
 namespace SEW

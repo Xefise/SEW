@@ -6,6 +6,7 @@ using System.ComponentModel;
 using System.Linq;
 using System.Runtime.CompilerServices;
 using SEW.Models;
+using Microsoft.EntityFrameworkCore;
 
 namespace SEW.ViewModels
 {
@@ -40,7 +41,7 @@ namespace SEW.ViewModels
         {
             using (SEWContext db = new SEWContext())
             {
-                db.Entry(selectedDay).State = System.Data.Entity.EntityState.Modified;
+                db.Entry(selectedDay).State = EntityState.Modified;
                 db.SaveChanges();
             }
         }

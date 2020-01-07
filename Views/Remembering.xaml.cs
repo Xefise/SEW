@@ -6,9 +6,9 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media;
 using SEW.Models;
-using System.Data.Entity;
 using System.Threading;
 using System.Collections.ObjectModel;
+using Microsoft.EntityFrameworkCore;
 
 namespace SEW
 {

@@ -5,8 +5,8 @@ using System.ComponentModel;
 using System.Linq;
 using System.Runtime.CompilerServices;
 using SEW.Models;
-using System.Data.Entity;
 using System.Windows;
+using Microsoft.EntityFrameworkCore;
 
 namespace SEW.ViewModels
 {
