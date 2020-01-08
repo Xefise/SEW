@@ -7,6 +7,7 @@ using System.Linq;
 using System.Runtime.CompilerServices;
 using SEW.Models;
 using Microsoft.EntityFrameworkCore;
+using System.Windows.Forms;
 
 namespace SEW.ViewModels
 {
@@ -32,7 +33,11 @@ namespace SEW.ViewModels
             {
                 return new DelegateCommand(() =>
                 {
-                    RemoveItem();
+                    DialogResult dialogResult = MessageBox.Show("Вы точно хотите удалить это слово?", "Подтверждение", MessageBoxButtons.YesNo);
+                    if (dialogResult == DialogResult.Yes)
+                    {
+                        RemoveItem();
+                    }
                 });
             }
         }

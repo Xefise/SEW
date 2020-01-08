@@ -6,6 +6,7 @@ using System.Linq;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
 using Microsoft.EntityFrameworkCore;
+using System.Windows.Forms;
 
 namespace SEW.ViewModels
 {
@@ -29,7 +30,11 @@ namespace SEW.ViewModels
             {
                 return new DelegateCommand(() =>
                 {
-                    RemoveItem();
+                    DialogResult dialogResult = MessageBox.Show("Вы точно хотите удалить эту категорию?", "Подтверждение", MessageBoxButtons.YesNo);
+                    if (dialogResult == DialogResult.Yes)
+                    {
+                        RemoveItem();
+                    }
                 });
             }
         }
