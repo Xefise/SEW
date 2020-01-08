@@ -179,6 +179,7 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Models\SEWContext.cs" />
+    <Compile Include="ViewModels\SearchWordVM.cs" />
     <Compile Include="Views\Categories.xaml.cs">
       <DependentUpon>Categories.xaml</DependentUpon>
     </Compile>
@@ -191,6 +192,9 @@
     </Compile>
     <Compile Include="Views\Remembering.xaml.cs">
       <DependentUpon>Remembering.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\SearchPage.xaml.cs">
+      <DependentUpon>SearchPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\Words.xaml.cs">
       <DependentUpon>Words.xaml</DependentUpon>
@@ -220,6 +224,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\Remembering.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\SearchPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -264,6 +272,9 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Resources\Reset.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Search.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

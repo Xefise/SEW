@@ -25,6 +25,7 @@ namespace SEW
         // MultiPages
         private void GoToLearnPage(object sender, RoutedEventArgs e) => Main.Content = new Remembering();
         private void GoToCategoriesPage(object sender, RoutedEventArgs e) => Main.Content = new Categories(this);
+        private void GoToSearchPage(object sender, RoutedEventArgs e) => Main.Content = new Search(this);
         private void GoToStatsPage(object sender, RoutedEventArgs e) => Main.Content = new Categories(this);
         private void GoToSettingsPage(object sender, RoutedEventArgs e) => Main.Content = new Categories(this);
 
@@ -32,5 +33,6 @@ namespace SEW
         // *boom*
         public void GoToWordsPage(long ID) => Main.Content = new Words(this, ID);
         public void GoToExamplesPage(long ID) => Main.Content = new Examples(ID); // Чёрт, это уже не смешно..
+
     }
 }
