@@ -17,8 +17,8 @@
             <StackPanel>
                 <Button Content="   Учить" Style="{DynamicResource SLeftPanel}" Click="GoToLearnPage" />
                 <Button Content="   Категории" Style="{DynamicResource SLeftPanel}" Click="GoToCategoriesPage" />
-                <Button Content="   Статистика" Style="{DynamicResource SLeftPanel}" Click="GoToStatsPage" />
-                <Button Content="   Настройки" Style="{DynamicResource SLeftPanel}" Click="GoToSettingsPage" />
+                <Button Content="   Статистика" Style="{DynamicResource SLeftPanel}" Click="GoToStatsPage" Visibility="Hidden" />
+                <Button Content="   Настройки" Style="{DynamicResource SLeftPanel}" Click="GoToSettingsPage" Visibility="Hidden" />
             </StackPanel>
         </Border>
         <Grid>

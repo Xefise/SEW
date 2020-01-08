@@ -44,30 +44,32 @@
                     Content="Примеры" Style="{StaticResource SCommand}" ToolTip="Примеры"/>
         </WrapPanel>
 
-        <ListBox Grid.Column="0"
+        <ScrollViewer Grid.Column="0" Grid.RowSpan="2" >
+            <ListBox Grid.Column="0"
                  ItemsSource="{Binding Words}"
                  SelectedItem="{Binding SelectedWord}"
                  SelectionMode="Extended" Grid.RowSpan="2">
-            <ListBox.ItemContainerStyle>
-                <Style TargetType="ListBoxItem">
-                    <Setter Property="Template" Value="{StaticResource TListBox}" />
-                </Style>
-            </ListBox.ItemContainerStyle>
-            <ListBox.ItemTemplate>
-                <DataTemplate>
-                    <WrapPanel Margin="5">
-                        <Border x:Name="BProgress" Height="8" Width="8" Background="{Binding Path=ProgressColor}" />
-                        <TextBlock FontSize="18" Text="{Binding Path=English}" Margin="5, 0" />
-                        <TextBlock FontSize="18" Text="{Binding Path=Russian}" Margin="5, 0" />
-                    </WrapPanel>
-                </DataTemplate>
-            </ListBox.ItemTemplate>
-            <i:Interaction.Triggers>
-                <i:EventTrigger EventName="MouseDoubleClick">
-                    <i:InvokeCommandAction Command="{Binding GoToWordExamplesCMD}" />
-                </i:EventTrigger>
-            </i:Interaction.Triggers>
-        </ListBox>
+                <ListBox.ItemContainerStyle>
+                    <Style TargetType="ListBoxItem">
+                        <Setter Property="Template" Value="{StaticResource TListBox}" />
+                    </Style>
+                </ListBox.ItemContainerStyle>
+                <ListBox.ItemTemplate>
+                    <DataTemplate>
+                        <WrapPanel Margin="5">
+                            <Border x:Name="BProgress" Height="8" Width="8" Background="{Binding Path=ProgressColor}" />
+                            <TextBlock FontSize="18" Text="{Binding Path=English}" Margin="5, 0" />
+                            <TextBlock FontSize="18" Text="{Binding Path=Russian}" Margin="5, 0" />
+                        </WrapPanel>
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
+                <i:Interaction.Triggers>
+                    <i:EventTrigger EventName="MouseDoubleClick">
+                        <i:InvokeCommandAction Command="{Binding GoToWordExamplesCMD}" />
+                    </i:EventTrigger>
+                </i:Interaction.Triggers>
+            </ListBox>
+        </ScrollViewer>
 
         <StackPanel Grid.Column="1" Grid.Row="1" DataContext="{Binding SelectedWord}" Margin="5" >
             <TextBlock Margin="1" Text="Выбранное слово:" Height="20" FontSize="14"/>
