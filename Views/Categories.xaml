@@ -40,36 +40,34 @@
                     Content="Слова" Style="{StaticResource SCommand}" ToolTip="Слова"/>
         </WrapPanel>
 
-        <ScrollViewer Grid.Column="0" Grid.RowSpan="2" >
-            <ListBox Grid.Column="0"
+        <ListBox Grid.Column="0"
                  ItemsSource="{Binding Categories}"
                  SelectedItem="{Binding SelectedCategory}"
                  SelectionMode="Extended" Grid.RowSpan="2">
-                <ListBox.ItemContainerStyle>
-                    <Style TargetType="ListBoxItem">
-                        <Setter Property="Template" Value="{StaticResource TListBox}" />
-                    </Style>
-                </ListBox.ItemContainerStyle>
-                <ListBox.ItemTemplate>
-                    <DataTemplate>
-                        <WrapPanel Margin="5">
-                            <CheckBox IsChecked="{Binding Path=Included}" >
-                                <CheckBox.LayoutTransform>
-                                    <ScaleTransform ScaleX="1.4" ScaleY="1.4" />
-                                </CheckBox.LayoutTransform>
-                            </CheckBox>
-                            <TextBlock FontSize="18" Text="{Binding Path=Name}" Margin="10, 0"/>
-                            <TextBlock FontSize="18" Text="{Binding Path=WCDisplay}" Margin="20, 0"/>
-                        </WrapPanel>
-                    </DataTemplate>
-                </ListBox.ItemTemplate>
-                <i:Interaction.Triggers>
-                    <i:EventTrigger EventName="MouseDoubleClick">
-                        <i:InvokeCommandAction Command="{Binding GoToCategoryWordsCmd}" />
-                    </i:EventTrigger>
-                </i:Interaction.Triggers>
-            </ListBox>
-        </ScrollViewer>
+            <ListBox.ItemContainerStyle>
+                <Style TargetType="ListBoxItem">
+                    <Setter Property="Template" Value="{StaticResource TListBox}" />
+                </Style>
+            </ListBox.ItemContainerStyle>
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <WrapPanel Margin="5">
+                        <CheckBox IsChecked="{Binding Path=Included}" >
+                            <CheckBox.LayoutTransform>
+                                <ScaleTransform ScaleX="1.4" ScaleY="1.4" />
+                            </CheckBox.LayoutTransform>
+                        </CheckBox>
+                        <TextBlock FontSize="18" Text="{Binding Path=Name}" Margin="10, 0"/>
+                        <TextBlock FontSize="18" Text="{Binding Path=WCDisplay}" Margin="20, 0"/>
+                    </WrapPanel>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+            <i:Interaction.Triggers>
+                <i:EventTrigger EventName="MouseDoubleClick">
+                    <i:InvokeCommandAction Command="{Binding GoToCategoryWordsCmd}" />
+                </i:EventTrigger>
+            </i:Interaction.Triggers>
+        </ListBox>
 
         <StackPanel Grid.Column="1" Grid.Row="1" DataContext="{Binding SelectedCategory}" Margin="5" >
             <TextBlock Margin="1" Text="Выбранная категория:" Height="20" FontSize="14"/>

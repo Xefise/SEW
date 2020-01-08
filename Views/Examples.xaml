@@ -36,25 +36,23 @@
                     Content="-" Style="{StaticResource SCommand}" ToolTip="Удалить пример"/>
         </WrapPanel>
 
-        <ScrollViewer Grid.Column="0" Grid.RowSpan="2" >
-            <ListBox Grid.Column="0"
+        <ListBox Grid.Column="0"
                  ItemsSource="{Binding Examples}"
                  SelectedItem="{Binding SelectedExample}"
                  SelectionMode="Extended" Grid.RowSpan="2">
-                <ListBox.ItemContainerStyle>
-                    <Style TargetType="ListBoxItem">
-                        <Setter Property="Template" Value="{StaticResource TListBox}" />
-                    </Style>
-                </ListBox.ItemContainerStyle>
-                <ListBox.ItemTemplate>
-                    <DataTemplate>
-                        <WrapPanel Margin="3">
-                            <TextBlock FontSize="16" Text="{Binding Path=English}" Margin="5, 0" />
-                        </WrapPanel>
-                    </DataTemplate>
-                </ListBox.ItemTemplate>
-            </ListBox>
-        </ScrollViewer>
+            <ListBox.ItemContainerStyle>
+                <Style TargetType="ListBoxItem">
+                    <Setter Property="Template" Value="{StaticResource TListBox}" />
+                </Style>
+            </ListBox.ItemContainerStyle>
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <WrapPanel Margin="3">
+                        <TextBlock FontSize="16" Text="{Binding Path=English}" Margin="5, 0" />
+                    </WrapPanel>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
 
         <StackPanel Grid.Column="1" Grid.Row="1" DataContext="{Binding SelectedExample}" Margin="5" >
             <TextBlock Margin="1" Text="Выбранное слово:" Height="20" FontSize="14"/>
