@@ -1,2 +1,9 @@
 # SEW - Study English Words!
-The program is still under development:(
+Чтобы пользоваться этогой прогой, закиньте её в любой не системный диск или в какую-нибудь папку пользователя. Можете сделать ярлык и поставить его на рабочий стол.
+#### Dependences
+- NetFramework 4.6.2 Download: https://www.microsoft.com/ru-RU/download/details.aspx?id=53344
+#### ToDo
+- Пару категорий
+- Темы
+- Примеры к словам из категорий типа "Топ 10000000 слов"
+- Статистика
