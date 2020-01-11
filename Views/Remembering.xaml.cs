@@ -62,12 +62,12 @@ namespace SEW
                 if (DisplayedWord.English.ToLower().IndexOf(TBoxCW.Text.ToLower()) != -1 && TBoxCW.Text != "")
                 {
                     TBlAnswer.Foreground = Brushes.Green;
-                    TBlAnswer.Text = DisplayedWord.English;
+                    TBlAnswer.Text = DisplayedWord.English + DisplayedWord.Transcription;
                 }
                 else
                 {
                     TBlAnswer.Foreground = Brushes.Red;
-                    TBlAnswer.Text = DisplayedWord.English;
+                    TBlAnswer.Text = DisplayedWord.English + DisplayedWord.Transcription;
                 }
 
                 BYes.Content = "Запомнил(а)";
@@ -219,7 +219,7 @@ namespace SEW
                 }
             }
 
-            if (DisplayedWord.Review == 0) TBlWord.Text = DisplayedWord.English;
+            if (DisplayedWord.Review == 0) TBlWord.Text = DisplayedWord.English + DisplayedWord.Transcription;
             else TBlWord.Text = DisplayedWord.Russian;
         }
         
