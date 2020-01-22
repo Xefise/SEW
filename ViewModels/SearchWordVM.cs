@@ -135,7 +135,7 @@ namespace SEW.ViewModels
 
             using (SEWContext db = new SEWContext())
             {
-                List<Word> temp = db.Words.ToList();
+                List<Word> temp = db.Words.OrderByDescending(c => c.Review).ToList();
                 foreach (var item in temp)
                 {
                     if(item.English.ToLower().Contains(SearchText.ToLower()) || item.Russian.ToLower().Contains(SearchText.ToLower()))

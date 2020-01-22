@@ -160,7 +160,7 @@ namespace SEW.ViewModels
             Words = new ObservableCollection<Word>();
             using (SEWContext db = new SEWContext())
             {
-                List<Word> temp = db.Words.Where(c => c.CategoryID == categoryID).ToList();
+                List<Word> temp = db.Words.Where(c => c.CategoryID == categoryID).OrderByDescending(c => c.Review).ToList();
                 foreach (var item in temp)
                 {
                     Words.Add(item);

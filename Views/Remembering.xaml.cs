@@ -25,17 +25,10 @@ namespace SEW
             DataContext = this;
 
             Words = new Queue<Word>();
-
-            using (SEWContext db = new SEWContext())
-            {
-                List<Word> temp = db.Words.Where(c => c.CanBeDisplayedAt < DateTime.Now).Where(c => c.Category.Included == true).ToList();
-                foreach (var item in temp)
-                {
-                    Words.Enqueue(item);
-                }
-            }
-
+            AddWords();
             ShowNewWord();
+
+            Task.Run(() => UpdateWordsList());
         }
 
         private void BCW_Click(object sender, RoutedEventArgs e)
@@ -186,11 +179,7 @@ namespace SEW
             {
                 using (SEWContext db = new SEWContext())
                 {
-                    List<Word> temp = db.Words.Where(c => c.CanBeDisplayedAt < DateTime.Now).Where(c => c.Category.Included == true).ToList();
-                    foreach (var item in temp)
-                    {
-                        Words.Enqueue(item);
-                    }
+                    AddWords();
                 }
 
                 if (Words.Count == 0) // Если ничего нового не нашло
@@ -228,17 +217,37 @@ namespace SEW
             while (true)
             {
                 Thread.Sleep(1000);
-                using (SEWContext db = new SEWContext())
-                {
-                    List<Word> temp = db.Words.Where(c => c.CanBeDisplayedAt < DateTime.Now).Where(c => c.Category.Included == true).ToList();
-                    foreach (var item in temp)
-                    {
-                        Words.Enqueue(item);
-                    }
-                }
+                AddWords();
                 if (Words.Count != 0) // Если наконец нашло
                 {
                     break;
+                }
+            }
+        }
+
+        void AddWords()
+        {
+            using (SEWContext db = new SEWContext())
+            {
+                List<Word> temp = db.Words.Where(c => c.CanBeDisplayedAt < DateTime.Now).Where(c => c.Category.Included == true).OrderByDescending(c => c.Review).ToList();
+                foreach (var item in temp)
+                {
+                    Words.Enqueue(item);
+                }
+            }
+        }
+
+        void UpdateWordsList() // Пересобираем список каждые ~2min
+        {
+            Thread.Sleep(111111);
+
+            Words.Clear();
+            using (SEWContext db = new SEWContext())
+            {
+                List<Word> temp = db.Words.Where(c => c.CanBeDisplayedAt < DateTime.Now).Where(c => c.Category.Included == true).OrderByDescending(c => c.Review).ToList();
+                foreach (var item in temp)
+                {
+                    Words.Enqueue(item);
                 }
             }
         }
