@@ -55,7 +55,7 @@
         </ListBox>
 
         <StackPanel Grid.Column="1" Grid.Row="1" DataContext="{Binding SelectedExample}" Margin="5" >
-            <TextBlock Margin="1" Text="Выбранное слово:" Height="20" FontSize="14"/>
+            <TextBlock Margin="1" Text="Выбранный пример:" Height="20" FontSize="14"/>
 
             <UniformGrid Columns="2">
                 <TextBlock Text="На английском:" FontSize="12"/>
