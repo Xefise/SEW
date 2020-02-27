@@ -1,10 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using SEW.ViewModels.KindOfMagic;
 
 namespace SEW.Models
 {
-    public class Word
+    public class Word : PropertyChangedMagic
     {
         [Key] public long ID { get; set; }
         public string English { get; set; }

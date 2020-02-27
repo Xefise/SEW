@@ -3,14 +3,13 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using SEW.Models;
 using System.Linq;
-using System.ComponentModel;
-using System.Runtime.CompilerServices;
 using Microsoft.EntityFrameworkCore;
 using System.Windows.Forms;
+using SEW.ViewModels.KindOfMagic;
 
 namespace SEW.ViewModels
 {
-    public class CategoryVM : INotifyPropertyChanged
+    public class CategoryVM : PropertyChangedMagic
     {
         private MainWindow mainWindow;
         #region Commands
@@ -85,11 +84,11 @@ namespace SEW.ViewModels
         {
             using (SEWContext db = new SEWContext())
             {
-                if (selectedCategory != null)
+                if (SelectedCategory != null)
                 {
-                    db.Entry(selectedCategory).State = EntityState.Deleted;
+                    db.Entry(SelectedCategory).State = EntityState.Deleted;
                     db.SaveChanges();
-                    Categories.Remove(selectedCategory);
+                    Categories.Remove(SelectedCategory);
                 }
             }
         }
@@ -100,16 +99,7 @@ namespace SEW.ViewModels
         }
         #endregion
 
-        private Category selectedCategory { get; set; }
-        public Category SelectedCategory
-        {
-            get { return selectedCategory; }
-            set
-            {
-                selectedCategory = value;
-                OnPropertyChanged("SelectedCategory");
-            }
-        }
+        public Category SelectedCategory { get; set; }
 
         public ObservableCollection<Category> Categories { get; set; }
         public CategoryVM(MainWindow main)
@@ -151,60 +141,13 @@ namespace SEW.ViewModels
         //}
         #endregion
 
-        public event PropertyChangedEventHandler PropertyChanged; // INotifyPropertyChanged
-        public void OnPropertyChanged([CallerMemberName]string prop = "")
-        {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(prop));
-        }
-
-
 
         #region Properties
-        public long ID
-        {
-            get { return SelectedCategory.ID; }
-            set { SelectedCategory.ID = value; }
-        }
-        public string Name
-        {
-            get { return SelectedCategory.Name; }
-            set
-            {
-                SelectedCategory.Name = value;
-                OnPropertyChanged("Name");
-            }
-        }
-        //public List<Word> Words
-        //{
-        //    get { return SelectedCategory.Words; }
-        //    set
-        //    {
-        //        SelectedCategory.Words = value;
-        //        OnPropertyChanged("Words");
-        //    }
-        //}
-        public bool Included
-        {
-            get { return SelectedCategory.Included; }
-            set
-            {
-                SelectedCategory.Included = value;
-                OnPropertyChanged("Included");
-            }
-        }
-        public int? WordCount
-        {
-            get 
-            {
-                if (WordCount == null) return 0;
-                return SelectedCategory.WordCount; 
-            }
-            set
-            {
-                SelectedCategory.WordCount = value;
-                OnPropertyChanged("WordCount");
-            }
-        }
+        public long ID { get; set; }
+        public string Name { get; set; }
+        //public List<Word> Words{ get; set; }
+        public bool Included { get; set; }
+        public int? WordCount { get; set; }
         #endregion
     }
 }

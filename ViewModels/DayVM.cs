@@ -1,26 +1,16 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.ComponentModel;
 using System.Linq;
-using System.Runtime.CompilerServices;
 using SEW.Models;
 using Microsoft.EntityFrameworkCore;
+using SEW.ViewModels.KindOfMagic;
 
 namespace SEW.ViewModels
 {
-    public class DayVM : INotifyPropertyChanged
+    public class DayVM : PropertyChangedMagic
     {
-        private Day selectedDay { get; set; }
-        public Day SelectedDay
-        {
-            get { return selectedDay; }
-            set
-            {
-                selectedDay = value;
-                OnPropertyChanged("SelectedDay");
-            }
-        }
+        public Day SelectedDay { get; set; }
 
         public ObservableCollection<Day> Days { get; set; }
         public DayVM()
@@ -40,77 +30,19 @@ namespace SEW.ViewModels
         {
             using (SEWContext db = new SEWContext())
             {
-                db.Entry(selectedDay).State = EntityState.Modified;
+                db.Entry(SelectedDay).State = EntityState.Modified;
                 db.SaveChanges();
             }
         }
-        public event PropertyChangedEventHandler PropertyChanged; // INotifyPropertyChanged
-        public void OnPropertyChanged([CallerMemberName]string prop = "")
-        {
-            Update(); // Update a property when the property changes
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(prop));
-        }
 
         #region Properties
-        public long ID
-        {
-            get { return SelectedDay.ID; }
-            set { SelectedDay.ID = value; }
-        }
-        public DateTime Date
-        {
-            get { return SelectedDay.Date; }
-            set
-            {
-                SelectedDay.Date = value;
-                OnPropertyChanged("Date");
-            }
-        }
-        public int AlReadyKnown
-        {
-            get { return SelectedDay.AlReadyKnown; }
-            set
-            {
-                SelectedDay.AlReadyKnown = value;
-                OnPropertyChanged("AlReadyKnown");
-            }
-        }
-        public int NewWords
-        {
-            get { return SelectedDay.NewWords; }
-            set
-            {
-                SelectedDay.NewWords = value;
-                OnPropertyChanged("NewWords");
-            }
-        }
-        public int Reviewed
-        {
-            get { return SelectedDay.Reviewed; }
-            set
-            {
-                SelectedDay.Reviewed = value;
-                OnPropertyChanged("Reviewed");
-            }
-        }
-        //public int Learned
-        //{
-        //    get { return SelectedDay.Learned; }
-        //    set
-        //    {
-        //        SelectedDay.Learned = value;
-        //        OnPropertyChanged("Learned");
-        //    }
-        //}
-        public int Score
-        {
-            get { return SelectedDay.Score; }
-            set
-            {
-                SelectedDay.Score = value;
-                OnPropertyChanged("Score");
-            }
-        }
+        public long ID { get; set; }
+        public DateTime Date { get; set; }
+        public int AlReadyKnown { get; set; }
+        public int NewWords { get; set; }
+        public int Reviewed { get; set; }
+        //public int Learned{ get; set; }
+        public int Score { get; set; }
         #endregion
     }
 }

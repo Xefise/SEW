@@ -1,9 +1,10 @@
-﻿using System;
+﻿using SEW.ViewModels.KindOfMagic;
+using System;
 using System.ComponentModel.DataAnnotations;
 
 namespace SEW.Models
 {
-    public class Day
+    public class Day : PropertyChangedMagic
     {
         [Key] public long ID { get; set; }
         public DateTime Date { get; set; }

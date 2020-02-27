@@ -1,16 +1,15 @@
 ﻿using DevExpress.Mvvm;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.ComponentModel;
 using System.Linq;
-using System.Runtime.CompilerServices;
 using SEW.Models;
 using Microsoft.EntityFrameworkCore;
 using System.Windows.Forms;
+using SEW.ViewModels.KindOfMagic;
 
 namespace SEW.ViewModels
 {
-    public class ExampleVM : INotifyPropertyChanged
+    public class ExampleVM : PropertyChangedMagic
     {
         private long wordID;
 
@@ -79,26 +78,17 @@ namespace SEW.ViewModels
         {
             using (SEWContext db = new SEWContext())
             {
-                if (selectedExample != null)
+                if (SelectedExample != null)
                 {
-                    db.Entry(selectedExample).State = EntityState.Deleted;
+                    db.Entry(SelectedExample).State = EntityState.Deleted;
                     db.SaveChanges();
-                    Examples.Remove(selectedExample);
+                    Examples.Remove(SelectedExample);
                 }
             }
         }
         #endregion
 
-        private Example selectedExample { get; set; }
-        public Example SelectedExample
-        {
-            get { return selectedExample; }
-            set
-            {
-                selectedExample = value;
-                OnPropertyChanged("SelectedExample");
-            }
-        }
+        public Example SelectedExample { get; set; }
 
         public ObservableCollection<Example> Examples { get; set; }
         public ExampleVM(long wordid)
@@ -139,55 +129,13 @@ namespace SEW.ViewModels
         //}
         #endregion
 
-        public event PropertyChangedEventHandler PropertyChanged; // INotifyPropertyChanged
-        public void OnPropertyChanged([CallerMemberName]string prop = "")
-        {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(prop));
-        }
-
         #region Properties
-        public long ID
-        {
-            get { return SelectedExample.ID; }
-            set { SelectedExample.ID = value; }
-        }
-        public string English
-        {
-            get { return SelectedExample.English; }
-            set
-            {
-                SelectedExample.English = value;
-                OnPropertyChanged("English");
-            }
-        }
-        public string Russian
-        {
-            get { return SelectedExample.Russian; }
-            set
-            {
-                SelectedExample.Russian = value;
-                OnPropertyChanged("Russian");
-            }
-        }
+        public long ID { get; set; }
+        public string English { get; set; }
+        public string Russian { get; set; }
 
-        public long WordID
-        {
-            get { return SelectedExample.WordID; }
-            set
-            {
-                SelectedExample.WordID = value;
-                OnPropertyChanged("WordID");
-            }
-        }
-        //public Word Word
-        //{
-        //    get { return SelectedExample.Word; }
-        //    set
-        //    {
-        //        SelectedExample.Word = value;
-        //        OnPropertyChanged("Word");
-        //    }
-        //}
+        public long WordID { get; set; }
+        //public Word Word { get; set; }
         #endregion
     }
 }

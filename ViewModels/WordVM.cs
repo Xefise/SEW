@@ -2,16 +2,15 @@
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.ComponentModel;
 using System.Linq;
-using System.Runtime.CompilerServices;
 using SEW.Models;
 using Microsoft.EntityFrameworkCore;
 using System.Windows.Forms;
+using SEW.ViewModels.KindOfMagic;
 
 namespace SEW.ViewModels
 {
-    public class WordVM : INotifyPropertyChanged
+    public class WordVM : PropertyChangedMagic
     {
         private MainWindow mainWindow;
         private long categoryID; //categoryID that gets from constructor
@@ -105,11 +104,11 @@ namespace SEW.ViewModels
         {
             using (SEWContext db = new SEWContext())
             {
-                if (selectedWord != null)
+                if (SelectedWord != null)
                 {
-                    db.Entry(selectedWord).State = EntityState.Deleted;
+                    db.Entry(SelectedWord).State = EntityState.Deleted;
                     db.SaveChanges();
-                    Words.Remove(selectedWord);
+                    Words.Remove(SelectedWord);
                 }
             }
         }
@@ -140,16 +139,7 @@ namespace SEW.ViewModels
         }
         #endregion
 
-        private Word selectedWord { get; set; }
-        public Word SelectedWord
-        {
-            get { return selectedWord; }
-            set
-            {
-                selectedWord = value;
-                OnPropertyChanged("SelectedWord");
-            }
-        }
+        public Word SelectedWord { get; set; }
 
         public ObservableCollection<Word> Words { get; set; }
         public WordVM(MainWindow main, long catID)
@@ -191,101 +181,19 @@ namespace SEW.ViewModels
         //}
         #endregion
 
-        public event PropertyChangedEventHandler PropertyChanged; // INotifyPropertyChanged
-        public void OnPropertyChanged([CallerMemberName]string prop = "")
-        {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(prop));
-        }
-
         #region Properties
-        public long ID
-        {
-            get { return SelectedWord.ID; }
-            set { SelectedWord.ID = value; }
-        }
-        public string English
-        {
-            get { return SelectedWord.English; }
-            set
-            {
-                SelectedWord.English = value;
-                OnPropertyChanged("English");
-            }
-        }
-        public string Russian
-        {
-            get { return SelectedWord.Russian; }
-            set
-            {
-                SelectedWord.Russian = value;
-                OnPropertyChanged("Russian");
-            }
-        }
-        public DateTime CanBeDisplayedAt
-        {
-            get { return SelectedWord.CanBeDisplayedAt; }
-            set
-            {
-                SelectedWord.CanBeDisplayedAt = value;
-                OnPropertyChanged("CanBeDisplayedAt");
-            }
-        }
-        public byte Review
-        {
-            get { return SelectedWord.Review; }
-            set
-            {
-                SelectedWord.Review = value;
-                OnPropertyChanged("Review");
-            }
-        }
+        public long ID { get; set; }
+        public string English { get; set; }
+        public string Russian { get; set; }
+        public DateTime CanBeDisplayedAt { get; set; }
+        public byte Review { get; set; }
 
-        public long CategoryID
-        {
-            get { return SelectedWord.CategoryID; }
-            set
-            {
-                SelectedWord.CategoryID = value;
-                OnPropertyChanged("CategoryID");
-            }
-        }
-        public Category Category
-        {
-            get { return SelectedWord.Category; }
-            set
-            {
-                SelectedWord.Category = value;
-                OnPropertyChanged("Category");
-            }
-        }
+        public long CategoryID { get; set; }
+        public Category Category { get; set; }
 
-        public string Transcription
-        {
-            get { return SelectedWord.Transcription; }
-            set
-            {
-                SelectedWord.Transcription = value;
-                OnPropertyChanged("Transcription");
-            }
-        }
-        public string Status
-        {
-            get { return SelectedWord.Status; }
-            set
-            {
-                SelectedWord.Status = value;
-                OnPropertyChanged("Status");
-            }
-        }
-        public List<Example> Examples
-        {
-            get { return SelectedWord.Examples; }
-            set
-            {
-                SelectedWord.Examples = value;
-                OnPropertyChanged("Examples");
-            }
-        }
+        public string Transcription { get; set; }
+        public string Status { get; set; }
+        public List<Example> Examples { get; set; }
         #endregion
     }
 }
