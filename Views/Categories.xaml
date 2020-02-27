@@ -20,24 +20,24 @@
     <Grid Style="{DynamicResource SGrid}" >
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*" />
-            <ColumnDefinition Width="0.35*" />
+            <ColumnDefinition Width="200" />
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions >
             <RowDefinition Height="40"/>
             <RowDefinition Height="*" />
         </Grid.RowDefinitions>
 
-        <WrapPanel Grid.Column="1">
+        <WrapPanel Grid.Column="1" HorizontalAlignment="Right">
             <Button Command="{Binding UpdateAllCmd}" Style="{StaticResource SCommand}" ToolTip="Сохранить всё(Ctrl+S)">
                 <Image Source="../Resources/UpdateIcon.png"/>
                 <!--Офигеть, оно работает:D-->
             </Button>
             <Button Command="{Binding AddItemCmd}"    
-                    Content="+" Style="{StaticResource SCommand}" ToolTip="Добавить категорию"/>
+                    Content="+" Style="{StaticResource SCommand}" ToolTip="Добавить категорию" FontSize="20" />
             <Button Command="{Binding RemoveItemCmd}" 
-                    Content="-" Style="{StaticResource SCommand}" ToolTip="Удалить категорию"/>
-            <Button Command="{Binding GoToCategoryWordsCmd}" 
-                    Content="Слова" Style="{StaticResource SCommand}" ToolTip="Слова"/>
+                    Content="-" Style="{StaticResource SCommand}" ToolTip="Удалить категорию" FontSize="20" />
+            <Button Command="{Binding GoToCategoryWordsCmd}" FontSize="20"
+                    Content="➤" Style="{StaticResource SCommand}" ToolTip="Слова" />
         </WrapPanel>
 
         <ListBox Grid.Column="0"

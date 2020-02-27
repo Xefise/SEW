@@ -26,13 +26,13 @@
             <RowDefinition Height="*" />
         </Grid.RowDefinitions>
 
-        <WrapPanel Grid.Column="1">
+        <WrapPanel Grid.Column="1" HorizontalAlignment="Right">
             <Button Command="{Binding UpdateAllCmd}" Style="{StaticResource SCommand}" ToolTip="Сохранить всё(Ctrl+S)">
                 <Image Source="../Resources/UpdateIcon.png"/>
             </Button>
-            <Button Command="{Binding AddItemCmd}" 
+            <Button Command="{Binding AddItemCmd}" FontSize="20"
                     Content="+" Style="{StaticResource SCommand}" ToolTip="Добавить пример"/>
-            <Button Command="{Binding RemoveItemCmd}" 
+            <Button Command="{Binding RemoveItemCmd}" FontSize="20"
                     Content="-" Style="{StaticResource SCommand}" ToolTip="Удалить пример"/>
         </WrapPanel>
 

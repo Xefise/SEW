@@ -22,25 +22,25 @@
     <Grid Style="{DynamicResource SGrid}" >
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*" />
-            <ColumnDefinition Width="0.35*" />
+            <ColumnDefinition Width="200" />
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions >
             <RowDefinition Height="40"/>
             <RowDefinition Height="*" />
         </Grid.RowDefinitions>
 
-        <WrapPanel Grid.Column="1">
+        <WrapPanel Grid.Column="1" HorizontalAlignment="Right">
             <Button Command="{Binding UpdateAllCmd}" Style="{StaticResource SCommand}" ToolTip="Сохранить всё(Ctrl+S)">
                 <Image Source="../Resources/UpdateIcon.png"/>
             </Button>
-            <Button Command="{Binding RemoveItemCmd}" 
+            <Button Command="{Binding RemoveItemCmd}" FontSize="20"
                     Content="-" Style="{StaticResource SCommand}" ToolTip="Удалить слово"/>
             <Button Command="{Binding ResetWordCmd}" 
                     Style="{StaticResource SCommand}" ToolTip="Сбросить прогресс слова(Ctrl+R)">
                 <Image Source="../Resources/Reset.png"/>
             </Button>
-            <Button Command="{Binding GoToWordExamplesCMD}" FontSize="9"
-                    Content="Примеры" Style="{StaticResource SCommand}" ToolTip="Примеры"/>
+            <Button Command="{Binding GoToWordExamplesCMD}" FontSize="20"
+                    Content="➤" Style="{StaticResource SCommand}" ToolTip="Примеры"/>
         </WrapPanel>
 
         <WrapPanel Grid.Column="0" Grid.Row="0">

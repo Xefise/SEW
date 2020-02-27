@@ -21,7 +21,7 @@
     <Grid Style="{DynamicResource SGrid}" >
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*" />
-            <ColumnDefinition Width="0.35*" />
+            <ColumnDefinition Width="200" />
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions >
             <RowDefinition Height="40"/>
@@ -33,15 +33,15 @@
                 <Image Source="../Resources/UpdateIcon.png"/>
             </Button>
             <Button Command="{Binding AddItemCmd}" 
-                    Content="+" Style="{StaticResource SCommand}" ToolTip="Добавить слово"/>
+                    Content="+" Style="{StaticResource SCommand}" ToolTip="Добавить слово" FontSize="20" />
             <Button Command="{Binding RemoveItemCmd}" 
-                    Content="-" Style="{StaticResource SCommand}" ToolTip="Удалить слово"/>
+                    Content="-" Style="{StaticResource SCommand}" ToolTip="Удалить слово" FontSize="20" />
             <Button Command="{Binding ResetWordCmd}" 
                     Style="{StaticResource SCommand}" ToolTip="Сбросить прогресс слова(Ctrl+R)">
                 <Image Source="../Resources/Reset.png"/>
             </Button>
-            <Button Command="{Binding GoToWordExamplesCMD}" FontSize="9"
-                    Content="Примеры" Style="{StaticResource SCommand}" ToolTip="Примеры"/>
+            <Button Command="{Binding GoToWordExamplesCMD}" FontSize="20"
+                    Content="➤" Style="{StaticResource SCommand}" ToolTip="Примеры"/>
         </WrapPanel>
 
         <ListBox Grid.Column="0"
