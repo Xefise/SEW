@@ -103,7 +103,7 @@ namespace SEW.ViewModels
         {
             if (SelectedWord == null) return;
 
-            SelectedWord.Review = 0;
+            SelectedWord.Progress = 0;
             SelectedWord.Status = "";
             SelectedWord.CanBeDisplayedAt = DateTime.Now;
 
@@ -125,7 +125,7 @@ namespace SEW.ViewModels
 
             using (SEWContext db = new SEWContext())
             {
-                List<Word> temp = db.Words.OrderByDescending(c => c.Review).ToList();
+                List<Word> temp = db.Words.OrderByDescending(c => c.Progress).ToList();
                 foreach (var item in temp)
                 {
                     if(item.English.ToLower().Contains(SearchText.ToLower()) || item.Russian.ToLower().Contains(SearchText.ToLower()))

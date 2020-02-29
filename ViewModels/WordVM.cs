@@ -89,7 +89,7 @@ namespace SEW.ViewModels
                 English = "new word",
                 Russian = "новое слово",
                 CanBeDisplayedAt = DateTime.Now,
-                Review = 0,
+                Progress = 0,
                 CategoryID = categoryID
             };
             Words.Insert(0, word);
@@ -121,7 +121,7 @@ namespace SEW.ViewModels
         {
             if (SelectedWord == null) return;
 
-            SelectedWord.Review = 0;
+            SelectedWord.Progress = 0;
             SelectedWord.Status = "";
             SelectedWord.CanBeDisplayedAt = DateTime.Now;
 
@@ -150,7 +150,7 @@ namespace SEW.ViewModels
             Words = new ObservableCollection<Word>();
             using (SEWContext db = new SEWContext())
             {
-                List<Word> temp = db.Words.Where(c => c.CategoryID == categoryID).OrderByDescending(c => c.Review).ToList();
+                List<Word> temp = db.Words.Where(c => c.CategoryID == categoryID).OrderByDescending(c => c.Progress).ToList();
                 foreach (var item in temp)
                 {
                     Words.Add(item);
@@ -186,7 +186,7 @@ namespace SEW.ViewModels
         public string English { get; set; }
         public string Russian { get; set; }
         public DateTime CanBeDisplayedAt { get; set; }
-        public byte Review { get; set; }
+        public byte Progress { get; set; }
 
         public long CategoryID { get; set; }
         public Category Category { get; set; }

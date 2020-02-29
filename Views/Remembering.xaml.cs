@@ -34,7 +34,7 @@ namespace SEW
         private void BCW_Click(object sender, RoutedEventArgs e)
         {
             #region Check
-            if (DisplayedWord.Review == 0) 
+            if (DisplayedWord.Progress == 0) 
             {
                 if (DisplayedWord.Russian.ToLower().IndexOf(TBoxCW.Text.ToLower()) != -1 && TBoxCW.Text != "")
                 {
@@ -96,38 +96,38 @@ namespace SEW
         {
             if (Reply) 
             {
-                switch (DisplayedWord.Review)
+                switch (DisplayedWord.Progress)
                 {
                     case 0:
-                        DisplayedWord.Review = 7;
+                        DisplayedWord.Progress = 7;
                         DisplayedWord.CanBeDisplayedAt = DateTime.MaxValue;
                         DisplayedWord.Status = "already known";
                         break;
                     case 1:
-                        DisplayedWord.Review = 2;
+                        DisplayedWord.Progress = 2;
                         DisplayedWord.CanBeDisplayedAt = DateTime.Now.AddMinutes(20);
                         if(DisplayedWord.Status != "learning") DisplayedWord.Status = "start";
                         break;
                     case 2:
-                        DisplayedWord.Review = 3;
+                        DisplayedWord.Progress = 3;
                         DisplayedWord.CanBeDisplayedAt = DateTime.Now.AddDays(1);
                         DisplayedWord.Status = "learning";
                         break;
                     case 3:
-                        DisplayedWord.Review = 4;
+                        DisplayedWord.Progress = 4;
                         DisplayedWord.CanBeDisplayedAt = DateTime.Now.AddDays(2);
                         break;
                     case 4:
-                        DisplayedWord.Review = 5;
+                        DisplayedWord.Progress = 5;
                         DisplayedWord.CanBeDisplayedAt = DateTime.Now.AddDays(14);
                         break;
                     case 5:
-                        DisplayedWord.Review = 6;
+                        DisplayedWord.Progress = 6;
                         DisplayedWord.CanBeDisplayedAt = DateTime.Now.AddDays(60);
                         DisplayedWord.Status = "almost";
                         break;
                     case 6:
-                        DisplayedWord.Review = 7;
+                        DisplayedWord.Progress = 7;
                         DisplayedWord.CanBeDisplayedAt = DateTime.MaxValue;
                         DisplayedWord.Status = "learned";
                         break;
@@ -135,15 +135,15 @@ namespace SEW
             }
             else
             {
-                if(DisplayedWord.Review == 0)
+                if(DisplayedWord.Progress == 0)
                 {
-                    DisplayedWord.Review = 1;
+                    DisplayedWord.Progress = 1;
                     DisplayedWord.CanBeDisplayedAt = DateTime.Now.AddMinutes(2);
                     DisplayedWord.Status = "new";
                 }
                 else
                 {
-                    DisplayedWord.Review = 1;
+                    DisplayedWord.Progress = 1;
                     DisplayedWord.CanBeDisplayedAt = DateTime.Now.AddMinutes(2);
                     DisplayedWord.Status = "learning";
                 }
@@ -208,7 +208,7 @@ namespace SEW
                 }
             }
 
-            if (DisplayedWord.Review == 0) TBlWord.Text = DisplayedWord.English + DisplayedWord.Transcription;
+            if (DisplayedWord.Progress == 0) TBlWord.Text = DisplayedWord.English + DisplayedWord.Transcription;
             else TBlWord.Text = DisplayedWord.Russian;
         }
         
@@ -229,7 +229,7 @@ namespace SEW
         {
             using (SEWContext db = new SEWContext())
             {
-                List<Word> temp = db.Words.Where(c => c.CanBeDisplayedAt < DateTime.Now).Where(c => c.Category.Included == true).OrderByDescending(c => c.Review).ToList();
+                List<Word> temp = db.Words.Where(c => c.CanBeDisplayedAt < DateTime.Now).Where(c => c.Category.Included == true).OrderByDescending(c => c.Progress).ToList();
                 foreach (var item in temp)
                 {
                     Words.Enqueue(item);
@@ -244,7 +244,7 @@ namespace SEW
             Words.Clear();
             using (SEWContext db = new SEWContext())
             {
-                List<Word> temp = db.Words.Where(c => c.CanBeDisplayedAt < DateTime.Now).Where(c => c.Category.Included == true).OrderByDescending(c => c.Review).ToList();
+                List<Word> temp = db.Words.Where(c => c.CanBeDisplayedAt < DateTime.Now).Where(c => c.Category.Included == true).OrderByDescending(c => c.Progress).ToList();
                 foreach (var item in temp)
                 {
                     Words.Enqueue(item);

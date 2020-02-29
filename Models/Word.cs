@@ -11,7 +11,7 @@ namespace SEW.Models
         public string English { get; set; }
         public string Russian { get; set; }
         public DateTime CanBeDisplayedAt { get; set; }
-        public byte Review { get; set; }
+        public byte Progress { get; set; }
 
         public long CategoryID { get; set; }
         public Category Category { get; set; }
@@ -39,7 +39,7 @@ namespace SEW.Models
         }
         public string ReviewString
         {
-            get => $"Повторено {Review}/7 раз";
+            get => $"Прогресс: {Progress}/7";
         }
 
     }
