@@ -35,10 +35,8 @@
             </Button>
             <Button Command="{Binding RemoveItemCmd}" FontSize="20"
                     Content="-" Style="{StaticResource SCommand}" ToolTip="Удалить слово"/>
-            <Button Command="{Binding ResetWordCmd}" 
-                    Style="{StaticResource SCommand}" ToolTip="Сбросить прогресс слова(Ctrl+R)">
-                <Image Source="../Resources/Reset.png"/>
-            </Button>
+            <Button Command="{Binding ResetWordCmd}" Content="⟲" FontSize="26"
+                    Style="{StaticResource SCommand}" ToolTip="Сбросить прогресс слова(Ctrl+R)"/>
             <Button Command="{Binding GoToWordExamplesCMD}" FontSize="20"
                     Content="➤" Style="{StaticResource SCommand}" ToolTip="Примеры"/>
         </WrapPanel>
@@ -50,10 +48,9 @@
                      Width="300" Height="25" Margin="6" FontSize="16"
                      Text="{Binding SearchText, UpdateSourceTrigger=PropertyChanged}" />
             <Button Width="35" Height="30" 
-                    Command="{Binding SearchWordsCMD}"
-                    Style="{StaticResource SCommand}" ToolTip="Найти">
-                <Image Source="../Resources/Search.png"/>
-            </Button>
+                    Command="{Binding SearchWordsCMD}" Content="🔍" FontSize="18"
+                    Style="{StaticResource SCommand}" ToolTip="Найти"/>
+
         </WrapPanel>
 
         <ListBox Grid.Column="0" Grid.Row="1"

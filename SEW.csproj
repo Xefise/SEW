@@ -225,6 +225,10 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="Themes\Light.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="Themes\Dark.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -282,9 +286,6 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Resources\UpdateIcon.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Resources\Reset.png" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Resources\Search.png" />

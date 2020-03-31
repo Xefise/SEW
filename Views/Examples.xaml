@@ -16,7 +16,7 @@
         </Style>
     </Page.Resources>
 
-    <Grid Style="{DynamicResource SGrid}" >
+    <Grid Style="{StaticResource SGrid}" >
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*" />
             <ColumnDefinition Width="0.35*" />

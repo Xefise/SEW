@@ -36,10 +36,8 @@
                     Content="+" Style="{StaticResource SCommand}" ToolTip="Добавить слово" FontSize="20" />
             <Button Command="{Binding RemoveItemCmd}" 
                     Content="-" Style="{StaticResource SCommand}" ToolTip="Удалить слово" FontSize="20" />
-            <Button Command="{Binding ResetWordCmd}" 
-                    Style="{StaticResource SCommand}" ToolTip="Сбросить прогресс слова(Ctrl+R)">
-                <Image Source="../Resources/Reset.png"/>
-            </Button>
+            <Button Command="{Binding ResetWordCmd}" Content="⟲" FontSize="26"
+                    Style="{StaticResource SCommand}" ToolTip="Сбросить прогресс слова(Ctrl+R)"/>
             <Button Command="{Binding GoToWordExamplesCMD}" FontSize="20"
                     Content="➤" Style="{StaticResource SCommand}" ToolTip="Примеры"/>
         </WrapPanel>
