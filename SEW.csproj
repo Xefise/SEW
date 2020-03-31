@@ -186,6 +186,10 @@
     <Compile Include="Migrations\20200229142454_WordProgress.designer.cs">
       <DependentUpon>20200229142454_WordProgress.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\20200331091952_RemoveDay.cs" />
+    <Compile Include="Migrations\20200331091952_RemoveDay.designer.cs">
+      <DependentUpon>20200331091952_RemoveDay.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\SEWContextModelSnapshot.cs" />
     <Compile Include="Models\SEWContext.cs" />
     <Compile Include="ViewModels\KindOfMagic\MagicAttribute.cs" />
@@ -195,7 +199,6 @@
       <DependentUpon>Categories.xaml</DependentUpon>
     </Compile>
     <Compile Include="ViewModels\CategoryVM.cs" />
-    <Compile Include="ViewModels\DayVM.cs" />
     <Compile Include="ViewModels\ExampleVM.cs" />
     <Compile Include="ViewModels\WordVM.cs" />
     <Compile Include="Views\Examples.xaml.cs">
@@ -249,7 +252,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Models\Category.cs" />
-    <Compile Include="Models\Day.cs" />
     <Compile Include="Models\Example.cs" />
     <Compile Include="Models\Word.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">

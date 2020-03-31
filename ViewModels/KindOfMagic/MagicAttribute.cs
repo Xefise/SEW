@@ -2,5 +2,5 @@
 
 namespace SEW.ViewModels.KindOfMagic
 {
-    class MagicAttribute : Attribute { }
+    class MagicAttribute : Attribute { } // I'VE TAKEN THE MAGIC STICK!
 }

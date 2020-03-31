@@ -14,7 +14,7 @@ namespace SEW
             Main.Content = new Remembering();
         }
 
-        // Ну ничего же страшного что у меня главная страница без VM? :b
+        // It's okay that my main window doesn't have VM. Isn't it? :b
         public static void UpdateTheme()
         {
             ResourceDictionary resourceDict = Application.LoadComponent(new Uri($@"Themes/{Properties.Settings.Default.Theme}.xaml", UriKind.Relative)) as ResourceDictionary;
@@ -26,13 +26,12 @@ namespace SEW
         private void GoToLearnPage(object sender, RoutedEventArgs e) => Main.Content = new Remembering();
         private void GoToCategoriesPage(object sender, RoutedEventArgs e) => Main.Content = new Categories(this);
         private void GoToSearchPage(object sender, RoutedEventArgs e) => Main.Content = new WordSearch(this);
-        //private void GoToStatsPage(object sender, RoutedEventArgs e) => Main.Content = new Days(this);
         //private void GoToSettingsPage(object sender, RoutedEventArgs e) => Main.Content = new Categories(this);
 
         // *me* *<my gun*
         // *boom*
         public void GoToWordsPage(long ID) => Main.Content = new Words(this, ID);
-        public void GoToExamplesPage(long ID) => Main.Content = new Examples(ID); // Чёрт, это уже не смешно..
+        public void GoToExamplesPage(long ID) => Main.Content = new Examples(ID); // Damn, it's not funny anymore:d
 
     }
 }

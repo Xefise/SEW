@@ -10,7 +10,6 @@ namespace SEW.Models
         }
 
         public DbSet<Category> Categories { get; set; }
-        public DbSet<Day> Days { get; set; }
         public DbSet<Example> Examples { get; set; }
         public DbSet<Word> Words { get; set; }
 
