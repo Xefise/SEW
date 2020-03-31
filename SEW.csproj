@@ -190,7 +190,7 @@
     <Compile Include="Models\SEWContext.cs" />
     <Compile Include="ViewModels\KindOfMagic\MagicAttribute.cs" />
     <Compile Include="ViewModels\KindOfMagic\PropertyChangedMagic.cs" />
-    <Compile Include="ViewModels\SearchWordVM.cs" />
+    <Compile Include="ViewModels\WordSearchVM.cs" />
     <Compile Include="Views\Categories.xaml.cs">
       <DependentUpon>Categories.xaml</DependentUpon>
     </Compile>
@@ -204,8 +204,8 @@
     <Compile Include="Views\Remembering.xaml.cs">
       <DependentUpon>Remembering.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\SearchPage.xaml.cs">
-      <DependentUpon>SearchPage.xaml</DependentUpon>
+    <Compile Include="Views\WordSearch.xaml.cs">
+      <DependentUpon>WordSearch.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\Words.xaml.cs">
       <DependentUpon>Words.xaml</DependentUpon>
@@ -238,7 +238,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\SearchPage.xaml">
+    <Page Include="Views\WordSearch.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

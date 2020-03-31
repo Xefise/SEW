@@ -10,7 +10,7 @@ using SEW.ViewModels.KindOfMagic;
 
 namespace SEW.ViewModels
 {
-    public class SearchWordVM : PropertyChangedMagic
+    public class WordSearchVM : PropertyChangedMagic
     {
         private MainWindow mainWindow;
         public string SearchText { get; set; }
@@ -138,7 +138,7 @@ namespace SEW.ViewModels
         public Word SelectedWord { get; set; }
 
         public ObservableCollection<Word> Words { get; set; }
-        public SearchWordVM(MainWindow main)
+        public WordSearchVM(MainWindow main)
         {
             mainWindow = main;
 

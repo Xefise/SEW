@@ -18,8 +18,8 @@
                 <Button Content="   Учить" Style="{DynamicResource SLeftPanel}" Click="GoToLearnPage" />
                 <Button Content="   Категории" Style="{DynamicResource SLeftPanel}" Click="GoToCategoriesPage" />
                 <Button Content="   Найти слово" Style="{DynamicResource SLeftPanel}" Click="GoToSearchPage" />
-                <Button Content="   Статистика" Style="{DynamicResource SLeftPanel}" Click="GoToStatsPage" Visibility="Hidden" />
-                <Button Content="   Настройки" Style="{DynamicResource SLeftPanel}" Click="GoToSettingsPage" Visibility="Hidden" />
+                <!--<Button Content="   Статистика" Style="{DynamicResource SLeftPanel}" Click="GoToStatsPage" Visibility="Hidden" />
+                <Button Content="   Настройки" Style="{DynamicResource SLeftPanel}" Click="GoToSettingsPage" Visibility="Hidden" />-->
             </StackPanel>
         </Border>
         <Grid>
