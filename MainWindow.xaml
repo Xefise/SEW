@@ -9,16 +9,14 @@
         
         Height="500" Width="950" ResizeMode="CanResizeWithGrip"
         MinWidth="760" MinHeight="420"
-        MaxWidth="1280" MaxHeight="720"
-        
-        Background="#222222" >
+        MaxWidth="1280" MaxHeight="720" >
     <DockPanel>
         <Border DockPanel.Dock="Left" Width="150">
             <StackPanel>
                 <Button Content="   Учить" Style="{DynamicResource SLeftPanel}" Click="GoToLearnPage" />
                 <Button Content="   Категории" Style="{DynamicResource SLeftPanel}" Click="GoToCategoriesPage" />
                 <Button Content="   Найти слово" Style="{DynamicResource SLeftPanel}" Click="GoToSearchPage" />
-                <!--<Button Content="   Статистика" Style="{DynamicResource SLeftPanel}" Click="GoToStatsPage" Visibility="Hidden" />-->
+                <Button Content="   Настройки" Style="{DynamicResource SLeftPanel}" Click="GoToSettingsPage" />
             </StackPanel>
         </Border>
         <Grid>

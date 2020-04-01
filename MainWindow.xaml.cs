@@ -26,7 +26,7 @@ namespace SEW
         private void GoToLearnPage(object sender, RoutedEventArgs e) => Main.Content = new Remembering();
         private void GoToCategoriesPage(object sender, RoutedEventArgs e) => Main.Content = new Categories(this);
         private void GoToSearchPage(object sender, RoutedEventArgs e) => Main.Content = new WordSearch(this);
-        //private void GoToSettingsPage(object sender, RoutedEventArgs e) => Main.Content = new Categories(this);
+        private void GoToSettingsPage(object sender, RoutedEventArgs e) => Main.Content = new Settings();
 
         // *me* *<my gun*
         // *boom*

@@ -284,7 +284,7 @@
         <Setter Property="Foreground" Value="#000000" />
     </Style>
 
-    <Style TargetType="Page" x:Key="SRememberingPage">
+    <Style TargetType="Page" x:Key="SPage">
         <Setter Property="Background" Value="#FDFDFD" />
     </Style>
 </ResourceDictionary>
