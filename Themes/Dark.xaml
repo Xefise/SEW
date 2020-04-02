@@ -32,7 +32,7 @@
         </Border>
     </ControlTemplate>
     
-    <ControlTemplate TargetType="Button" x:Key="TLeftPlanel">
+    <ControlTemplate TargetType="Button" x:Key="TButton">
         <Border BorderBrush="{TemplateBinding BorderBrush}"
                 Height="{TemplateBinding Height}"
                 Width="{TemplateBinding Width}" >
@@ -70,44 +70,13 @@
         <Setter Property="HorizontalContentAlignment" Value="Left"/>
         <Setter Property="FontSize" Value="16"/>
         <Setter Property="FontFamily" Value="Yu Gothic UI Semibold"/>
-        <Setter Property="Template" Value="{StaticResource TLeftPlanel}"/>
+        <Setter Property="Template" Value="{StaticResource TButton}"/>
     </Style>
     
-    <ControlTemplate TargetType="Button" x:Key="TCommand">
-        <Border BorderBrush="{TemplateBinding BorderBrush}"
-                Height="{TemplateBinding Height}"
-                Width="{TemplateBinding Width}" >
-            <Grid>
-                <Grid.Background>
-                    <SolidColorBrush x:Name="ButtonBackground" Color="#272727"/>
-                </Grid.Background>
-                <ContentPresenter HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
-            </Grid>
-            <VisualStateManager.VisualStateGroups>
-                <VisualStateGroup x:Name="CommonStates">
-                    <VisualState x:Name="Normal">
-                        <Storyboard>
-                            <ColorAnimation Storyboard.TargetName="ButtonBackground" Storyboard.TargetProperty="Color" To="#202020" SpeedRatio="4"/>
-                        </Storyboard>
-                    </VisualState>
-                    <VisualState x:Name="MouseOver">
-                        <Storyboard>
-                            <ColorAnimation Storyboard.TargetName="ButtonBackground" Storyboard.TargetProperty="Color" To="#161616" SpeedRatio="5.5"/>
-                        </Storyboard>
-                    </VisualState>
-                    <VisualState x:Name="Pressed">
-                        <Storyboard>
-                            <ColorAnimation Storyboard.TargetName="ButtonBackground" Storyboard.TargetProperty="Color" To="#111111" SpeedRatio="7"/>
-                        </Storyboard>
-                    </VisualState>
-                </VisualStateGroup>
-            </VisualStateManager.VisualStateGroups>
-        </Border>
-    </ControlTemplate>
     <Style TargetType="Button" x:Key="SCommand">
         <Setter Property="Height" Value="40"/>
         <Setter Property="Width" Value="40"/>
-        <Setter Property="Template" Value="{StaticResource TCommand}"/>
+        <Setter Property="Template" Value="{StaticResource TButton}"/>
     </Style>
     <Style TargetType="ListBox">
         <Setter Property="Background" Value="#1F1F1F"/>
