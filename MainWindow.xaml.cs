@@ -22,6 +22,8 @@ namespace SEW
             Application.Current.Resources.MergedDictionaries.Add(resourceDict);
         }
 
+        public void GoToLastPage() => Main.GoBack();
+
         // MultiPages
         private void GoToLearnPage(object sender, RoutedEventArgs e) => Main.Content = new Remembering();
         private void GoToCategoriesPage(object sender, RoutedEventArgs e) => Main.Content = new Categories(this);
@@ -31,7 +33,8 @@ namespace SEW
         // *me* *<my gun*
         // *boom*
         public void GoToWordsPage(long ID) => Main.Content = new Words(this, ID);
-        public void GoToExamplesPage(long ID) => Main.Content = new Examples(ID); // Damn, it's not funny anymore:d
+        public void GoToExamplesPage(long ID) => Main.Content = new Examples(this, ID); // Damn, it's not funny anymore:d
+
 
     }
 }

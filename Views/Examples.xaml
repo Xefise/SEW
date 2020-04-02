@@ -27,6 +27,8 @@
         </Grid.RowDefinitions>
 
         <WrapPanel Grid.Column="1" HorizontalAlignment="Right">
+            <Button Command="{Binding GoBackCmd}" FontSize="24"
+                    Content="⤺" Style="{StaticResource SCommand}" ToolTip="Вернуться"/>
             <Button Command="{Binding UpdateAllCmd}" Style="{StaticResource SCommand}" ToolTip="Сохранить всё(Ctrl+S)">
                 <Image Source="../Resources/UpdateIcon.png"/>
             </Button>

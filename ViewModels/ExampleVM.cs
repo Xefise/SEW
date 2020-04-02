@@ -12,6 +12,7 @@ namespace SEW.ViewModels
     public class ExampleVM : PropertyChangedMagic
     {
         private long wordID;
+        private MainWindow Window;
 
         #region Commands
         public DelegateCommand AddItemCmd
@@ -58,6 +59,16 @@ namespace SEW.ViewModels
                 });
             }
         }
+        public DelegateCommand GoBackCmd
+        {
+            get
+            {
+                return new DelegateCommand(() =>
+                {
+                    GoBack();
+                });
+            }
+        }
         #endregion
         #region For commands
         private void AddItem()
@@ -86,14 +97,16 @@ namespace SEW.ViewModels
                 }
             }
         }
+        private void GoBack() => Window.GoToLastPage();
         #endregion
 
         public Example SelectedExample { get; set; }
 
         public ObservableCollection<Example> Examples { get; set; }
-        public ExampleVM(long wordid)
+        public ExampleVM(MainWindow window, long wordid)
         {
             wordID = wordid;
+            Window = window;
 
             Examples = new ObservableCollection<Example>();
             using (SEWContext db = new SEWContext())
