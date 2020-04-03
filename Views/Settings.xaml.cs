@@ -4,8 +4,10 @@ namespace SEW
 {
     public partial class Settings : Page
     {
-        public Settings()
+        MainWindow mainw;
+        public Settings(MainWindow mainW)
         {
+            mainw = mainW;
             InitializeComponent();
 
             if (Properties.Settings.Default.Theme == "Dark") CBTheme.IsChecked = true;
@@ -20,5 +22,7 @@ namespace SEW
 
             MainWindow.UpdateTheme();
         }
+
+        private void BBack_Click(object sender, System.Windows.RoutedEventArgs e) => mainw.GoToLastPage();
     }
 }

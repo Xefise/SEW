@@ -17,5 +17,8 @@
         </CheckBox>
         <Button x:Name="BSave" Content="Save" HorizontalAlignment="Center" Click="BSave_Click"
                 Height="40" Width="60" VerticalAlignment="Bottom" Margin="25" Template="{DynamicResource TCheckButton}"  />
+        <Button HorizontalAlignment="Left" VerticalAlignment="Bottom" Width="50" Height="40" FontSize="24"
+                Content="⤺" Template="{DynamicResource TCheckButton}" ToolTip="Вернуться на прошлую страницу"
+                x:Name="BBack" Click="BBack_Click" />
     </Grid>
 </Page>

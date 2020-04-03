@@ -10,7 +10,7 @@ namespace SEW
             InitializeComponent();
             UpdateTheme();
             Main.Content = new Categories(this);
-            Main.Content = new WordSearch(this);
+            Main.Content = new WordSearch(this); // I dunno for what I
             Main.Content = new Remembering();
         }
 
@@ -24,11 +24,11 @@ namespace SEW
 
         public void GoToLastPage() => Main.GoBack();
 
-        // MultiPages
+        // MultiPages | I hope nobody would create 312434254 pages:D
         private void GoToLearnPage(object sender, RoutedEventArgs e) => Main.Content = new Remembering();
         private void GoToCategoriesPage(object sender, RoutedEventArgs e) => Main.Content = new Categories(this);
         private void GoToSearchPage(object sender, RoutedEventArgs e) => Main.Content = new WordSearch(this);
-        private void GoToSettingsPage(object sender, RoutedEventArgs e) => Main.Content = new Settings();
+        private void GoToSettingsPage(object sender, RoutedEventArgs e) => Main.Content = new Settings(this);
 
         // *me* *<my gun*
         // *boom*
