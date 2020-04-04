@@ -17,7 +17,7 @@
         </Style>
     </Page.Resources>
 
-    <Grid Style="{StaticResource SGrid}" >
+    <Grid Style="{DynamicResource SGrid}" >
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*" />
             <ColumnDefinition Width="200" />
@@ -28,16 +28,16 @@
         </Grid.RowDefinitions>
 
         <WrapPanel Grid.Column="1" HorizontalAlignment="Right">
-            <Button Command="{Binding UpdateAllCmd}" Style="{StaticResource SCommand}" ToolTip="Сохранить всё(Ctrl+S)">
+            <Button Command="{Binding UpdateAllCmd}" Style="{DynamicResource SCommand}" ToolTip="Сохранить всё(Ctrl+S)">
                 <Image Source="../Resources/UpdateIcon.png"/>
                 <!--Офигеть, оно работает:D-->
             </Button>
             <Button Command="{Binding AddItemCmd}"    
-                    Content="+" Style="{StaticResource SCommand}" ToolTip="Добавить категорию" FontSize="20" />
+                    Content="+" Style="{DynamicResource SCommand}" ToolTip="Добавить категорию" FontSize="20" />
             <Button Command="{Binding RemoveItemCmd}" 
-                    Content="-" Style="{StaticResource SCommand}" ToolTip="Удалить категорию" FontSize="20" />
+                    Content="-" Style="{DynamicResource SCommand}" ToolTip="Удалить категорию" FontSize="20" />
             <Button Command="{Binding GoToCategoryWordsCmd}" FontSize="20"
-                    Content="➤" Style="{StaticResource SCommand}" ToolTip="Слова" />
+                    Content="➤" Style="{DynamicResource SCommand}" ToolTip="Слова" />
         </WrapPanel>
 
         <ListBox Grid.Column="0"
@@ -46,7 +46,7 @@
                  SelectionMode="Extended" Grid.RowSpan="2">
             <ListBox.ItemContainerStyle>
                 <Style TargetType="ListBoxItem">
-                    <Setter Property="Template" Value="{StaticResource TListBox}" />
+                    <Setter Property="Template" Value="{DynamicResource TListBox}" />
                 </Style>
             </ListBox.ItemContainerStyle>
             <ListBox.ItemTemplate>

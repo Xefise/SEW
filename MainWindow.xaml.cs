@@ -10,7 +10,7 @@ namespace SEW
             InitializeComponent();
             UpdateTheme();
             Main.Content = new Categories(this);
-            Main.Content = new WordSearch(this); // I dunno for what I
+            Main.Content = new WordSearch(this); // I dunno for what
             Main.Content = new Remembering();
         }
 

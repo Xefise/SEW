@@ -16,7 +16,7 @@
         </Style>
     </Page.Resources>
 
-    <Grid Style="{StaticResource SGrid}" >
+    <Grid Style="{DynamicResource SGrid}" >
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*" />
             <ColumnDefinition Width="0.35*" />
@@ -28,14 +28,14 @@
 
         <WrapPanel Grid.Column="1" HorizontalAlignment="Right">
             <Button Command="{Binding GoBackCmd}" FontSize="24"
-                    Content="⤺" Style="{StaticResource SCommand}" ToolTip="Вернуться"/>
-            <Button Command="{Binding UpdateAllCmd}" Style="{StaticResource SCommand}" ToolTip="Сохранить всё(Ctrl+S)">
+                    Content="⤺" Style="{DynamicResource SCommand}" ToolTip="Вернуться"/>
+            <Button Command="{Binding UpdateAllCmd}" Style="{DynamicResource SCommand}" ToolTip="Сохранить всё(Ctrl+S)">
                 <Image Source="../Resources/UpdateIcon.png"/>
             </Button>
             <Button Command="{Binding AddItemCmd}" FontSize="20"
-                    Content="+" Style="{StaticResource SCommand}" ToolTip="Добавить пример"/>
+                    Content="+" Style="{DynamicResource SCommand}" ToolTip="Добавить пример"/>
             <Button Command="{Binding RemoveItemCmd}" FontSize="20"
-                    Content="-" Style="{StaticResource SCommand}" ToolTip="Удалить пример"/>
+                    Content="-" Style="{DynamicResource SCommand}" ToolTip="Удалить пример"/>
         </WrapPanel>
 
         <ListBox Grid.Column="0"
@@ -44,7 +44,7 @@
                  SelectionMode="Extended" Grid.RowSpan="2">
             <ListBox.ItemContainerStyle>
                 <Style TargetType="ListBoxItem">
-                    <Setter Property="Template" Value="{StaticResource TListBox}" />
+                    <Setter Property="Template" Value="{DynamicResource TListBox}" />
                 </Style>
             </ListBox.ItemContainerStyle>
             <ListBox.ItemTemplate>

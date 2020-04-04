@@ -6,20 +6,20 @@
       xmlns:local="clr-namespace:SEW"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
-      Title="Remembering" Style="{StaticResource SPage}">
+      Title="Remembering" Style="{DynamicResource SPage}">
     <Grid>
         <TextBlock x:Name="TBlWord" HorizontalAlignment="Center" Text="Word" VerticalAlignment="Top" 
             Margin="60" FontSize="30" />
         <TextBox x:Name="TBoxCW" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,0,110,90"
             Width="150" Height="30" FontSize="20" ToolTip="Перевод" />
         <Button x:Name="BCW" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="150,0,0,90" Content="Проверить"
-            Width="100" Height="30" FontSize="16" Template="{StaticResource TCheckButton}" Click="BCW_Click" />
+            Width="100" Height="30" FontSize="16" Template="{DynamicResource TCheckButton}" Click="BCW_Click" />
         <TextBlock x:Name="TBlAnswer" HorizontalAlignment="Center" VerticalAlignment="Center" Text="TextBlock" 
             Margin="0,0,0,130" FontSize="30" Visibility="Hidden" />
         <Button x:Name="BYes" HorizontalAlignment="Center" VerticalAlignment="Center" Content="Запомнил(a)" Margin="0,50,150,0" 
-            Height="45" Width="100" Template="{StaticResource TCheckButton}" Visibility="Hidden" Click="BYes_Click" />
+            Height="45" Width="100" Template="{DynamicResource TCheckButton}" Visibility="Hidden" Click="BYes_Click" />
         <Button x:Name="BNo" HorizontalAlignment="Center" VerticalAlignment="Center" Content="Повторить" Margin="150,50,0,0" 
-            Height="45" Width="100" Template="{StaticResource TCheckButton}" Visibility="Hidden" Click="BNo_Click" />
+            Height="45" Width="100" Template="{DynamicResource TCheckButton}" Visibility="Hidden" Click="BNo_Click" />
 
         <DataGrid x:Name="DGExamples"
                   HorizontalAlignment="Center" VerticalAlignment="Center" Width="602" Height="100" Margin="0,250,0,0"

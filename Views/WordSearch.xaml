@@ -19,7 +19,7 @@
         </Style>
     </Page.Resources>
 
-    <Grid Style="{StaticResource SGrid}" >
+    <Grid Style="{DynamicResource SGrid}" >
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*" />
             <ColumnDefinition Width="200" />
@@ -30,15 +30,15 @@
         </Grid.RowDefinitions>
 
         <WrapPanel Grid.Column="1" HorizontalAlignment="Right">
-            <Button Command="{Binding UpdateAllCmd}" Style="{StaticResource SCommand}" ToolTip="Сохранить всё(Ctrl+S)">
+            <Button Command="{Binding UpdateAllCmd}" Style="{DynamicResource SCommand}" ToolTip="Сохранить всё(Ctrl+S)">
                 <Image Source="../Resources/UpdateIcon.png"/>
             </Button>
             <Button Command="{Binding RemoveItemCmd}" FontSize="20"
-                    Content="-" Style="{StaticResource SCommand}" ToolTip="Удалить слово"/>
+                    Content="-" Style="{DynamicResource SCommand}" ToolTip="Удалить слово"/>
             <Button Command="{Binding ResetWordCmd}" Content="⟲" FontSize="26"
-                    Style="{StaticResource SCommand}" ToolTip="Сбросить прогресс слова(Ctrl+R)"/>
+                    Style="{DynamicResource SCommand}" ToolTip="Сбросить прогресс слова(Ctrl+R)"/>
             <Button Command="{Binding GoToWordExamplesCMD}" FontSize="20"
-                    Content="➤" Style="{StaticResource SCommand}" ToolTip="Примеры"/>
+                    Content="➤" Style="{DynamicResource SCommand}" ToolTip="Примеры"/>
         </WrapPanel>
 
         <WrapPanel Grid.Column="0" Grid.Row="0">
@@ -49,7 +49,7 @@
                      Text="{Binding SearchText, UpdateSourceTrigger=PropertyChanged}" />
             <Button Width="35" Height="30" 
                     Command="{Binding SearchWordsCMD}" Content="🔍" FontSize="18"
-                    Style="{StaticResource SCommand}" ToolTip="Найти"/>
+                    Style="{DynamicResource SCommand}" ToolTip="Найти"/>
 
         </WrapPanel>
 
@@ -59,7 +59,7 @@
                  SelectionMode="Extended" Grid.RowSpan="2">
             <ListBox.ItemContainerStyle>
                 <Style TargetType="ListBoxItem">
-                    <Setter Property="Template" Value="{StaticResource TListBox}" />
+                    <Setter Property="Template" Value="{DynamicResource TListBox}" />
                 </Style>
             </ListBox.ItemContainerStyle>
             <ListBox.ItemTemplate>
