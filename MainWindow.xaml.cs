@@ -5,20 +5,13 @@ namespace SEW
 {
     public partial class MainWindow : Window
     {
-        Categories cateroriesPage;
-        WordSearch wordSearchPage;
-        Remembering rememberingPage;
-        Settings settingsPage;
-
         public MainWindow()
         {
             InitializeComponent();
             UpdateTheme();
-            cateroriesPage = new Categories(this);
-            wordSearchPage = new WordSearch(this); // I dunno for what
-            rememberingPage = new Remembering();
-            settingsPage = new Settings(this);
-            Main.Content = rememberingPage;
+            Main.Content = new Categories(this);
+            Main.Content = new WordSearch(this); // I dunno for what
+            Main.Content = new Remembering();
         }
 
         // It's okay that my main window doesn't have VM. Isn't it? :b
@@ -31,11 +24,11 @@ namespace SEW
 
         public void GoToLastPage() => Main.GoBack();
 
-        // MultiPages
-        private void GoToLearnPage(object sender, RoutedEventArgs e) => Main.Content = rememberingPage;
-        private void GoToCategoriesPage(object sender, RoutedEventArgs e) => Main.Content = cateroriesPage;
-        private void GoToSearchPage(object sender, RoutedEventArgs e) => Main.Content = wordSearchPage;
-        private void GoToSettingsPage(object sender, RoutedEventArgs e) => Main.Content = settingsPage;
+        // MultiPages | I hope nobody would create 312434254 pages:D
+        private void GoToLearnPage(object sender, RoutedEventArgs e) => Main.Content = new Remembering();
+        private void GoToCategoriesPage(object sender, RoutedEventArgs e) => Main.Content = new Categories(this);
+        private void GoToSearchPage(object sender, RoutedEventArgs e) => Main.Content = new WordSearch(this);
+        private void GoToSettingsPage(object sender, RoutedEventArgs e) => Main.Content = new Settings(this);
 
         // *me* *<my gun*
         // *boom*
