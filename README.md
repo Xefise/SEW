@@ -9,7 +9,7 @@
 #### Dependences
 - NetFramework 4.7.2 
 Download: http://go.microsoft.com/fwlink/?linkid=863265
-Details: https://support.microsoft.com/ru-ru/help/4073120/microsoft-net-framework-4-7-2-for-windows-10-version-1709-and-windows
+- Details: https://support.microsoft.com/ru-ru/help/4073120/microsoft-net-framework-4-7-2-for-windows-10-version-1709-and-windows
 
 
 ##### Категории
