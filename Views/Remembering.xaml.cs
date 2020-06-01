@@ -9,6 +9,7 @@ using SEW.Models;
 using System.Threading;
 using System.Collections.ObjectModel;
 using Microsoft.EntityFrameworkCore;
+using System.Speech.Synthesis;
 
 namespace SEW
 {
@@ -18,6 +19,7 @@ namespace SEW
         public ObservableCollection<Example> Examples { get; set; }
         public Queue<Word> Words;
         public Word DisplayedWord;
+        SpeechSynthesizer reader = new SpeechSynthesizer();
 
         public Remembering()
         {
@@ -31,32 +33,57 @@ namespace SEW
             Task.Run(() => UpdateWordsList());
         }
 
-        private void BCW_Click(object sender, RoutedEventArgs e)
+        #region Controls
+        private void BCW_Click(object sender, RoutedEventArgs e) // "Проверить"
+        { 
+            CheckWords();
+        }
+
+        private void KeyboardIn(object sender, System.Windows.Input.KeyEventArgs e)// "Enter" на клавиатуре
+        {
+            if (e.Key == System.Windows.Input.Key.Enter) CheckWords();
+        }
+
+        private void BRW_Click(object sender, RoutedEventArgs e)
+        {
+            reader.SelectVoice(Properties.Settings.Default.Voice); //Голос по умолчанию
+            reader.SpeakAsync(DisplayedWord.English); // Чтение английских слов
+        }
+
+        private void BYes_Click(object sender, RoutedEventArgs e) => Answer(true);
+        private void BNo_Click(object sender, RoutedEventArgs e) => Answer(false);
+        #endregion
+
+        private void CheckWords()
         {
             #region Check
-            if (DisplayedWord.Progress == 0) 
+            if (DisplayedWord.Progress == 0)
             {
+                //Правильный ответ
                 if (DisplayedWord.Russian.ToLower().IndexOf(TBoxCW.Text.ToLower()) != -1 && TBoxCW.Text != "")
                 {
                     TBlAnswer.Foreground = Brushes.Green;
                     TBlAnswer.Text = DisplayedWord.Russian;
                 }
+                //Неправильный ответ
                 else
                 {
                     TBlAnswer.Foreground = Brushes.Red;
                     TBlAnswer.Text = DisplayedWord.Russian;
                 }
-
+                //
                 BYes.Content = "Пропустить";
                 BNo.Content = "Изучать";
             }
             else
             {
+                //Правильный ответ
                 if (DisplayedWord.English.ToLower().IndexOf(TBoxCW.Text.ToLower()) != -1 && TBoxCW.Text != "")
                 {
                     TBlAnswer.Foreground = Brushes.Green;
                     TBlAnswer.Text = DisplayedWord.English + DisplayedWord.Transcription;
                 }
+                //Неправильный ответ
                 else
                 {
                     TBlAnswer.Foreground = Brushes.Red;
@@ -74,22 +101,18 @@ namespace SEW
             BCW.Visibility = Visibility.Hidden;
             BYes.Visibility = Visibility.Visible;
             BNo.Visibility = Visibility.Visible;
-            if(Examples.Count != 0) DGExamples.Visibility = Visibility.Visible;
-
+            if (Examples.Count != 0) DGExamples.Visibility = Visibility.Visible;
+            //
             TBlAnswer.IsEnabled = true;
             TBoxCW.IsEnabled = false;
             BCW.IsEnabled = false;
             BYes.IsEnabled = true;
             BNo.IsEnabled = true;
             if (Examples.Count != 0) DGExamples.IsEnabled = true;
-
+            //
             DGExamples.IsReadOnly = true;
             #endregion
         }
-
-        private void BYes_Click(object sender, RoutedEventArgs e) => Answer(true);
-        private void BNo_Click(object sender, RoutedEventArgs e) => Answer(false);
-
 
         #region Methods
         private void Answer(bool Reply)
@@ -186,8 +209,10 @@ namespace SEW
                 {
                     TBoxCW.Visibility = Visibility.Hidden;
                     BCW.Visibility = Visibility.Hidden;
+                    BRW.Visibility = Visibility.Hidden;
                     TBoxCW.IsEnabled = false;
                     BCW.IsEnabled = false;
+                    BRW.IsEnabled = false;
                     TBlWord.Visibility = Visibility.Visible;
 
                     TBlWord.Text = "Слова для повторения закончились.\nДобавьте новые или отдохните";
@@ -251,6 +276,9 @@ namespace SEW
                 }
             }
         }
+
         #endregion
+
+        
     }
 }
