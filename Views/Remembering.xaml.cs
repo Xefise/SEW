@@ -101,15 +101,9 @@ namespace SEW
             BCW.Visibility = Visibility.Hidden;
             BYes.Visibility = Visibility.Visible;
             BNo.Visibility = Visibility.Visible;
+            BRW.Visibility = Visibility.Visible;
             if (Examples.Count != 0) DGExamples.Visibility = Visibility.Visible;
-            //
-            TBlAnswer.IsEnabled = true;
-            TBoxCW.IsEnabled = false;
-            BCW.IsEnabled = false;
-            BYes.IsEnabled = true;
-            BNo.IsEnabled = true;
-            if (Examples.Count != 0) DGExamples.IsEnabled = true;
-            //
+
             DGExamples.IsReadOnly = true;
             #endregion
         }
@@ -189,13 +183,7 @@ namespace SEW
             BYes.Visibility = Visibility.Hidden;
             BNo.Visibility = Visibility.Hidden;
             DGExamples.Visibility = Visibility.Hidden;
-
-            TBlAnswer.IsEnabled = false;
-            TBoxCW.IsEnabled = true;
-            BCW.IsEnabled = true;
-            BYes.IsEnabled = false;
-            BNo.IsEnabled = false;
-            DGExamples.IsEnabled = false;
+            BRW.Visibility = Visibility.Hidden;
             #endregion
 
             if (Words.Count == 0)
