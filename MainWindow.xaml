@@ -8,7 +8,7 @@
         Title="SEW - Study English Words"
         
         Height="500" Width="950" ResizeMode="CanResizeWithGrip"
-        MinWidth="760" MinHeight="420"
+        MinWidth="785" MinHeight="420"
         MaxWidth="1280" MaxHeight="720" >
     <DockPanel>
         <Border DockPanel.Dock="Left" Width="150">
@@ -20,7 +20,7 @@
             </StackPanel>
         </Border>
         <Grid>
-            <Frame x:Name="Main" NavigationUIVisibility="Hidden" />
+            <Frame x:Name="Main" NavigationUIVisibility="Hidden"  />
         </Grid>
     </DockPanel>
 </Window>

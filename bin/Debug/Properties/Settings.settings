@@ -8,5 +8,8 @@
     <Setting Name="TTResetShowed" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">False</Value>
     </Setting>
+    <Setting Name="Voice" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Microsoft Zira Desktop</Value>
+    </Setting>
   </Settings>
 </SettingsFile>
