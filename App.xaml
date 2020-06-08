@@ -5,6 +5,7 @@
              StartupUri="MainWindow.xaml">
     <Application.Resources>
         <ResourceDictionary>
+            <local:VMLocator x:Key="VMLocator"/>
             <ResourceDictionary.MergedDictionaries>
                 <ResourceDictionary Source="Themes/Light.xaml"/>
                 <ResourceDictionary Source="Themes/Dark.xaml"/>

@@ -24,7 +24,6 @@ namespace SEW
         public Remembering()
         {
             InitializeComponent();
-            DataContext = this;
 
             Words = new Queue<Word>();
             AddWords();

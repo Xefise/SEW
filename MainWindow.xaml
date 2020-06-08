@@ -7,20 +7,21 @@
         mc:Ignorable="d"
         Title="SEW - Study English Words"
         
+        DataContext="{Binding Source={StaticResource VMLocator}, Path=MainVM}"
         Height="500" Width="950" ResizeMode="CanResizeWithGrip"
         MinWidth="785" MinHeight="420"
         MaxWidth="1280" MaxHeight="720" >
     <DockPanel>
         <Border DockPanel.Dock="Left" Width="150">
             <StackPanel>
-                <Button Content="   Учить" Style="{DynamicResource SLeftPanel}" Click="GoToLearnPage" />
-                <Button Content="   Категории" Style="{DynamicResource SLeftPanel}" Click="GoToCategoriesPage" />
-                <Button Content="   Найти слово" Style="{DynamicResource SLeftPanel}" Click="GoToSearchPage" />
-                <Button Content="   Настройки" Style="{DynamicResource SLeftPanel}" Click="GoToSettingsPage" />
+                <Button Content="   Учить" Style="{DynamicResource SLeftPanel}" Command="{Binding GoToLearnPage}" />
+                <Button Content="   Категории" Style="{DynamicResource SLeftPanel}" Command="{Binding GoToCategoriesPage}" />
+                <Button Content="   Найти слово" Style="{DynamicResource SLeftPanel}" Command="{Binding GoToSearchPage}" />
+                <Button Content="   Настройки" Style="{DynamicResource SLeftPanel}" Command="{Binding GoToSettingsPage}" />
             </StackPanel>
         </Border>
         <Grid>
-            <Frame x:Name="Main" NavigationUIVisibility="Hidden"  />
+            <Frame x:Name="Main" Content="{Binding CurrentPage}" NavigationUIVisibility="Hidden" />
         </Grid>
     </DockPanel>
 </Window>

@@ -138,10 +138,8 @@ namespace SEW.ViewModels
         public Word SelectedWord { get; set; }
 
         public ObservableCollection<Word> Words { get; set; }
-        public WordSearchVM(MainWindow main)
+        public WordSearchVM()
         {
-            mainWindow = main;
-
             Words = new ObservableCollection<Word>();
         }
 

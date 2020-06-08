@@ -5,9 +5,8 @@ namespace SEW
 {
     public partial class WordSearch : Page
     {
-        public WordSearch(MainWindow main)
+        public WordSearch()
         {
-            DataContext = new WordSearchVM(main);
             InitializeComponent();
         }
     }

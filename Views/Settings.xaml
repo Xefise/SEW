@@ -6,6 +6,7 @@
       xmlns:local="clr-namespace:SEW"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
+      DataContext="{Binding Source={StaticResource VMLocator}, Path=SettingsVM}"
       Title="Settings" Style="{DynamicResource SPage}">
     <Grid>
         <TextBlock Text="Settings" HorizontalAlignment="Left" Margin="35,30,0,0" VerticalAlignment="Top" FontSize="20" 

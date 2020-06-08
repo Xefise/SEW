@@ -11,7 +11,6 @@ namespace SEW.ViewModels
 {
     public class CategoryVM : PropertyChangedMagic
     {
-        private MainWindow mainWindow;
         #region Commands
         public DelegateCommand AddItemCmd
         {
@@ -102,9 +101,8 @@ namespace SEW.ViewModels
         public Category SelectedCategory { get; set; }
 
         public ObservableCollection<Category> Categories { get; set; }
-        public CategoryVM(MainWindow main)
+        public CategoryVM()
         {
-            mainWindow = main; // WOW! We've main window! | For GoToCategoryWords()
 
             Categories = new ObservableCollection<Category>();
             using (SEWContext db = new SEWContext())

@@ -6,6 +6,7 @@
       xmlns:local="clr-namespace:SEW"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
+      DataContext="{Binding Source={StaticResource VMLocator}, Path=ExampleVM}"
       Title="Examples">
     <Page.InputBindings>
         <KeyBinding Modifiers="Ctrl" Key="s" Command="{Binding UpdateAllCmd}" />

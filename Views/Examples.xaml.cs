@@ -5,9 +5,8 @@ namespace SEW
 {
     public partial class Examples : Page
     {
-        public Examples(MainWindow window, long WordID)
+        public Examples()
         {
-            DataContext = new ExampleVM(window, WordID);
             InitializeComponent();
         }
     }

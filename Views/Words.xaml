@@ -7,6 +7,7 @@
       xmlns:local="clr-namespace:SEW"
       xmlns:vm="clr-namespace:SEW.ViewModels"
       mc:Ignorable="d" 
+      DataContext="{Binding Source={StaticResource VMLocator}, Path=WordVM}"
       d:DesignHeight="500" d:DesignWidth="700" >
     <Page.InputBindings>
         <KeyBinding Modifiers="Ctrl" Key="s" Command="{Binding UpdateAllCmd}" />

@@ -6,6 +6,7 @@
       xmlns:local="clr-namespace:SEW"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
+      DataContext="{Binding Source={StaticResource VMLocator}, Path=RememberVM}"
       Title="Remembering" Style="{DynamicResource SPage}">
     <Grid>
         <TextBlock x:Name="TBlWord" HorizontalAlignment="Center" Text="Word" VerticalAlignment="Top" 

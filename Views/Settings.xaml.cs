@@ -6,11 +6,8 @@ namespace SEW
 {
     public partial class Settings : Page
     {
-        MainWindow mainw;
-
-        public Settings(MainWindow mainW)
+        public Settings()
         {
-            mainw = mainW;
             InitializeComponent();
 
             CreateList();
